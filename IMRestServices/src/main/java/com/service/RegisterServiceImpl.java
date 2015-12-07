@@ -3,8 +3,8 @@ package com.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mongo.UserRegisterPojo;
 import com.respository.RegisterRepository;
-import com.user.UserRegisterPojo;
 
 @Service
 public class RegisterServiceImpl implements RegisterService {

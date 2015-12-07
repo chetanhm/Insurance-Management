@@ -1,6 +1,6 @@
 package com.service;
 
-import com.user.UserRegisterPojo;
+import com.mongo.UserRegisterPojo;
 
 public interface RegisterService {
 	
