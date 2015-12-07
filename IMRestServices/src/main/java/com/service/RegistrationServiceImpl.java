@@ -28,15 +28,15 @@ public class RegistrationServiceImpl implements RegistrationService {
 	
 		while(itr.hasNext())
 		{
-			UserRegistration ur=itr.next();
-			String name=ur.getUserName();
+			UserRegistration activeUser=itr.next();
+			String name=activeUser.getUserName();
 			System.out.println("name="+name);
-			String id=ur.getId();
+			String id=activeUser.getId();
 			System.out.println("In Loop ");
 		if(name.equals(userName))
 		{
 			System.out.println("Deleted record: "+id);
-			userlist.remove(ur);
+			userlist.remove(activeUser);
 			System.out.println("userList: "+userlist);
 			//To delete the record completely ->
 			//registrationRepository.delete(id);
