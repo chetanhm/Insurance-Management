@@ -23,7 +23,7 @@ public class UserloginController {
 	private UserloginService userloginService;
 	
 	
-	@RequestMapping(value="/login", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/login", method=RequestMethod.GET)
 	
 		
 	public @ResponseBody javax.servlet.Registration registerUser(@RequestBody User user)
