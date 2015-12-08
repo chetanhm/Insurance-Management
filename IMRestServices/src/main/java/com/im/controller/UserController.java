@@ -15,11 +15,11 @@ import com.im.service.UserDetailsService;
 
 @CrossOrigin
 @RestController
-public class UserRegistrationController {
+public class UserController {
 
 	@Autowired
 	private UserDetailsService registerService;
-	
+
 	@RequestMapping(value = "/imregister", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody Registration registerUser(@RequestBody Registration registration) {
 
@@ -36,6 +36,17 @@ public class UserRegistrationController {
 		registerService.deleteUser(registration.getUsername());
 		return registration;
 
+	}
+
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public @ResponseBody String loginUser(@RequestBody com.im.entity.Registration user) {
+		UserDetails userDetails = registerService.getUser(user.getUsername(), user.getPassword());
+		if (userDetails != null) {
+			return "{status: true}";
+		} else {
+			return "{status: false}";
+
+		}
 	}
 
 }

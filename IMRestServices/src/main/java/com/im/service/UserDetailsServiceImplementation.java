@@ -1,13 +1,19 @@
 package com.im.service;
 
+import java.net.UnknownHostException;
 import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import com.im.collection.UserDetails;
 import com.im.repository.RegisterRepository;
+import com.mongodb.Mongo;
 
 @Service
 public class UserDetailsServiceImplementation implements UserDetailsService {
@@ -25,15 +31,22 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
 		registerRepository.delete(userName);
 
 	}
+
 	public com.im.collection.UserDetails getUser(String userName, String password) {
-		List<UserDetails> userList = registerRepository.findAll();
-		Iterator<UserDetails> itr = userList.iterator();
-		while (itr.hasNext()) {
-			if (userName.equals(itr.next().getUsername()) && password.equals(itr.next().getPassword())) {
-				return registerRepository.findOne(userName);
-			}
+		MongoOperations mongoOps = null;
+		try {
+			mongoOps = new MongoTemplate(new Mongo(), "test");
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
 		}
-		return null;
+
+		UserDetails userDetails = mongoOps.findOne(new Query(Criteria.where("username").is(userName)),
+				UserDetails.class);
+		if (userDetails.getPassword().equals(password)) {
+			return userDetails;
+		} else {
+			return null;
+		}
 	}
 
 }
