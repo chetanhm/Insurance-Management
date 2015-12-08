@@ -5,13 +5,22 @@ var mainApp=angular.module("insuranceApp",  ['ui.router','ngCookies','ui.bootstr
 mainApp.config(function ($urlRouterProvider, $stateProvider){
         	  
         	  
-	$urlRouterProvider.otherwise('/home');
-
+	$urlRouterProvider.otherwise('/website/home');
 	$stateProvider
-	.state('home', {
+	.state('website', {
+		url: '/website',
+		templateUrl: 'views/website.html'
+	});
+	
+	$stateProvider
+	.state('website.home', {
 		url: '/home',
-		templateUrl: 'views/website.html',
-		controller: 'website'
+		templateUrl: 'views/website.home.html'
+	});
+	$stateProvider
+	.state('website.login', {
+		url: '/login',
+		templateUrl: 'views/website.login.html'
 	});
 	$stateProvider
 	.state('dashboard', {
@@ -22,30 +31,7 @@ mainApp.config(function ($urlRouterProvider, $stateProvider){
            
          });
 
-mainApp.controller('website',function($scope)
-{
-	$scope.viewLoaded=function(){
-		
-		   $('.carousel').carousel({
-		        interval: 5000 //changes the speed
-		    });
-		}
-	}
 
 
-);
-
-mainApp.controller('CarouselDemoCtrl', function ($scope) {
-	 $scope.myInterval = 3000;
-	  $scope.slides = [
-	    {
-	      image: 'images/c4.jpg'
-	    },
-	    {
-	      image: 'images/c6.jpg'
-	    }
-	  ];
-
-	});
 })();
 
