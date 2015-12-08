@@ -18,7 +18,7 @@ import com.userlogin.entity.User;
 @CrossOrigin
 @RestController
 public class UserController {
-	
+	//opopop
 	@Autowired
 	private RegisterService registerService;
 	@Autowired 
