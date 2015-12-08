@@ -5,5 +5,5 @@ import com.userlogin.entity.User;
 
 public interface UserloginService {
 	
-	public UserRegistration getUser(String userName);
+	public UserRegistration getUser(String userName, String password);
 }

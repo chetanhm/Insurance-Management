@@ -28,8 +28,7 @@ public class UserloginController {
 		
 	public @ResponseBody javax.servlet.Registration registerUser(@RequestBody User user)
 	{
-		userloginService.getUser(user.getUserName());
-	
+		userloginService.getUser(user.getUserName(),user.getPassword());	
 		return registerUser(user);
 	}
 		

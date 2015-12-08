@@ -2,6 +2,7 @@ package com.userlogin;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import com.userlogin.entity.User;
@@ -9,10 +10,10 @@ import com.userlogin.entity.User;
 public class UserloginTest {
 	
 	   String message = "Hello World";
-	   String userName="";
-	   String emailId="";
-	   String password="";
-	   
+	   String userName="john";
+	   String emailId="john@samsung.com";
+	   String password="john123";
+	 
 	   User user = new User(userName,emailId,password);
 
 	   @Test
