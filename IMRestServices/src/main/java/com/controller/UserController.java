@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.entity.Registration;
+import com.mongo.UserRegisterPojo;
 import com.service.RegisterService;
-import com.user.UserRegisterPojo;
 
 @RestController
 public class UserController {

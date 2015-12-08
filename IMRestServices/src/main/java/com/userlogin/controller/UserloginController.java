@@ -22,11 +22,7 @@ public class UserloginController {
 	@Autowired
 	private UserloginService userloginService;
 	
-	@RequestMapping("/hello")
-	public String sayHello(@RequestParam(value="name", defaultValue="Ivan") String name) {
-		return "Hello " + name;
-	}
-
+	
 	@RequestMapping(value="/login", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
 	
 		
