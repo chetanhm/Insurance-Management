@@ -1,6 +1,6 @@
 (function() {
 	'use strict';
-var mainApp=angular.module("insuranceApp",  ['ui.router','ngCookies','ui.bootstrap'])
+var mainApp=angular.module("insuranceApp",  ['ui.router','ngCookies','ui.bootstrap','register'])
 
 mainApp.config(function ($urlRouterProvider, $stateProvider){
         	  
@@ -28,10 +28,16 @@ mainApp.config(function ($urlRouterProvider, $stateProvider){
 		templateUrl: 'views/dashboard.html'
 	});
       
+	
+	$stateProvider
+	.state('website.register', {
+		url: '/register',
+		templateUrl: 'views/test.jsp',
+		controller: 'RegistrationCtrl'
+	});
            
          });
 
 
 
 })();
-
