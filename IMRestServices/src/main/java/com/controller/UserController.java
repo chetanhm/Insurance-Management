@@ -12,12 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.entity.Registration;
 import com.mongo.UserRegisterPojo;
 import com.service.RegisterService;
+import com.userlogin.entity.User;
 
 @RestController
 public class UserController {
 	
 	@Autowired
 	private RegisterService registerService;
+	@Autowired 
+	private RegisterService registrationService;
+	
 	
 	@RequestMapping("/hello")
 	public String sayHello(@RequestParam(value="name", defaultValue="Ivan") String name) {
@@ -39,6 +43,13 @@ public class UserController {
 						registration.getUsername(), 
 						registration.getPassword()));
 		return registration;
+	}
+	@RequestMapping(value="/delete", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody User deleteUser(@RequestBody User registration) {
+		System.out.println("-->"+registration.getUserName());
+		registrationService.delete(registration.getUserName());
+		return registration;
+		
 	}
 
 }
