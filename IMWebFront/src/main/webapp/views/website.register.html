@@ -1,27 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<link href="css/modern-business.css" rel="stylesheet">
-		<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title class="navbar-brand">Registration Form</title>
-</head>
-<body>
-<div class="col-lg-12">
-<h1 class="page-header">
-Registration Form
-</h1>
 
-</div>
-<form class="navbar-brand" ng-app="myApp" ng-controller="validateCtrl" 
+<form class="navbar-brand" ng-app="myApp"  ng-controller="RegistrationCtrl"
 name="myForm">
 
 <p>First Name:<br>
 <input type="text" name="firstName" placeholder="First Name" ng-model="firstName" required>
+{{myForm.firstName.$dirty && myForm.firstName.$invalid}}
 <span style="color:red" ng-show="myForm.firstName.$dirty && myForm.firstName.$invalid">
 <span ng-show="myForm.firstName.$error.required">Name is required.</span>
 </span>
@@ -85,7 +68,7 @@ name="myForm">
 </p>
 
 <p>
-<input type="submit"
+<input type="submit" ng-click="submit()"
 ng-disabled="myForm.username.$dirty && myForm.username.$invalid ||  
 myForm.email.$dirty && myForm.email.$invalid">
 </p>
@@ -107,6 +90,3 @@ app.controller('validateCtrl', function($scope) {
 });
 </script>
 
-
-</body>
-</html>
