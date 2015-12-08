@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.userlogin.collections.UserRegistration;
 import com.userlogin.entity.User;
 import com.userlogin.service.UserloginService;
 
@@ -26,7 +26,7 @@ public class UserloginController {
 	@RequestMapping(value="/login", method=RequestMethod.GET)
 	
 		
-	public @ResponseBody javax.servlet.Registration registerUser(@RequestBody User user)
+	public @ResponseBody javax.servlet.Registration registerUser(@RequestBody UserRegistration user)
 	{
 		userloginService.getUser(user.getUserName(),user.getPassword());	
 		return registerUser(user);
