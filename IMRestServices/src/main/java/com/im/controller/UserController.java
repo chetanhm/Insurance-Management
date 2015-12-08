@@ -1,5 +1,7 @@
 package com.im.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -30,11 +32,10 @@ public class UserController {
 		return registration;
 	}
 
-	@RequestMapping(value = "/delete", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody UserDetails deleteUser(@RequestBody UserDetails registration) {
-
-		registerService.deleteUser(registration.getUsername());
-		return registration;
+	@RequestMapping(value = "/logout")
+	public @ResponseBody String logout(HttpSession httpSession) {
+		httpSession.invalidate();
+		return "Logged out";
 
 	}
 
