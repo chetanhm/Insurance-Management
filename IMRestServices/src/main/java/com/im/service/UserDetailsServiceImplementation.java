@@ -34,7 +34,7 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
 
 	public com.im.collection.UserDetails getUser(String userName, String password) {
 		MongoOperations mongoOps = null;
-		try {
+	try {
 			mongoOps = new MongoTemplate(new Mongo(), "test");
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
@@ -48,5 +48,7 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
 			return null;
 		}
 	}
-
+	
+	
+	
 }
