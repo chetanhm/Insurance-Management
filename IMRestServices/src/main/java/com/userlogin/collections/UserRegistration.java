@@ -5,7 +5,7 @@ package com.userlogin.collections;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection="user_registrations")
+@Document(collection="registrations")
 public class UserRegistration {
 
 	@Id

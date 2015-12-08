@@ -3,6 +3,7 @@ package com.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import com.mongo.UserRegisterPojo;
 import com.respository.RegisterRepository;
 
@@ -16,6 +17,11 @@ public class RegisterServiceImpl implements RegisterService {
 		registerRepo.save(register);
 		
 		System.out.println("Data Saved....Impl");
+		
+	}
+
+	public void delete(String n) {
+		
 		
 	}
 
