@@ -1,7 +1,5 @@
 package com.im.repository;
 
-import java.io.Serializable;
-
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.im.collection.UserDetails;

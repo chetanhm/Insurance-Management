@@ -6,25 +6,24 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.im.collection.UserDetails;
 import com.im.entity.Registration;
-import com.im.service.RegisterService;
+import com.im.service.UserDetailsService;
 
 @CrossOrigin
 @RestController
 public class UserRegistrationController {
 
 	@Autowired
-	private RegisterService registerService;
+	private UserDetailsService registerService;
 	
 	@RequestMapping(value = "/imregister", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody Registration registerUser(@RequestBody Registration registration) {
 
-		registerService.save(
+		registerService.insertUser(
 				new UserDetails(registration.getFirstName(), registration.getLastName(), registration.getAddress(),
 						registration.getState(), registration.getCity(), registration.getContact_no(),
 						registration.getEmail(), registration.getUsername(), registration.getPassword()));
@@ -34,7 +33,7 @@ public class UserRegistrationController {
 	@RequestMapping(value = "/delete", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody UserDetails deleteUser(@RequestBody UserDetails registration) {
 
-		registerService.delete(registration.getUsername());
+		registerService.deleteUser(registration.getUsername());
 		return registration;
 
 	}

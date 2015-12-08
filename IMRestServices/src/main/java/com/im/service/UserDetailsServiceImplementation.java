@@ -10,17 +10,27 @@ import com.im.collection.UserDetails;
 import com.im.repository.RegisterRepository;
 
 @Service
-public class UserLoginServiceImpl implements UserLoginService {
+public class UserDetailsServiceImplementation implements UserDetailsService {
 
 	@Autowired
-	private RegisterRepository userRepository;
+	private RegisterRepository registerRepository;
 
+	public void insertUser(UserDetails register) {
+		registerRepository.insert(register);
+
+	}
+
+	public void deleteUser(String userName) {
+
+		registerRepository.delete(userName);
+
+	}
 	public com.im.collection.UserDetails getUser(String userName, String password) {
-		List<UserDetails> userList = userRepository.findAll();
+		List<UserDetails> userList = registerRepository.findAll();
 		Iterator<UserDetails> itr = userList.iterator();
 		while (itr.hasNext()) {
 			if (userName.equals(itr.next().getUsername()) && password.equals(itr.next().getPassword())) {
-				return userRepository.findOne(userName);
+				return registerRepository.findOne(userName);
 			}
 		}
 		return null;
