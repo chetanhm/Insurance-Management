@@ -24,7 +24,7 @@
     </dependency>
     
 
-<dependency>
+    <dependency>
 	<groupId>org.springframework</groupId>
 	<artifactId>spring-context</artifactId>
 	<version>4.2.3.RELEASE</version>
@@ -61,7 +61,8 @@
 	<version>2.2.2</version>
 </dependency>
 
-
+    
+    
   </dependencies>
 </project>
 
