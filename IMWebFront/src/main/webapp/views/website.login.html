@@ -1,4 +1,4 @@
-<form class="form-horizontal" ng-controller="LoginController" ng-submit="login(user)" action="views/dashboard.html" novalidate>
+<form class="form-horizontal" ng-submit="submit()">
 <fieldset>
 
 <!-- Form Name -->
@@ -26,13 +26,17 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="login"></label>
   <div class="col-md-8">
-    <button id="login" name="login" class="btn btn-primary" >Login</button>
-    <button id="register" name="register" class="btn btn-primary">Register</button>
+    <input type="submit" id="login" name="login" class="btn btn-primary" value="Login">
+    <a id="register" name="register" class="btn btn-primary"  ui-sref="website.register">Register</a>
   </div>
 </div>
 
 </fieldset>
 </form>
+<div class="alert alert-danger" ng-show="loginerrorshow">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <strong>Error</strong>Wrong username or password
+</div>
 
 
 

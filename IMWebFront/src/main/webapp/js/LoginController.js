@@ -1,50 +1,34 @@
-(function() {
+(function(){
 	'use strict';
-var mainApp=angular.module("insuranceApp",  ['ui.router','ngCookies','ui.bootstrap'])
-
-mainApp.config(function ($urlRouterProvider, $stateProvider){
 	
-	$routeProvide
-	 .when('/login', {
-		 templateUrl: 'website.login.html',  
-		 controller: 'login'
-	 })
-	 .otherwise({redirectTo: '/website.html'});          
-         });
+	var baseUrl = "http://localhost:8080"; 
+	
+var register = angular.module("login", []);
 
-//mainApp.factory("User", function($resource) {
-//    return $resource("users/:userId.json", {}, 
-//    {
-//        query: {method: "GET", params: {userId: "users"}, isArray: true}
-//    });
-//});
+register.controller("LoginCtrl",function($scope,$http,$resource,$location){
+	
+	
+	$scope.submit=function(){
+	$scope.loginerrorshow=false;
 
-mainApp.controller('LoginController',function($scope)
-{
-	$scope.user = {
-		    username: '',
-		    password: ''
-		  };
-	 
-	 $scope.loginUser = function(user) 
-	    {
-		 	var username=$scope.user.name;
-	        var password=$scope.user.password;
-	        if(user.username.length>3 && user.password.length>3)
-	        {
-	            page.setUser($scope.user);
-	            $location.path( "/dashboard.html" );
-	        }
-	        else
-	        {
-	            $scope.message="Error";
-	            $scope.messagecolor="alert alert-danger";
-	        }
-	    }
-}
-);
+	var result=$http.get(baseUrl+"/login?username=" + $scope.user.username + "&password=" + $scope.user.password).success(function(response)
+	{
+		if(response.status=="ok")
+			{
+			$location.path("dashboard");
+			}
+		else
+			{
+			$scope.loginerrorshow=true;
+			}
+	}		
+	).error(function(response){$scope.loginerrorshow=true;});
+
+	}
+});
+
+
+
 
 })();
-
-
-
+			

@@ -1,6 +1,6 @@
 (function() {
 	'use strict';
-var mainApp=angular.module("insuranceApp",  ['ui.router','ngCookies','ui.bootstrap','register'])
+var mainApp=angular.module("insuranceApp",  ['ui.router','ngCookies','ui.bootstrap','register','login','ngResource'])
 
 mainApp.config(function ($urlRouterProvider, $stateProvider){
         	  
@@ -20,7 +20,8 @@ mainApp.config(function ($urlRouterProvider, $stateProvider){
 	$stateProvider
 	.state('website.login', {
 		url: '/login',
-		templateUrl: 'views/website.login.html'
+		templateUrl: 'views/website.login.html',
+		controller: 'LoginCtrl'
 	});
 	$stateProvider
 	.state('dashboard', {

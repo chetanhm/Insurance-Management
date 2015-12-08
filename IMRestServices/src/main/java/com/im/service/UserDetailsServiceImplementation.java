@@ -32,23 +32,17 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
 
 	}
 
-	public com.im.collection.UserDetails getUser(String userName, String password) {
-		MongoOperations mongoOps = null;
-	try {
-			mongoOps = new MongoTemplate(new Mongo(), "test");
-		} catch (UnknownHostException e) {
-			e.printStackTrace();
-		}
+	public com.im.collection.UserDetails getUserByUsername(String userName) {
 
-		UserDetails userDetails = mongoOps.findOne(new Query(Criteria.where("username").is(userName)),
-				UserDetails.class);
-		if (userDetails.getPassword().equals(password)) {
-			return userDetails;
-		} else {
-			return null;
-		}
+		UserDetails userDetails = registerRepository.findByUserName(userName);
+
+		return userDetails;
+
 	}
-	
-	
-	
+	public UserDetails getUserByEmail(String email)
+	{
+		return registerRepository.findByEmail(email);
+		
+	}
+
 }

@@ -6,5 +6,6 @@ public interface UserDetailsService {
 	
 	public void insertUser(UserDetails register);
 	public void deleteUser(String n);
-	public UserDetails getUser(String userName, String password);
+	public UserDetails getUserByUsername(String userName);
+	public UserDetails getUserByEmail(String email);
 }
