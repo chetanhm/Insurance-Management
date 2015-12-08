@@ -32,7 +32,7 @@ mainApp.config(function ($urlRouterProvider, $stateProvider){
 	$stateProvider
 	.state('website.register', {
 		url: '/register',
-		templateUrl: 'views/test.jsp',
+		templateUrl: 'views/website.register.html',
 		controller: 'RegistrationCtrl'
 	});
            
