@@ -6,8 +6,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.userlogin.collections.UserRegistration;
-import com.userlogin.repository.UserRepository;
+import com.im.collection.UserDetails;
+import com.im.repository.RegisterRepository;
+
 
 public class UserRegistrationTest {
 	
@@ -17,18 +18,19 @@ public class UserRegistrationTest {
 	String password="kanak123";
 	
 	
-	private UserRepository userRepository;
-	UserRegistration userRegistration = new UserRegistration(userName,emailId,password);
+	private RegisterRepository userRepository;
+	UserDetails userRegistration = new UserDetails(userName,emailId,password, emailId, emailId, emailId, emailId, emailId, emailId);
 	
-	public void save(UserRegistration userRegistration)
+	public void save(UserDetails userRegistration)
 	{
+		
 		userRepository.save(userRegistration);
 	}
 		
 	@Test
 	public void testCollectionData()
 	{
-		UserRegistration ur = userRepository.findOne(userName);
-		assertEquals(userName, ur.getUserName());
+		UserDetails ur = userRepository.findOne(userName);
+		assertEquals(userName, ur.getUsername());
 	}
 }

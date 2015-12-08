@@ -1,16 +1,16 @@
-package com.entity;
+package com.im.entity;
 
 public class Registration {
 	
-	String firstName;
-	String lastName;
-	String address;
-	String state;
-	String city;
-	String contact_no;
-	String email;
-	String username;
-	String password;
+	private String firstName;
+	private String lastName;
+	private String address;
+	private String state;
+	private String city;
+	private String contact_no;
+	private String email;
+	private String username;
+	private String password;
 	public Registration(String firstName, String fastName, String address, String state, String city, String contact_no,
 			String email, String username, String password) {
 		super();

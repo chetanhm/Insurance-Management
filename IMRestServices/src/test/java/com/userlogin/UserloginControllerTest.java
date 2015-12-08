@@ -1,12 +1,12 @@
 package com.userlogin;
 
-import com.userlogin.controller.UserloginController;
+import com.im.controller.UserLoginController;
 
 public class UserloginControllerTest {
 	
 	String userName;
 	
-	UserloginController userloginController = new UserloginController();
+	UserLoginController userloginController = new UserLoginController();
 	
 	
 }

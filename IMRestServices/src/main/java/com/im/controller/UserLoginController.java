@@ -1,4 +1,4 @@
-package com.userlogin.controller;
+package com.im.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -9,26 +9,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.userlogin.collections.UserRegistration;
-import com.userlogin.entity.User;
-import com.userlogin.service.UserloginService;
-
-
-
+import com.im.service.UserLoginService;
 
 @RestController
-public class UserloginController {
+public class UserLoginController {
 	
 	@Autowired
-	private UserloginService userloginService;
+	private UserLoginService userloginService;
 	
 	
 	@RequestMapping(value="/login", method=RequestMethod.GET)
-	
-		
-	public @ResponseBody javax.servlet.Registration registerUser(@RequestBody UserRegistration user)
+	public @ResponseBody String registerUser(@RequestBody com.im.entity.Registration user)
 	{
-		userloginService.getUser(user.getUserName(),user.getPassword());	
+		userloginService.getUser(user.getUsername(),user.getPassword());	
 		return registerUser(user);
 	}
 		
