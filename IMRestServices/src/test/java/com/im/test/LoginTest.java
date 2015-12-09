@@ -1,6 +1,5 @@
-package com.test;
+package com.im.test;
 
-import static org.junit.Assert.*;
 import junit.framework.TestCase;
 
 import org.junit.Before;
@@ -18,7 +17,7 @@ public class LoginTest extends TestCase {
 	
 	
 @Test
-	public void testRegister() {
+	public void testLogin() {
 		
 		Client client=Client.create();
 		WebResource webResource=client.resource("http://localhost:8080/login?username='Srushti'&password='srushti'");
