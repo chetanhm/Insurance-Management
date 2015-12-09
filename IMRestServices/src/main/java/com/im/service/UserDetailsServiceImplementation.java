@@ -12,8 +12,8 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
 	@Autowired
 	private RegisterRepository registerRepository;
 
-	public void insertUser(UserDetails register) {
-		registerRepository.insert(register);
+	public UserDetails insertUser(UserDetails register) {
+		return registerRepository.insert(register);
 
 	}
 

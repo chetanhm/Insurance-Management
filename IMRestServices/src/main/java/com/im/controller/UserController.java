@@ -24,13 +24,13 @@ public class UserController {
 	private UserDetailsService registerService;
 
 	@RequestMapping(value = "/imregister", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody Registration registerUser(@RequestBody Registration registration) {
+	public @ResponseBody UserDetails registerUser(@RequestBody Registration registration) {
 
-		registerService.insertUser(
+		UserDetails users= registerService.insertUser(
 				new UserDetails(registration.getFirstName(), registration.getLastName(), registration.getAddress(),
 						registration.getState(), registration.getCity(), registration.getContact_no(),
 						registration.getEmail(), registration.getUserName(), registration.getPassword()));
-		return registration;
+		return users;
 	}
 
 	@RequestMapping(value = "/logout", produces=MediaType.APPLICATION_JSON_VALUE)
