@@ -23,18 +23,22 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
 
 	}
 
-	public String loginUser(String userName, String password) {
+	public UserDetails loginUser(String userName, String password) {
 
 		UserDetails userDetails = registerRepository.findByUserName(userName);
 		if (userDetails != null) {
 			
-			if (userDetails.getPassword().equals(password)) {				
-				return "{\"status\": \"ok\"}";
+			if (userDetails.getPassword().equals(password)) {	
+				
+				return userDetails;
+				//return "{\"status\": \"ok\"}";
 			} else {
-				return "{\"status\": \"fail\"}";
+				return null;
+				//return "{\"status\": \"fail\"}";
 			}
 		} else {
-			return "{\"status\":\"-1\"}";
+			return null;
+			//return "{\"status\":\"-1\"}";
 		}
 	}
 	

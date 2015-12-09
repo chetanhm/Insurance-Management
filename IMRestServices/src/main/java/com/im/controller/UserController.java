@@ -42,10 +42,10 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody String loginUser(@RequestParam(name = "username") String username,
+	public @ResponseBody UserDetails loginUser(@RequestParam(name = "username") String username,
 			@RequestParam(name = "password") String password, HttpSession httpSession) {
-		String status = registerService.loginUser(username,password);
-		return status;
+		UserDetails userDetails = registerService.loginUser(username,password);
+		return userDetails;
 	}
 	
 	@RequestMapping(value="/usernameAvailable", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
