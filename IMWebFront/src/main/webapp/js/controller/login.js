@@ -16,6 +16,7 @@ register.controller("LoginCtrl",function($scope,$http,$resource,$location){
 				var userDetails = response;
 				if(userDetails!=null)
 					{
+					userDetails.password="";
 					localStorage.setItem("user", JSON.stringify(userDetails));
 					$location.path("dashboard");					
 					}
