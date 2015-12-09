@@ -157,4 +157,12 @@ public class ProductDetails {
 		this.productTerms = productTerms;
 	}
 
+	@Override
+	public String toString() {
+		return "ProductDetails [id=" + id + ", productName=" + productName + ", basicCoverage=" + basicCoverage
+				+ ", accidentalBenefit=" + accidentalBenefit + ", settlementRatio=" + settlementRatio
+				+ ", monthlyPremium=" + monthlyPremium + ", productTerms=" + productTerms + ", description="
+				+ description + ", termYear=" + termYear + "]";
+	}
+
 }

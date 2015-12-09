@@ -129,6 +129,13 @@ public class AddProduct {
 		this.productTerms = productTerms;
 	}
 
+	@Override
+	public String toString() {
+		return "AddProduct [productName=" + productName + ", basicCoverage=" + basicCoverage + ", accidentalBenefit="
+				+ accidentalBenefit + ", settlementRatio=" + settlementRatio + ", monthlyPremium=" + monthlyPremium
+				+ ", productTerms=" + productTerms + ", description=" + description + ", termYear=" + termYear + "]";
+	}
+
 
 	
 	
