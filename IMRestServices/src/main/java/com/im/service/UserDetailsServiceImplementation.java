@@ -23,6 +23,21 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
 
 	}
 
+	public String loginUser(String userName, String password) {
+
+		UserDetails userDetails = registerRepository.findByUserName(userName);
+		if (userDetails != null) {
+			
+			if (userDetails.getPassword().equals(password)) {				
+				return "{\"status\": \"ok\"}";
+			} else {
+				return "{\"status\": \"fail\"}";
+			}
+		} else {
+			return "{\"status\":\"-1\"}";
+		}
+	}
+	
 	public com.im.collection.UserDetails getUserByUsername(String userName) {
 
 		UserDetails userDetails = registerRepository.findByUserName(userName);

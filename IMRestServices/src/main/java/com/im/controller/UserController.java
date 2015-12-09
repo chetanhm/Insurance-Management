@@ -44,20 +44,8 @@ public class UserController {
 	@RequestMapping(value = "/login", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody String loginUser(@RequestParam(name = "username") String username,
 			@RequestParam(name = "password") String password, HttpSession httpSession) {
-		UserDetails userDetails = registerService.getUserByUsername(username);
-
-		if (userDetails != null) {
-			
-			if (userDetails.getPassword().equals(password)) {
-				httpSession.setAttribute("username", username);
-				return "{\"status\": \"ok\"}";
-			} else {
-				return "{\"status\": \"fail\"}";
-			}
-		} else {
-			return "{\"status\":\"-1\"}";
-		}
-
+		String status = registerService.loginUser(username,password);
+		return status;
 	}
 	
 	@RequestMapping(value="/usernameAvailable", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
