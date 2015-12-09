@@ -12,7 +12,7 @@ public class ProductDetailsImplementation implements ProductDetailsService {
 	@Autowired
 	private ProductRepository productRepository;
 
-	public ProductDetails insertProduct(AddProduct product) {
+	public ProductDetails insertProduct(AddProduct product,String id) {
 		ProductDetails productDetails = new ProductDetails(product.getProductName(), product.getBasicCoverage(),
 				product.getAccidentalBenefit(), product.getSettlementRatio(), product.getMonthlyPremium(),
 				product.getProductTerms(), product.getDescription(), product.getTermYear());

@@ -35,7 +35,7 @@ public class ProductController {
 		
 		if(authenticationId.equals(registerService.getUserByUsername("admin").getId()))
 		{
-			return productDetailService.insertProduct(product);
+			return productDetailService.insertProduct(product,authenticationId);
 		}
 		else
 		{

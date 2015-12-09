@@ -14,13 +14,14 @@ class AdminAspect{
 	@Autowired
 	private UserDetailsService registerService;
 	
-	@Around("execution(* com.im.controller.ProductController.addProduct(..))")
+	@Around("execution(* com.im.service.ProductDetailsImplementation.insertProduct(..))")
 	public void authenticateAdmin(ProceedingJoinPoint pjp) throws Throwable
 	{
 		String requestId=pjp.getArgs()[1].toString();
 		String adminId=registerService.getUserByUsername("admin").getId();
 		if(requestId.equals(adminId))
 		{
+			System.out.println("Here");
 			pjp.proceed();
 		}
 		
