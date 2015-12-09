@@ -57,10 +57,9 @@ public class AddProductTest {
 		
 	
 		String insertData = jsonObject.toString();
-		ClientResponse response = webResource.type("application/json").header("_id", "5668024dbea4a6fc24cbe951").post(
-				ClientResponse.class, insertData);
-			Assert.assertNotSame(200, response.getStatus());
-
+		String response = webResource.type("application/json").header("_id", "5668sds024dbea4a6fc24cbe951").post(
+		String.class, insertData);
+		Assert.assertEquals("", response);
 	}
 	@Test
 	public void testAddPolicyWithWrongFields() {
