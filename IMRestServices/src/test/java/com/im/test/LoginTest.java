@@ -20,7 +20,8 @@ public class LoginTest extends TestCase {
 	public void testLogin() {
 		
 		Client client=Client.create();
-		WebResource webResource=client.resource("http://localhost:8080/login?username='Srushti'&password='srushti'");
+		WebResource webResource=client.resource("http://localhost:8080/login?username=Srushtig&password=srushti");
+		
 		ClientResponse response=webResource.type("application/json").post(ClientResponse.class);
 		
 				String output = response.getEntity(String.class);
