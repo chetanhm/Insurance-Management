@@ -3,9 +3,9 @@
 	
 
 	
-var register = angular.module("login", ['ngStorage']);
+var register = angular.module("login", []);
 
-register.controller("LoginCtrl",function($scope,$http,$resource,$location,$localStorage){
+register.controller("LoginCtrl",function($scope,$http,$resource,$location){
 	
 	
 	$scope.submit=function(){
@@ -16,9 +16,7 @@ register.controller("LoginCtrl",function($scope,$http,$resource,$location,$local
 				var userDetails = response.userDetails;
 				if(userDetails!=null)
 					{
-					$scope.$storage = $localStorage.$default({
-				          user: userDetails
-				        });
+					localStorage.setItem("user", userDetails);
 					$location.path("dashboard");					
 					}
 				else
