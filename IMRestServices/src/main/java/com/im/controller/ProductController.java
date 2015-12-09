@@ -59,7 +59,6 @@ public class ProductController {
 	/**
 	 * This method will list all the products present in database
 	 * */
-
 	@RequestMapping(value="/allProducts",method= RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody List<ProductDetails> getAllProducts()
 	{
