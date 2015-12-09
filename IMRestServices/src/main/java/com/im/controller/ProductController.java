@@ -34,15 +34,8 @@ public class ProductController {
 	 */
 	@RequestMapping(value = "/addProduct",consumes=MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE,method=RequestMethod.POST)
 	public @ResponseBody ProductDetails addProduct(@RequestBody AddProduct product,@RequestHeader(value="_id") String authenticationId) {
-		
-		if(authenticationId.equals(registerService.getUserByUsername("admin").getId()))
-		{
+			
 			return productDetailService.insertProduct(product,authenticationId);
-		}
-		else
-		{
-			return null;
-		}
 	}
 	
 	/**
