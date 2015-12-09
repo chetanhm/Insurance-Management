@@ -28,7 +28,7 @@ register.controller("RegistrationCtrl",function($scope,$http,$resource,$location
 			$scope.errorShow=true;
 			if(response.status=="userName-fail")
 				{
-				$scope.errorMsg="userName already present";
+				$scope.errorMsg="UserName already present";
 				}
 			else
 				{
