@@ -1,35 +1,42 @@
 package com.im.test;
 
-import junit.framework.TestCase;
+import junit.framework.Assert;
 
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
-public class RegistrationTest extends TestCase {
+public class RegistrationTest {
+	static Client client;
+	static WebResource webResource;
 
-	@Before
-	void setup() {
+	@BeforeClass
+	public static void setup() {
+		client = Client.create();
+		webResource = client
+				.resource("http://localhost:8080/imservices/imregister");
 	}
 
 	@Test
-	public void testRegister() {
+	public void testRegistrationDone() {
 
-		Client client = Client.create();
-		WebResource webResource = client
-				.resource("http://localhost:8080/imregister");
-		String registerData = "{\"firstName\":\"Srushti\",\"lastName\":\"G\",\"address\":\"something\",\"state\":\"MH\",\"city\":\"something\",\"contact_no\":\"something\",\"email\":\"srushti@gmail.com\",\"userName\":\"srushti\",\"password\":\"srushti123\"}";
-
+		String registerData = "{\"firstName\":\"Srush\",\"lastName\":\"G\",\"address\":\"something\",\"state\":\"MH\",\"city\":\"something\",\"contactNo\":\"something\",\"email\":\"srushti@gmail.com\",\"userName\":\"srushti\",\"password\":\"srushti123\"}";
 		ClientResponse response = webResource.type("application/json").post(
 				ClientResponse.class, registerData);
-		String output = response.getEntity(String.class);
-		assertEquals(
-				"{\"firstName\":\"Srushti\",\"lastName\":\"G\",\"address\":\"something\",\"state\":\"MH\",\"city\":\"something\",\"contact_no\":\"something\",\"email\":\"srushti@gmail.com\",\"userName\":\"srushti\",\"password\":\"srushti123\"}",
-				output);
-		
+		Assert.assertNotNull(response);
+
+	}
+	
+	@Test
+	public void testRegistrationFail()
+	{
+		String registerData =null;
+		ClientResponse response = webResource.type("application/json").post(
+				ClientResponse.class, registerData);
+		Assert.assertEquals(400,response.getStatus());
 	}
 
 }
