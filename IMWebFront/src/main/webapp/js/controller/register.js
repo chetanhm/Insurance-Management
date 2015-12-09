@@ -1,7 +1,7 @@
 (function(){
 	'use strict';
 	
-	var baseUrl = "http://localhost:8080"; 
+	var baseUrl = "http://localhost:8080/imservices"; 
 	
 var register = angular.module("register", []);
 
