@@ -18,6 +18,7 @@ import com.im.service.UserDetailsService;
 
 @CrossOrigin
 @RestController
+@RequestMapping(value="/imservices")
 public class UserController {
 
 	@Autowired
