@@ -3,16 +3,27 @@ package com.im.aspects;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Aspect
+import com.im.service.UserDetailsService;
+
 @Component
+@Aspect
 class AdminAspect{
+	@Autowired
+	private UserDetailsService registerService;
 	
-	@Around("execution(* *(..))")
-	public void log(ProceedingJoinPoint pjp)
+	@Around("execution(* com.im.controller.ProductController.addProduct(..))")
+	public void authenticateAdmin(ProceedingJoinPoint pjp) throws Throwable
 	{
-		System.out.println("here");
+		String requestId=pjp.getArgs()[1].toString();
+		String adminId=registerService.getUserByUsername("admin").getId();
+		if(requestId.equals(adminId))
+		{
+			pjp.proceed();
+		}
+		
 	}
 	
 }
