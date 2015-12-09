@@ -29,7 +29,7 @@ public class UserController {
 		registerService.insertUser(
 				new UserDetails(registration.getFirstName(), registration.getLastName(), registration.getAddress(),
 						registration.getState(), registration.getCity(), registration.getContact_no(),
-						registration.getEmail(), registration.getUsername(), registration.getPassword()));
+						registration.getEmail(), registration.getUserName(), registration.getPassword()));
 		return registration;
 	}
 

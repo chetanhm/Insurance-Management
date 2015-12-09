@@ -15,7 +15,7 @@ public class UserDetails {
 	private String city;
 	private String contact_no;
 	private String email;
-	private String username;
+	private String userName;
 	private String password;
 
 	public String getId() {
@@ -82,12 +82,12 @@ public class UserDetails {
 		this.email = email;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserName(String username) {
+		this.userName = username;
 	}
 
 	public String getPassword() {
@@ -108,7 +108,7 @@ public class UserDetails {
 		this.city = city;
 		this.contact_no = contact_no;
 		this.email = email;
-		this.username = username;
+		this.userName = username;
 		this.password = password;
 	}
 
@@ -120,7 +120,7 @@ public class UserDetails {
 	public String toString() {
 		return "UserRegisterPojo [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", address="
 				+ address + ", state=" + state + ", city=" + city + ", contact_no=" + contact_no + ", email=" + email
-				+ ", username=" + username + ", password=" + password + "]";
+				+ ", username=" + userName + ", password=" + password + "]";
 	}
 
 }

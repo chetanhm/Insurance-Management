@@ -9,7 +9,7 @@ public class Registration {
 	private String city;
 	private String contact_no;
 	private String email;
-	private String username;
+	private String userName;
 	private String password;
 	public Registration(String firstName, String fastName, String address, String state, String city, String contact_no,
 			String email, String username, String password) {
@@ -21,7 +21,7 @@ public class Registration {
 		this.city = city;
 		this.contact_no = contact_no;
 		this.email = email;
-		this.username = username;
+		this.userName = username;
 		this.password = password;
 	}
 	public Registration() {
@@ -69,11 +69,11 @@ public class Registration {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getUsername() {
-		return username;
+	public String getUserName() {
+		return userName;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserName(String username) {
+		this.userName = username;
 	}
 	public String getPassword() {
 		return password;
@@ -84,8 +84,8 @@ public class Registration {
 	@Override
 	public String toString() {
 		return "Registration [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", state="
-				+ state + ", city=" + city + ", contact_no=" + contact_no + ", email=" + email + ", username="
-				+ username + ", password=" + password + "]";
+				+ state + ", city=" + city + ", contact_no=" + contact_no + ", email=" + email + ", userName="
+				+ userName + ", password=" + password + "]";
 	}
 	
 	
