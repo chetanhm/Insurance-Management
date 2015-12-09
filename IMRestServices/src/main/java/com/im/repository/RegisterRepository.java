@@ -7,7 +7,7 @@ import com.im.collection.UserDetails;
 
 public interface RegisterRepository extends MongoRepository<UserDetails, String> {
 
-	@Query(value="{username: ?0}")
+	@Query(value="{userName: ?0}")
 	public UserDetails findByUserName(String username);
 	
 	@Query(value="{email: ?0}")
