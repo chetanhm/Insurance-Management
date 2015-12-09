@@ -14,21 +14,21 @@ register.controller("RegistrationCtrl",function($scope,$http,$resource,$location
 			address : $scope.address,
 			state : $scope.state,
 			city : $scope.city,
-			contactNo : $scope.contact_no,
+			contactNo : $scope.contactNo,
 			email :$scope.email,
-			userName : $scope.username,
+			userName : $scope.userName,
 			password : $scope.password
 	};
 	$scope.errorShow=false;
 	
-	var result=$http.get(baseUrl+"/usernameAvailable?username=" + $scope.username + "&email=" + $scope.email).success(function(response){
+	var result=$http.get(baseUrl+"/userNameAvailable?userName=" + $scope.userName + "&email=" + $scope.email).success(function(response){
 
 	if(response.status!="ok")
 		{
 			$scope.errorShow=true;
-			if(response.status=="username-fail")
+			if(response.status=="userName-fail")
 				{
-				$scope.errorMsg="Username already present";
+				$scope.errorMsg="userName already present";
 				}
 			else
 				{
