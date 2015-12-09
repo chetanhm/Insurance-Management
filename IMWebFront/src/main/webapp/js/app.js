@@ -1,4 +1,4 @@
-var baseUrl = "http://localhost:8080"; 
+var baseUrl = "http://localhost:8080/imservices"; 
 (function() {
 	'use strict';
 var mainApp=angular.module("insuranceApp",  ['ui.router','ngCookies','ui.bootstrap','register','login','ngResource'])

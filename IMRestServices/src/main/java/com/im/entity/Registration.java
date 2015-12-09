@@ -7,7 +7,7 @@ public class Registration {
 	private String address;
 	private String state;
 	private String city;
-	private String contact_no;
+	private String contactNo;
 	private String email;
 	private String userName;
 	private String password;
@@ -19,7 +19,7 @@ public class Registration {
 		this.address = address;
 		this.state = state;
 		this.city = city;
-		this.contact_no = contact_no;
+		this.contactNo = contact_no;
 		this.email = email;
 		this.userName = username;
 		this.password = password;
@@ -57,11 +57,11 @@ public class Registration {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public String getContact_no() {
-		return contact_no;
+	public String getContactNo() {
+		return contactNo;
 	}
-	public void setContact_no(String contact_no) {
-		this.contact_no = contact_no;
+	public void setContactNo(String contact_no) {
+		this.contactNo = contact_no;
 	}
 	public String getEmail() {
 		return email;
@@ -84,7 +84,7 @@ public class Registration {
 	@Override
 	public String toString() {
 		return "Registration [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", state="
-				+ state + ", city=" + city + ", contact_no=" + contact_no + ", email=" + email + ", userName="
+				+ state + ", city=" + city + ", contact_no=" + contactNo + ", email=" + email + ", userName="
 				+ userName + ", password=" + password + "]";
 	}
 	

@@ -1,7 +1,7 @@
 (function(){
 	'use strict';
 	
-	var baseUrl = "http://localhost:8080/imservices"; 
+
 	
 var register = angular.module("register", []);
 
@@ -14,7 +14,7 @@ register.controller("RegistrationCtrl",function($scope,$http,$resource,$location
 			address : $scope.address,
 			state : $scope.state,
 			city : $scope.city,
-			contact_no : $scope.contact_no,
+			contactNo : $scope.contact_no,
 			email :$scope.email,
 			userName : $scope.username,
 			password : $scope.password
