@@ -11,7 +11,7 @@ register.controller("LoginCtrl",function($scope,$http,$resource,$location){
 	$scope.submit=function(){
 	$scope.loginerrorshow=false;
 
-	var result=$http.get(baseUrl+"/login?username=" + $scope.user.username + "&password=" + $scope.user.password).success(function(response)
+	var result=$http.get(baseUrl+"/login?userName=" + $scope.userName + "&password=" + $scope.password).success(function(response)
 	{
 		if(response.status=="ok")
 			{
