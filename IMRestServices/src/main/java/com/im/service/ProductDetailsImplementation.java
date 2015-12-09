@@ -1,5 +1,7 @@
 package com.im.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +32,10 @@ public class ProductDetailsImplementation implements ProductDetailsService {
 			return true;
 		}
 		return false;
+	}
+
+	public List<ProductDetails> getProducts() {
+		return productRepository.findAll();
 	}
 
 }

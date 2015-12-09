@@ -1,5 +1,7 @@
 package com.im.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -52,5 +54,15 @@ public class ProductController {
 	public @ResponseBody boolean checkProductName(@RequestParam(name="productName") String productName)
 	{
 		return productDetailService.ifProductPresent(productName);
+	}
+	
+	/**
+	 * This method will list all the products present in database
+	 * */
+
+	@RequestMapping(value="/allProducts",method= RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody List<ProductDetails> getAllProducts()
+	{
+		return productDetailService.getProducts();
 	}
 }
