@@ -15,15 +15,16 @@ class AdminAspect{
 	private UserDetailsService registerService;
 	
 	@Around("execution(* com.im.service.ProductDetailsImplementation.insertProduct(..))")
-	public void authenticateAdmin(ProceedingJoinPoint pjp) throws Throwable
+	public Object authenticateAdmin(ProceedingJoinPoint pjp) throws Throwable
 	{
 		String requestId=pjp.getArgs()[1].toString();
 		String adminId=registerService.getUserByUsername("admin").getId();
 		if(requestId.equals(adminId))
 		{
-			System.out.println("Here");
-			pjp.proceed();
+			Object obj=pjp.proceed();
+			return obj;
 		}
+		return null;
 		
 	}
 	
