@@ -9,7 +9,6 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @SpringBootApplication
 @EnableAutoConfiguration
 @EnableAspectJAutoProxy
-//@ComponentScan(basePackages={"com.im.aspects"})
 public class App 
 {
     public static void main( String[] args )
