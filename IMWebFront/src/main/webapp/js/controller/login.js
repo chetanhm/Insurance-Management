@@ -9,7 +9,7 @@ register.controller("LoginCtrl",function($scope,$http,$resource,$location){
 	
 	
 	$scope.submit=function(){
-	$scope.loginerrorshow=false;
+	$scope.loginerrorShow=false;
 
 	var result=$http.get(baseUrl+"/login?userName=" + $scope.userName + "&password=" + $scope.password).success(function(response)
 			{
@@ -21,10 +21,10 @@ register.controller("LoginCtrl",function($scope,$http,$resource,$location){
 					}
 				else
 					{
-					$scope.loginerrorshow=true;
+					$scope.loginerrorShow=true;
 					}
 			}		
-			).error(function(response){$scope.loginerrorshow=true;});
+			).error(function(response){$scope.loginerrorShow=true;});
 
 			}
 });
