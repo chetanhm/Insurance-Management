@@ -1,52 +1,41 @@
 package com.im.test;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.*;
 
-import org.junit.Before;
+import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 
-public class LoginTest extends TestCase {
-
-	@Before
-	void setup() {
-	}
-
-	@Test
-	public void testLogin() {
-
-		Client client = Client.create();
-		WebResource webResource = client
-				.resource("http://localhost:8080/login?username=srushti&password=srushti123");
-		String request = webResource.get(String.class);
-		String output = request.toString();
-
-		assertEquals("{\"status\": \"ok\"}", output);
-	}
+public class LoginTest {
+	static Client client;
+	WebResource webResource;
 	
-	@Test
-	public void testNoSuchUsername() {
+	
+@BeforeClass
+	public static void setup() {
+	client = Client.create();
+}
 
-		Client client = Client.create();
-		WebResource webResource = client
-				.resource("http://localhost:8080/login?username=srushsdsti&password=srushti123");
-		String request = webResource.get(String.class);
-		String output = request.toString();
+@Test
+public void testLogin() {
+	webResource = client
+			.resource("http://localhost:8080/imservices/login?username=srushti&password=srushti123");
+	String request = webResource.get(String.class);
+	assertNotNull(request);
+}
 
-		assertEquals("{\"status\":\"-1\"}", output);
-	}
-	@Test
-	public void testWrongCredentials() {
+@Test
+public void testLoginWithIncorrectPassword() {
+	webResource = client
+			.resource("http://localhost:8080/imservices/login?username=srushti&password=123");
+	String request = webResource.get(String.class);
+	Assert.assertEquals("",request);
+} 
 
-		Client client = Client.create();
-		WebResource webResource = client
-				.resource("http://localhost:8080/login?username=srushti&password=sadasd");
-		String request = webResource.get(String.class);
-		String output = request.toString();
-
-		assertEquals("{\"status\": \"fail\"}", output);
-	}
+	
+	
 
 }
