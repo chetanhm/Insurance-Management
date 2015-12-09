@@ -35,8 +35,8 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/logout", produces=MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody String logout(HttpSession httpSession) {
-		httpSession.invalidate();
+	public @ResponseBody String logout() {
+		
 		return "{status: ok}";
 
 	}
