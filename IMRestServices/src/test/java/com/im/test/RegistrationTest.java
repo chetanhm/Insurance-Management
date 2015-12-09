@@ -21,13 +21,13 @@ public class RegistrationTest extends TestCase {
 		Client client = Client.create();
 		WebResource webResource = client
 				.resource("http://localhost:8080/imregister");
-		String registerData = "{\"firstName\":\"Srushti\",\"lastName\":\"G\",\"address\":\"something\",\"state\":\"MH\",\"city\":\"something\",\"contact_no\":\"something\",\"email\":\"srushti@gmail.com\",\"username\":\"srushti\",\"password\":\"srushti123\"}";
+		String registerData = "{\"firstName\":\"Srushti\",\"lastName\":\"G\",\"address\":\"something\",\"state\":\"MH\",\"city\":\"something\",\"contact_no\":\"something\",\"email\":\"srushti@gmail.com\",\"userName\":\"srushti\",\"password\":\"srushti123\"}";
 
 		ClientResponse response = webResource.type("application/json").post(
 				ClientResponse.class, registerData);
 		String output = response.getEntity(String.class);
 		assertEquals(
-				"{\"firstName\":\"Srushti\",\"lastName\":\"G\",\"address\":\"something\",\"state\":\"MH\",\"city\":\"something\",\"contact_no\":\"something\",\"email\":\"srushti@gmail.com\",\"username\":\"srushti\",\"password\":\"srushti123\"}",
+				"{\"firstName\":\"Srushti\",\"lastName\":\"G\",\"address\":\"something\",\"state\":\"MH\",\"city\":\"something\",\"contact_no\":\"something\",\"email\":\"srushti@gmail.com\",\"userName\":\"srushti\",\"password\":\"srushti123\"}",
 				output);
 		
 	}
