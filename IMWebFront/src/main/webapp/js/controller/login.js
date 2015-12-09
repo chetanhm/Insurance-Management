@@ -9,22 +9,22 @@ register.controller("LoginCtrl",function($scope,$http,$resource,$location){
 	
 	
 	$scope.submit=function(){
-	$scope.loginerrorShow=false;
+	$scope.loginerrorshow=false;
 
 	var result=$http.get(baseUrl+"/login?userName=" + $scope.userName + "&password=" + $scope.password).success(function(response)
 			{
-				var userDetails = response.userDetails;
+				var userDetails = response;
 				if(userDetails!=null)
 					{
-					localStorage.setItem("user", userDetails);
+					localStorage.setItem("user", JSON.stringify(userDetails));
 					$location.path("dashboard");					
 					}
 				else
 					{
-					$scope.loginerrorShow=true;
+					$scope.loginerrorshow=true;
 					}
 			}		
-			).error(function(response){$scope.loginerrorShow=true;});
+			).error(function(response){$scope.loginerrorshow=true;});
 
 			}
 });
