@@ -16,7 +16,7 @@ register.controller("RegistrationCtrl",function($scope,$http,$resource,$location
 			city : $scope.city,
 			contact_no : $scope.contact_no,
 			email :$scope.email,
-			username : $scope.username,
+			userName : $scope.username,
 			password : $scope.password
 	};
 	$scope.errorshow=false;
