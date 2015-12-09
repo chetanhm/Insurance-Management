@@ -33,7 +33,7 @@ public class UserController {
 		return registration;
 	}
 
-	@RequestMapping(value = "/logout")
+	@RequestMapping(value = "/logout", produces=MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody String logout(HttpSession httpSession) {
 		httpSession.invalidate();
 		return "{status: ok}";
@@ -59,7 +59,7 @@ public class UserController {
 
 	}
 	
-	@RequestMapping(value="/usernameAvailable", method=RequestMethod.GET)
+	@RequestMapping(value="/usernameAvailable", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody String usernameAvailable(@RequestParam(name="username") String username,@RequestParam(name="email") String email)
 	{
 		UserDetails userDetails = registerService.getUserByEmail(email);
