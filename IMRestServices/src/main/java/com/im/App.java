@@ -9,6 +9,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @SpringBootApplication
 @EnableAutoConfiguration
 @EnableAspectJAutoProxy
+@ComponentScan
 public class App 
 {
     public static void main( String[] args )
