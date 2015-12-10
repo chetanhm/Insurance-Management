@@ -76,6 +76,7 @@ mainApp.config(function ($urlRouterProvider, $stateProvider){
 		url: '/addPolicy',
 		templateUrl: 'views/dashboard.addPolicy.html'
 	});
+	
       
 	
      
