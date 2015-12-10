@@ -1,6 +1,8 @@
 package com.im.test;
 
 import static org.junit.Assert.*;
+
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -26,6 +28,14 @@ public void testViewDetails() {
 	
 }
 
+@Test
+public void testInvalidProductName() {
+	webResource = client
+			.resource("http://localhost:8080/imservices/viewProduct?productName=Sev");
+	String request = webResource.get(String.class);
+	Assert.assertEquals("",request);
+	
+}
 
 
 
