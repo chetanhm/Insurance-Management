@@ -1,7 +1,7 @@
 var baseUrl = "http://localhost:8080/imservices"; 
 (function() {
 	'use strict';
-var mainApp=angular.module("insuranceApp",  ['ui.router','ngCookies','ui.bootstrap','register','login','ngResource', 'browse','viewProduct','navigation','logout','adminproduct'])
+var mainApp=angular.module("insuranceApp",  ['ui.router','ngCookies','ui.bootstrap','register','login','ngResource', 'browse','viewProduct','navigation','logout','adminproduct','premium'])
 
 mainApp.config(function ($urlRouterProvider, $stateProvider){
         	  
@@ -79,7 +79,12 @@ mainApp.config(function ($urlRouterProvider, $stateProvider){
 	});
 	
       
-	
+	$stateProvider
+	.state('dashboard.premium', {
+		url: '/premium',
+		templateUrl: 'views/dashboard.premium.html',
+		controller: 'CalculatePremiumCtrl'
+	});
      
            
          });

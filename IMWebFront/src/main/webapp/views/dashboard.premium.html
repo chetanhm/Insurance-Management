@@ -1,0 +1,29 @@
+<br>
+<br>
+
+
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+    <div class=" panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Hello</h3>
+      </div>
+      <div class="panel-body">
+      
+		<table class="table table-condensed">
+		<tr class="sucess" ng-repeat="policy in listPolicies">
+		<td>{{policy.userName}} </td>
+		<td>{{policy.monthlyIncome}} INR</td>
+		</tr>
+			
+		
+  		<tr >
+  		<td ng-hide="status=='Fail'">Total Premium</td>
+  		<td>{{totalPremium}} </td></tr>
+  		</table>
+        <button type="button" class="btn btn-sm btn-success" ng-hide="status=='Fail'">&nbsp; Pay &nbsp;</button>
+       
+      </div>
+      
+    </div>
+  </div>
