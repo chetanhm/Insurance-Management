@@ -1,7 +1,20 @@
  <br><br>
 <div class="row">
+<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+  <input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="Search" ng-model="productName">
+         Order by:
+        <a href="" ng-click="predicate = 'productName'">Name</a> | 
+        <a href="" ng-click="predicate = 'settlementRatio'">Settlement Ratio</a> |
+         <a href="" ng-click="predicate = 'monthlyPremium'">Monthly Premium</a> |
+               <a href="" ng-click="predicate = 'accidentalBenefit'">Accidental Benefit </a> |
+     <br>   Sort : <a href="" ng-click="reverse=true">Descending</a>|<a href="" ng-click="reverse=false">Ascending</a>
+</div>
+</div>
 
-<div class=" panel panel-success"   ng-repeat="product in productList">
+
+<div class="row">
+
+<div class=" panel panel-success" ng-repeat="product in productList | filter: productName | orderBy: predicate:reverse">
   <div class="panel-heading">
     <h3 class="panel-title">{{product.productName}}</h3>
   </div>
