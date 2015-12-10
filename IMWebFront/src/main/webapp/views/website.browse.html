@@ -6,20 +6,20 @@
     <h3 class="panel-title">{{product.productName}}</h3>
   </div>
   <div class="panel-body">
-    Monthly Premium: {{product.monthlyPremium}}
+    Monthly Premium: {{product.monthlyPremium}} INR
     <br>
-    Basic Coverage : {{product.basicCoverage}}
+    Basic Coverage : {{product.basicCoverage}} INR
     <br>
-    Accidental Benefit : {{product.accidentalBenefit}}
-    <br>
+    Accidental Benefit : {{product.accidentalBenefit}} INR
+    <br> 
 
-	 Settlement Ratio : {{product.settlementRatio}}
+	 Settlement Ratio : {{product.settlementRatio}} % of claim
 	
    <br>
 
    
    <button type="button" class="btn btn-sm btn-success">Buy</button>
-   <button type="button" class="btn btn-sm btn-primary">View in Detail</button>
+   <button type="button" class="btn btn-sm btn-primary" ui-sref="website.viewProduct({productName: 'hello'})">View in Detail</button>
   </div>
   
 </div>

@@ -1,7 +1,7 @@
 var baseUrl = "http://localhost:8080/imservices"; 
 (function() {
 	'use strict';
-var mainApp=angular.module("insuranceApp",  ['ui.router','ngCookies','ui.bootstrap','register','login','ngResource', 'browse'])
+var mainApp=angular.module("insuranceApp",  ['ui.router','ngCookies','ui.bootstrap','register','login','ngResource', 'browse','viewProduct'])
 
 mainApp.config(function ($urlRouterProvider, $stateProvider){
         	  
@@ -40,9 +40,15 @@ mainApp.config(function ($urlRouterProvider, $stateProvider){
 	
 	$stateProvider
 	.state('website.browse', {
-		url: '/allProducts',
+		url: '/browse',
 		templateUrl: 'views/website.browse.html',
 		controller: 'BrowseCtrl'
+	});
+	$stateProvider
+	.state('website.viewProduct', {
+		url: '/viewProduct/:productName',
+		templateUrl: 'views/website.viewProduct.html',
+		controller: 'ViewProductController'
 	});
            
          });
