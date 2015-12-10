@@ -15,7 +15,7 @@ browse.controller("NavigationController",function($scope,$rootScope){
 					$scope.hideLogin=true;
 					$scope.hideLogout=false;
 					$scope.hideDashboard=false;
-					loaduser=JSON.parse(localStorage.getItem("user"));
+					var loaduser=JSON.parse(localStorage.getItem("user"));
 					$scope.welcomeMessage="Welcome" + loaduser.firstName;
 				}
 			else

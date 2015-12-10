@@ -1,7 +1,7 @@
 var baseUrl = "http://localhost:8080/imservices"; 
 (function() {
 	'use strict';
-var mainApp=angular.module("insuranceApp",  ['ui.router','ngCookies','ui.bootstrap','register','login','ngResource', 'browse','viewProduct','navigation','logout','adminproduct','premium','agent'])
+var mainApp=angular.module("insuranceApp",  ['ui.router','ngCookies','ui.bootstrap','register','login','ngResource', 'browse','viewProduct','navigation','logout','adminproduct','premium','agent','buyProduct'])
 
 mainApp.config(function ($urlRouterProvider, $stateProvider){
         	  
@@ -53,7 +53,12 @@ mainApp.config(function ($urlRouterProvider, $stateProvider){
 		templateUrl: 'views/website.viewProduct.html',
 		controller: 'ViewProductCtrl'
 	});
-	
+	$stateProvider
+	.state('website.buyProduct', {
+		url: '/buyProduct/:productName',
+		templateUrl: 'views/website.buyProduct.html',
+		controller: 'BuyProductCtrl'
+	});
 	/**
 	 * Dashboard substates
 	 */
