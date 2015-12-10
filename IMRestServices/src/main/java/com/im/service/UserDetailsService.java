@@ -9,4 +9,7 @@ public interface UserDetailsService {
 	public UserDetails loginUser(String userName, String password);
 	public UserDetails getUserByUsername(String userName);
 	public UserDetails getUserByEmail(String email);
+	public UserDetails saveUser(UserDetails userDetails);
+	public UserDetails getUserById(String id);
+	public UserDetails logoutUser(String id);
 }

@@ -17,6 +17,15 @@ public class UserDetails {
 	private String email;
 	private String userName;
 	private String password;
+	private String loginStatus;
+
+	public String getLoginStatus() {
+		return loginStatus;
+	}
+
+	public void setLoginStatus(String loginStatus) {
+		this.loginStatus = loginStatus;
+	}
 
 	public String getId() {
 		return id;
@@ -98,8 +107,9 @@ public class UserDetails {
 		this.password = password;
 	}
 
-	public UserDetails(String firstName, String fastName, String address, String state, String city,
-			String contact_no, String email, String username, String password) {
+	public UserDetails(String firstName, String fastName, String address,
+			String state, String city, String contact_no, String email,
+			String username, String password) {
 		super();
 		this.firstName = firstName;
 		this.lastName = fastName;
@@ -118,9 +128,11 @@ public class UserDetails {
 
 	@Override
 	public String toString() {
-		return "UserRegisterPojo [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", address="
-				+ address + ", state=" + state + ", city=" + city + ", contact_no=" + contactNo + ", email=" + email
-				+ ", username=" + userName + ", password=" + password + "]";
+		return "UserRegisterPojo [id=" + id + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", address=" + address
+				+ ", state=" + state + ", city=" + city + ", contact_no="
+				+ contactNo + ", email=" + email + ", username=" + userName
+				+ ", password=" + password + "]";
 	}
 
 }
