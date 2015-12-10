@@ -37,7 +37,7 @@ public class UserController {
 		return users;
 	}
 
-	@RequestMapping(value = "/logout", produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/logout", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody UserDetails logout(@RequestParam(name = "id") String id) {
 
 		return registerService.logoutUser(id);
