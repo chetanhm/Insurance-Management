@@ -1,7 +1,11 @@
  <br><br>
+ <input type="text" ng-model="productName"><br>
+        Order by:
+        <a href="" ng-click="predicate = 'productName'">name</a>
+        <a href="" ng-click="predicate = 'settlementRatio'">settlementRatio</a>
 <div class="row">
 
-<div class=" panel panel-success"   ng-repeat="product in productList">
+<div class=" panel panel-success"   ng-repeat="product in productListt | filter: productName | orderBy: predicate">
   <div class="panel-heading">
     <h3 class="panel-title">{{product.productName}}</h3>
   </div>
