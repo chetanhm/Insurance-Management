@@ -57,4 +57,13 @@ public class ProductController {
 	{
 		return productDetailService.getProducts();
 	}
+	/**
+	 * This method will view the detailed description of a particular product
+	 * */
+
+	@RequestMapping(value="/viewProduct",method= RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody ProductDetails viewProductDetails(@RequestParam(name="productName") String productName)
+	{
+		return productDetailService.getProductByName(productName);
+	}
 }

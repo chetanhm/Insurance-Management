@@ -1,13 +1,13 @@
 (function(){
 	'use strict';
 	
-var browse = angular.module("viewProduct", []);
+var view = angular.module("viewProduct", []);
 
-browse.controller("ViewProductController",function($scope,$stateParams,$http){	
-	
-//$stateParams.productName
-	
-	
+view.controller("ViewProductController",function($scope,$stateParams,$http){	
+	var result=$http.get(baseUrl+"/viewProduct?productName="+$stateParams.productName).success(function(response){
+		$scope.product=response;
+	});
+
 });
 
 })();

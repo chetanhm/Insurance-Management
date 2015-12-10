@@ -37,5 +37,11 @@ public class ProductDetailsImplementation implements ProductDetailsService {
 	public List<ProductDetails> getProducts() {
 		return productRepository.findAll();
 	}
+	
+	
+	public ProductDetails getProductByName(String name) {
+		
+		return productRepository.findByName(name);
+	}
 
 }

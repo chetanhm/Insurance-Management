@@ -1,1 +1,42 @@
-{{hello}}
+
+
+ <br><br>
+<div class="row">
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{product.productName}}</h3>
+  </div>
+  <div class="panel-body">
+    Monthly Premium: {{product.monthlyPremium}} INR 
+   <br>
+  </div>
+   <div class="panel-body">
+    Basic coverage: {{product.basicCoverage}} INR 
+   <br>
+  </div>
+   <div class="panel-body">
+   Accidental Benefit: {{product.accidentalBenefit}} INR
+   <br>
+  </div>
+   <div class="panel-body">
+   Settlement Ratio: {{product.settlementRatio}} INR
+   <br>
+  </div>
+   <div class="panel-body">
+   Product Terms: <ul>
+   <li ng-repeat="term in product.productTerms">{{term}}</li>
+   </ul>
+   <br>
+  </div>
+  <div class="well">
+  Description: {{product.description}}
+   <br>
+  </div>
+  
+   <button type="button" class="btn btn-sm btn-success">Buy</button>
+   <button type="button" class="btn btn-sm btn-primary" ui-sref="website.browse">Back</button>
+</div>
+
+
+</div>

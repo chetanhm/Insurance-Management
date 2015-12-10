@@ -11,4 +11,5 @@ public interface ProductDetailsService {
 	public boolean ifProductPresent(String name);
 
 	public List<ProductDetails> getProducts();
+	public ProductDetails getProductByName(String name);
 }
