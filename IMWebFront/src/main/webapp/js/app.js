@@ -1,7 +1,7 @@
 var baseUrl = "http://localhost:8080/imservices"; 
 (function() {
 	'use strict';
-var mainApp=angular.module("insuranceApp",  ['ui.router','ngCookies','ui.bootstrap','register','login','ngResource', 'browse','viewProduct','navigation','logout'])
+var mainApp=angular.module("insuranceApp",  ['ui.router','ngCookies','ui.bootstrap','register','login','ngResource', 'browse','viewProduct','navigation','logout','adminproduct'])
 
 mainApp.config(function ($urlRouterProvider, $stateProvider){
         	  
@@ -72,9 +72,10 @@ mainApp.config(function ($urlRouterProvider, $stateProvider){
       
 	   
 	$stateProvider
-	.state('dashboard.addPolicy', {
-		url: '/addPolicy',
-		templateUrl: 'views/dashboard.addPolicy.html'
+	.state('dashboard.addProduct', {
+		url: '/addProduct',
+		templateUrl: 'views/dashboard.addProduct.html',
+		controller: 'AddProductCtrl'
 	});
 	
       

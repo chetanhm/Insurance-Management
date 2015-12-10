@@ -14,7 +14,7 @@ register.controller("LoginCtrl",function($scope,$http,$resource,$location,$rootS
 	var result=$http.get(baseUrl+"/login?userName=" + $scope.userName + "&password=" + $scope.password).success(function(response)
 			{
 				var userDetails = response;
-				if(userDetails!=null)
+				if(userDetails.userName==$scope.userName)
 					{
 					userDetails.password="";
 					localStorage.setItem("user", JSON.stringify(userDetails));

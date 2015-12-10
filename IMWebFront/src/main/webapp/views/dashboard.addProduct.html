@@ -1,0 +1,100 @@
+<form class="form-horizontal" ng-submit="addProduct()" ng-hide="formHide">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Add new product</legend>
+
+<!-- Text input-->
+<div class="form-group" >
+  <label class="col-md-4 control-label" for="productName">Product Name*</label>  
+  <div class="col-md-4">
+  <input id="productName" name="productName" ng-model="product.productName" type="text" placeholder="eg. Jivan Sevan" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="basicCoverage">Basic Coverage*</label>  
+  <div class="col-md-4">
+  <input id="basicCoverage" name="basicCoverage"  ng-model="product.basicCoverage" type="text" placeholder="" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="accidentalBenefit">Accidental benefit amount*</label>  
+  <div class="col-md-4">
+  <input id="accidentalBenefit" name="accidentalBenefit" ng-model="product.accidentalBenefit"  type="text" placeholder="" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="settlementRatio">Settlement Ratio*</label>  
+  <div class="col-md-4">
+  <input id="settlementRatio" name="settlementRatio" ng-model="product.settlementRatio" type="text" placeholder="" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="monthlyPremium">Monthly Premium*</label>  
+  <div class="col-md-4">
+  <input id="monthlyPremium" name="monthlyPremium"  ng-model="product.monthlyPremium" type="text" placeholder="" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group" ng-repeat="n in range">
+  <label class="col-md-4 control-label" for="terms">Product Term {{n+1}}</label>  
+  <div class="col-md-4">
+  <input id="terms" name="terms" type="text" ng-model="terms[n]" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for=""></label>
+  <div class="col-md-4">
+    <button id="" name="" class="btn btn-primary" ng-click="addRange()">Add another term</button>
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="description">Product Description</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="description"  ng-model="product.description"  name="description" required=""></textarea>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="termYear">Term Year</label>  
+  <div class="col-md-4">
+  <input id="termYear" name="termYear" type="text" ng-model="product.termYear" placeholder="" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for=""></label>
+  <div class="col-md-4">
+    <button id="" name="" class="btn btn-default" type="submit">Add Policy</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+<div class="alert alert-{{alertType}}" ng-show="successShow">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <strong>Form Submitted! </strong> {{alertMessage}}
+</div>
