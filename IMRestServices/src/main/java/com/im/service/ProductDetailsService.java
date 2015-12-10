@@ -9,7 +9,6 @@ public interface ProductDetailsService {
 
 	public ProductDetails insertProduct(AddProduct product,String id);
 	public boolean ifProductPresent(String name);
-
 	public List<ProductDetails> getProducts();
 	public ProductDetails getProductByName(String name);
 }

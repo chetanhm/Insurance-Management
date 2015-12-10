@@ -38,7 +38,6 @@ public class ProductDetailsImplementation implements ProductDetailsService {
 		return productRepository.findAll();
 	}
 	
-	
 	public ProductDetails getProductByName(String name) {
 		
 		return productRepository.findByName(name);

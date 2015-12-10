@@ -9,6 +9,5 @@ view.controller("ViewProductController",function($scope,$stateParams,$http){
 	});
 
 });
-
 })();
 			

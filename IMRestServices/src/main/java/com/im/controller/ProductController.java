@@ -66,4 +66,5 @@ public class ProductController {
 	{
 		return productDetailService.getProductByName(productName);
 	}
+	
 }

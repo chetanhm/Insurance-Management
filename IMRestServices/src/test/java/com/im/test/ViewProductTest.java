@@ -23,6 +23,7 @@ public void testViewDetails() {
 			.resource("http://localhost:8080/imservices/viewProduct?productName=Seva");
 	String request = webResource.get(String.class);
 	assertNotNull(request);
+	
 }
 
 
