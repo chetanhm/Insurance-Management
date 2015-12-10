@@ -1,9 +1,6 @@
 package com.im.entity;
 
 import java.util.List;
-
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 /**
  * This is bean class for request on add policy REST
  * @author mendhe_c
