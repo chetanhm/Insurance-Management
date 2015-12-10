@@ -11,8 +11,7 @@ import com.sun.jersey.api.client.WebResource;
 
 public class LogoutTest {
 	static Client client;
-	WebResource webResource;
-	
+	WebResource webResource;	
 	
 @BeforeClass
 	public static void setup() {

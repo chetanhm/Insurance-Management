@@ -43,7 +43,6 @@ public class UserController {
 		return registerService.logoutUser(id);
 
 	}
-
 	@RequestMapping(value = "/login", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody UserDetails loginUser(
 			@RequestParam(name = "userName") String userName,
