@@ -5,7 +5,7 @@
 	
 var register = angular.module("register", []);
 
-register.controller("RegistrationCtrl",function($scope,$http,$resource,$location){
+register.controller("RegistrationCtrl",function($scope,$http,$resource,$location,$rootScope){
 	
 	$scope.submit=function(){
 	var dataObj = {
@@ -38,6 +38,8 @@ register.controller("RegistrationCtrl",function($scope,$http,$resource,$location
 	else
 		{
 			$http.post(baseUrl+"/imregister",dataObj).success(function(data){
+				localStorage.setItem("user", JSON.stringify(data));
+				$rootScope.$broadcast("recheck");
 				$location.path("website.home");
 			});
 		}

@@ -5,20 +5,18 @@
 	
 var logout = angular.module("logout", []);
 
-logout.controller("LogoutCtrl",function($scope,$http,$resource,$location){
-	
-	
-	$scope.submit=function(){
-	$scope.logouterrorshow=false;
+logout.controller("LogoutCtrl",function($scope,$http,$resource,$location,$rootScope){
+	var loaduser=JSON.parse(localStorage.getItem("user"));
 
-	var result=$http.get(baseUrl+"/logout").success(function(response)
+	var result=$http.get(baseUrl+"/logout?id="+loaduser.id).success(function(response)
 			{
-				localstorage.setItem("user",null);
-				$location.path("website.home");	
+				localStorage.removeItem("user");	
+				$rootScope.$broadcast("recheck");
+				
 			}		
-			).error(function(response){$scope.logouterrorshow=true;});
+			);
 
-			}
+	$location.path("website.home");	
 });
 
 

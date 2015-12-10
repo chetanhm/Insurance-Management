@@ -5,7 +5,7 @@
 	
 var register = angular.module("login", []);
 
-register.controller("LoginCtrl",function($scope,$http,$resource,$location){
+register.controller("LoginCtrl",function($scope,$http,$resource,$location,$rootScope){
 	
 	
 	$scope.submit=function(){
@@ -18,7 +18,8 @@ register.controller("LoginCtrl",function($scope,$http,$resource,$location){
 					{
 					userDetails.password="";
 					localStorage.setItem("user", JSON.stringify(userDetails));
-					$location.path("dashboard");					
+					$rootScope.$broadcast("recheck");
+					$location.path("website.home");					
 					}
 				else
 					{
