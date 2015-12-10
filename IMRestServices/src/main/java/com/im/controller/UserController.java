@@ -52,9 +52,9 @@ public class UserController {
 
 	}
 
-	@RequestMapping(value = "/usernameAvailable", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/userNameAvailable", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody String usernameAvailable(
-			@RequestParam(name = "username") String username,
+			@RequestParam(name = "userName") String username,
 			@RequestParam(name = "email") String email) {
 		UserDetails userDetails = registerService.getUserByEmail(email);
 		if (userDetails == null) {
@@ -62,7 +62,7 @@ public class UserController {
 			if (userDetails == null) {
 				return "{\"status\": \"ok\"}";
 			} else {
-				return "{\"status\": \"username-fail\"}";
+				return "{\"status\": \"userName-fail\"}";
 			}
 		} else {
 			return "{\"status\": \"email-fail\"}";

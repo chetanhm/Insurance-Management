@@ -19,6 +19,9 @@ mainApp.config(function ($urlRouterProvider, $stateProvider){
 		templateUrl: 'views/website.html'
 	});
 	
+/**
+ * Website sub states
+ */
 	$stateProvider
 	.state('website.home', {
 		url: '/home',
@@ -30,12 +33,6 @@ mainApp.config(function ($urlRouterProvider, $stateProvider){
 		templateUrl: 'views/website.login.html',
 		controller: 'LoginCtrl'
 	});
-	$stateProvider
-	.state('dashboard', {
-		url: '/dashboard',
-		templateUrl: 'views/dashboard.html'
-	});
-      
 	
 	$stateProvider
 	.state('website.register', {
@@ -56,6 +53,32 @@ mainApp.config(function ($urlRouterProvider, $stateProvider){
 		templateUrl: 'views/website.viewProduct.html',
 		controller: 'ViewProductController'
 	});
+	
+	/**
+	 * Dashboard substates
+	 */
+	$stateProvider
+	.state('dashboard', {
+		url: '/dashboard',
+		templateUrl: 'views/dashboard.html',
+		controller: function($scope){$scope.user=JSON.parse(localStorage.getItem("user"));}
+	});
+      
+	$stateProvider
+	.state('dashboard.home', {
+		url: '/home',
+		templateUrl: 'views/dashboard.home.html'
+	});
+      
+	   
+	$stateProvider
+	.state('dashboard.addPolicy', {
+		url: '/addPolicy',
+		templateUrl: 'views/dashboard.addPolicy.html'
+	});
+      
+	
+     
            
          });
 
