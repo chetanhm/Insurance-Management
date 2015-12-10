@@ -17,7 +17,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="basicCoverage">Basic Coverage*</label>  
   <div class="col-md-4">
-  <input id="basicCoverage" name="basicCoverage"  ng-model="product.basicCoverage" type="text" placeholder="" class="form-control input-md" required="">
+  <input id="basicCoverage" name="basicCoverage"  ng-model="product.basicCoverage" type="number" placeholder="" class="form-control input-md" required="">
     
   </div>
 </div>
@@ -26,7 +26,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="accidentalBenefit">Accidental benefit amount*</label>  
   <div class="col-md-4">
-  <input id="accidentalBenefit" name="accidentalBenefit" ng-model="product.accidentalBenefit"  type="text" placeholder="" class="form-control input-md" required="">
+  <input id="accidentalBenefit" name="accidentalBenefit" ng-model="product.accidentalBenefit"  type="number" placeholder="" class="form-control input-md" required="">
     
   </div>
 </div>
@@ -35,7 +35,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="settlementRatio">Settlement Ratio*</label>  
   <div class="col-md-4">
-  <input id="settlementRatio" name="settlementRatio" ng-model="product.settlementRatio" type="text" placeholder="" class="form-control input-md" required="">
+  <input id="settlementRatio" name="settlementRatio" ng-model="product.settlementRatio" type="number" placeholder="" class="form-control input-md" required="">
     
   </div>
 </div>
@@ -44,7 +44,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="monthlyPremium">Monthly Premium*</label>  
   <div class="col-md-4">
-  <input id="monthlyPremium" name="monthlyPremium"  ng-model="product.monthlyPremium" type="text" placeholder="" class="form-control input-md" required="">
+  <input id="monthlyPremium" name="monthlyPremium"  ng-model="product.monthlyPremium" type="number" placeholder="" class="form-control input-md" required="">
     
   </div>
 </div>
@@ -68,7 +68,7 @@
 
 <!-- Textarea -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="description">Product Description</label>
+  <label class="col-md-4 control-label" for="description">Product Description*</label>
   <div class="col-md-4">                     
     <textarea class="form-control" id="description"  ng-model="product.description"  name="description" required=""></textarea>
   </div>
@@ -76,9 +76,9 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="termYear">Term Year</label>  
+  <label class="col-md-4 control-label" for="termYear">Term Year*</label>  
   <div class="col-md-4">
-  <input id="termYear" name="termYear" type="text" ng-model="product.termYear" placeholder="" class="form-control input-md" required="">
+  <input id="termYear" name="termYear" type="number" ng-model="product.termYear" placeholder="" class="form-control input-md" required="">
     
   </div>
 </div>
@@ -96,5 +96,7 @@
 
 <div class="alert alert-{{alertType}}" ng-show="successShow">
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-  <strong>Form Submitted! </strong> {{alertMessage}}
+  <strong>Message</strong> {{alertMessage}}
 </div>
+<br><br>
+<button class="btn btn-default" ng-click="reAdd()" ng-show="showReAddButton">Add another product</button>
