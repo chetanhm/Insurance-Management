@@ -48,7 +48,7 @@ mainApp.config(function ($urlRouterProvider, $stateProvider){
 	.state('website.viewProduct', {
 		url: '/viewProduct/:productName',
 		templateUrl: 'views/website.viewProduct.html',
-		controller: 'ViewProductController'
+		controller: 'ViewProductCtrl'
 	});
            
          });
