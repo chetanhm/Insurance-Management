@@ -60,8 +60,7 @@
 									$scope.statusMessage = "Submitting form";
 									
 									alert(JSON.stringify($scope.policy));
-									
-				 					
+														
 									
 								}).error(function(response){})
 								

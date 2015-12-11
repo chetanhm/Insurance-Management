@@ -34,7 +34,6 @@ public class FileServiceImplementation implements FileService {
 		}
 	}
 
-	
 	public ResponseEntity<InputStreamResource> getFile(String fileName) throws FileNotFoundException {
 		   File f=new File("uploadedFiles/"+fileName);
 		   FileInputStream is=new FileInputStream(f);
