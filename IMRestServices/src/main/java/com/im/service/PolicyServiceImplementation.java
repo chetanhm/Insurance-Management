@@ -10,6 +10,7 @@ import com.im.collection.PolicyDetails;
 import com.im.entity.AddPolicy;
 import com.im.repository.PolicyRepository;
 import com.im.repository.ProductRepository;
+import com.im.repository.PurchasePolicyRepository;
 
 @Service
 public class PolicyServiceImplementation implements PolicyService {
@@ -41,5 +42,20 @@ public class PolicyServiceImplementation implements PolicyService {
 				monthlyPremium, policy.getAnnualIncome(), policy.getSmoker(), policy.getIncomeProofFile(),
 				policy.getResidenceProofFile(), policy.getAgeProofFile(), policy.getPhotoFile(), "pending"));
 	}
+	
+	public List<PolicyDetails> getAllPolicies() {
+		return policyRepository.findAll();
+	}
 
+	public PolicyDetails setStatus(String policyNumber, String status) {
+		// TODO Auto-generated method stub
+		PolicyDetails updatePolicyDetails = policyRepository.findByPolicyNumber(Long.parseLong(policyNumber));
+		updatePolicyDetails.setStatus(status);
+		policyRepository.save(updatePolicyDetails);
+		return updatePolicyDetails;
+	}
+
+	
+	
+	
 }

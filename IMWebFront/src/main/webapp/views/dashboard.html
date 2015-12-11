@@ -49,6 +49,9 @@
                     <li ng-show="user.userName=='admin'">
                     	<a ui-sref="dashboard.addProduct"><i class="fa fa-fw fa-edit"></i> Add Product</a>
                     </li>
+                    <li ng-show="user.userName=='admin'">
+                    	<a ui-sref="dashboard.allPolicies"><i class="fa fa-fw fa-edit"></i> All Policies</a>
+                    </li>
                         <li ng-show="user.userName!='admin'">
                     	<a ui-sref="dashboard.applyForAgent"><i class="fa fa-fw fa-edit"></i>Apply for Agent</a>
                     </li>

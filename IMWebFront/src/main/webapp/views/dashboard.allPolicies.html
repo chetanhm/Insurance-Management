@@ -1,0 +1,50 @@
+
+<div >
+<form>
+<fieldset>
+<div class="form-group">
+  <label class="col-md-4 control-label" for="status">status</label>
+  <div class="col-md-4">
+    <label class="radio-inline" for="status-0">
+      <input type="radio" name="status" id="status-0" value="approved" ng-model="status" checked="checked">
+      Approved
+    </label> 
+    <label class="radio-inline" for="status-1">
+      <input type="radio" name="status" id="status-1" ng-model="status" value="rejected" >
+      Rejected
+    </label> 
+    <label class="radio-inline" for="status-2">
+      <input type="radio" name="status" id="status-2" ng-model="status" value="pending">
+      Pending
+    </label>
+   
+   <div class=" panel panel-success" ng-repeat="policy in policyList | filter: status " ng-model="status1">
+
+  <div class="panel-body">
+   Name : {{policy.userName}}<br>
+   Product Name : {{policy.productName}}<br>
+   Policy Name : {{policy.policyName}}<br>
+   Monthly Premium : {{policy.monthlyPremium}}<br>
+   Annual Income : {{policy.annualIncome}}<br>
+   Current status : {{policy.status}}<br>
+   Age Proof : <a href="http://localhost:8080/imservices/getFile?fileName={{policy.ageProofFile}} ">Download Now </a><br>
+   Income Proof : <a href="http://localhost:8080/imservices/getFile?fileName={{policy.incomeProofFile}} ">Download Now </a><br>
+   Resident Proof : <a href="http://localhost:8080/imservices/getFile?fileName={{policy.residenceProofFile}} ">Download Now </a><br>
+   Photo File : <a href="http://localhost:8080/imservices/getFile?fileName={{policy.photoFile}} ">Download Now </a><br>	
+   	 <input type="radio" name="status" id="status-2" ng-model="status" value="approved">approved
+   	 <input type="radio" name="status" id="status-2" ng-model="status" value="rejected">rejected
+   	
+ 	<button type="button" ng-click="setStatus(status)" class="btn btn-sm btn-primary" ui-sref="">Set</button>
+   	 
+  </div>
+
+</div>
+  </div>
+</div>
+</fieldset>
+</form>
+</div>
+
+
+
+
