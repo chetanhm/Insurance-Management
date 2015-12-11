@@ -6,19 +6,19 @@
   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
     <div class=" panel panel-primary">
       <div class="panel-heading">
-        <h3 class="panel-title">{{userName}}</h3>
+        <h3 class="panel-title">{{userName}}'s policies</h3>
       </div>
       <div class="panel-body">
       
 		<table class="table table-condensed">
 		<tr class="sucess" ng-repeat="policy in listPolicies">
-		<td>{{policy.productName}} </td>
+		<td>{{policy.productName}} <i>[Policy Number {{policy.policyNumber}} ]</i></td>
 		<td>{{policy.monthlyPremium}} INR</td>
 		</tr>
 			
 		
   		<tr class="alert alert-success">
-  		<td ng-hide="status=='Fail'">Total Premium</td>
+  		<td ng-hide="status=='Fail'">Total Premium(Per month)</td>
   		<td >{{totalPremium}} </td></tr>
   		</table>
         <button type="button" class="btn btn-sm btn-success" ng-hide="status=='Fail'">&nbsp; Pay &nbsp;</button>
