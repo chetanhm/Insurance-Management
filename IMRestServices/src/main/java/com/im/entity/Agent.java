@@ -1,7 +1,7 @@
 package com.im.entity;
 public class Agent {
 private String userName;
-private String age;
+private int age;
 private String lastQualification;
 private String presentOccupation;
 private String rewards;
@@ -12,10 +12,10 @@ public String getUserName() {
 public void setUserName(String userName) {
 	this.userName = userName;
 }
-public String getAge() {
+public int getAge() {
 	return age;
 }
-public void setAge(String age) {
+public void setAge(int age) {
 	this.age = age;
 }
 public String getLastQualification() {
@@ -42,7 +42,7 @@ public String getWorkExperience() {
 public void setWorkExperience(String workExperience) {
 	this.workExperience = workExperience;
 }
-public Agent(String userName, String age, String lastQualification,
+public Agent(String userName, int age, String lastQualification,
 		String presentOccupation, String rewards, String workExperience) {
 	super();
 	this.userName = userName;

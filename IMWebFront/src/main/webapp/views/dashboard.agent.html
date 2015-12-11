@@ -21,7 +21,7 @@
 						<div class="form-group">
 							<label class="col-md-4 control-label" for="age">Age </label>
 							<div class="col-md-4">
-								<input id="lastName" name="lastName" ng-model="lastName" type="text" placeholder="" class="form-control input-md" required="">
+								<input id="lastName" name="lastName" ng-model="lastName" type="text" pattern="^([1-9][8-9])$" placeholder="" class="form-control input-md" required="">
 								
 							</div>
 						</div>
@@ -65,9 +65,6 @@
 							<label class="col-md-4 control-label" for=""></label>
 							<div class="col-md-4">
 								<input type="submit" id="" name="" class="btn btn-primary" value="Apply">
-								<!-- <div class="alert alert-info">
-  Thank you for your interest. Our Representative will be contacting you shortly. Have a nice day..! 
-  </div> -->
 							</div>
 						</div>
 					</fieldset>
@@ -79,5 +76,18 @@
 			</div>
 		</div>
 	</div>
-	
+	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+		<div class="panel panel-info">
+			  <div class="panel-heading">
+					<h3 class="panel-title">Guidelines</h3>
+			  </div>
+			  <div class="panel-body">
+					<ul class="list-group">
+						<li class="list-group-item">Please fill up correct details</li>
+						<li class="list-group-item">All fields are mandatory</li>
+						<li class="list-group-item">You should be above 18years of age to apply</li>
+					</ul>
+			  </div>
+		</div>
+	</div>
 </div>

@@ -18,7 +18,7 @@ public class AgentDetailsImplementation implements AgentDetailsService{
 		AgentDetails agentDetails=new AgentDetails(agent.getUserName(),agent.getAge(), agent.getLastQualification(),agent.getPresentOccupation(),agent.getRewards(),agent.getWorkExperience());
 		
 		
-		if(registerRepository.findByUserName(agent.getUserName()) != null)
+		if(registerRepository.findByUserName(agent.getUserName()) != null && (agent.getAge()>18))
 				{agentDetails=agentRepository.insert(agentDetails);
 				
 			return agentDetails;
