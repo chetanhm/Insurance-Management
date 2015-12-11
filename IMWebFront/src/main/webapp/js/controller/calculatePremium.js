@@ -7,6 +7,7 @@ calculatePremium.controller("CalculatePremiumCtrl",function($scope,$http,$stateP
 	var loaduser=JSON.parse(localStorage.getItem("user"));
 
 	var result=$http.get(baseUrl+"/getPremium?userName="+loaduser.userName).success(function(response){
+		$scope.userName=loaduser.userName;
 		if(response==[])
 			{
 			$scope.totalPremium="You don't have any policy enrolled."
