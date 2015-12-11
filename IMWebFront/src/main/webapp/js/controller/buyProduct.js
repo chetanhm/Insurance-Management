@@ -58,13 +58,21 @@
 									
 									$scope.policy.photoFile=response.fileName;
 									$scope.statusMessage = "Submitting form";
-									
-									alert(JSON.stringify($scope.policy));
-														
+									var userId=JSON.parse(localStorage.getItem("user")).id;
+									$scope.policy.userName=JSON.parse(localStorage.getItem("user")).userName;
+									var config = {headers:  {
+							             "_id" : userId
+									}
+									};
+									$http.post(baseUrl+"/addPolicy",$scope.policy,config).success(function(data){
+									$scope.policyNumber=data.policyNumber;
+									$scope.showSuccess=true;
+									$scope.hideForm=true;
+									});
 									
 								}).error(function(response){})
 								
-							}).error(function(){});
+							 }).error(function(){});
 							
 
 						}).error(function() {

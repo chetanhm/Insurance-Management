@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +24,7 @@ public class FileController {
 	@Autowired
 	private FileService fileService;
 
-	@RequestMapping(value = "/addFile", method = RequestMethod.POST)
+	@RequestMapping(value = "/addFile", method = RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody String addFile(@RequestParam("file") MultipartFile file) {
 
 		return fileService.addFile(file);

@@ -2,11 +2,12 @@ package com.im.service;
 
 import java.util.List;
 
-import com.im.collection.Policies;
+import com.im.collection.PolicyDetails;
+import com.im.entity.AddPolicy;
 
 public interface PolicyService  {
 	
 	public long calculatePremium(String userName);
-	public List<Policies> getRespectivePolicies(String userName);
-
+	public List<PolicyDetails> getRespectivePolicies(String userName);
+	public PolicyDetails addPolicy(AddPolicy policy);
 }

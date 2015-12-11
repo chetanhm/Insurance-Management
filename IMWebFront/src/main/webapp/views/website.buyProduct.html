@@ -1,5 +1,5 @@
 
-<form class="form-horizontal" ng-submit="apply()">
+<form class="form-horizontal" ng-submit="apply()" ng-hide="hideForm">
 	<fieldset>
 
 		<!-- Form Name -->
@@ -117,3 +117,9 @@
 
 	</fieldset>
 </form>
+	<div class="alert alert-success" ng-show="showSuccess">
+				
+					  Thank you for your interest. Our Representative will be contacting you shortly. 
+					  <br>
+					 Your policy number {{policyNumber}} (Pending status)
+				</div>
