@@ -6,11 +6,12 @@ import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.im.entity.AddPolicy;
 import com.im.service.UserDetailsService;
 
 @Component
 @Aspect
-class AdminAspect{
+class UserAspect{
 	@Autowired
 	private UserDetailsService registerService;
 	
@@ -27,5 +28,17 @@ class AdminAspect{
 		return null;
 		
 	}
-	
+	@Around("execution(* com.im.controller.PolicyController.addPolicy(..))")
+	public Object authenticateUserOnAddPolicy(ProceedingJoinPoint pjp) throws Throwable
+	{
+		String requestId=pjp.getArgs()[1].toString();
+		String userId=registerService.getUserByUsername(((AddPolicy)pjp.getArgs()[0]).getUserName()).getId();
+		if(requestId.equals(userId))
+		{
+			Object obj=pjp.proceed();
+			return obj;
+		}
+		return null;
+		
+	}
 }

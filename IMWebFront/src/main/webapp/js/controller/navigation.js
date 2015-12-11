@@ -2,7 +2,23 @@
 	'use strict';
 	
 var browse = angular.module("navigation", []);
-
+browse.directive('ngConfirmClick', [
+                                        function(){
+                                          return {
+                                            priority: -1,
+                                            restrict: 'A',
+                                            link: function(scope, element, attrs){
+                                              element.bind('click', function(e){
+                                                var message = attrs.ngConfirmClick;
+                                                if(message && !confirm(message)){
+                                                  e.stopImmediatePropagation();
+                                                  e.preventDefault();
+                                                }
+                                              });
+                                            }
+                                          }
+                                        }
+                                      ]);
 browse.controller("NavigationController",function($scope,$rootScope){	
 
 	

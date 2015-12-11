@@ -24,7 +24,7 @@ public class FileController {
 	@Autowired
 	private FileService fileService;
 
-	@RequestMapping(value = "/addFile", method = RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/addFile", method = RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE, consumes={MediaType.MULTIPART_FORM_DATA_VALUE})
 	public @ResponseBody String addFile(@RequestParam("file") MultipartFile file) {
 
 		return fileService.addFile(file);
