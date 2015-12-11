@@ -29,6 +29,7 @@ public class FileController {
 		return fileService.addFile(file);
 
 	}
+	
 
 	@RequestMapping(value = "/getFile", method = RequestMethod.GET)
 	public ResponseEntity<InputStreamResource> getFile(@RequestParam("fileName") String fileName) throws IOException {

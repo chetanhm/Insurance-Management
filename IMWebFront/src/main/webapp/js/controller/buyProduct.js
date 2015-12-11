@@ -61,7 +61,7 @@
 									
 									alert(JSON.stringify($scope.policy));
 									
-									
+				 					
 									
 								}).error(function(response){})
 								
