@@ -4,10 +4,10 @@
 var calculatePremium = angular.module("premium", []);
 
 calculatePremium.controller("CalculatePremiumCtrl",function($scope,$http,$stateParams){	
-	var loaduser=JSON.parse(localStorage.getItem("user"));
+	var loadUser=JSON.parse(localStorage.getItem("user"));
 
-	var result=$http.get(baseUrl+"/getPremium?userName="+loaduser.userName).success(function(response){
-		$scope.userName=loaduser.userName;
+	var result=$http.get(baseUrl+"/getPremium?userName="+loadUser.userName).success(function(response){
+		$scope.userName=loadUser.userName;
 		if(response==[])
 			{
 			$scope.totalPremium="You don't have any policy enrolled."
@@ -20,7 +20,7 @@ calculatePremium.controller("CalculatePremiumCtrl",function($scope,$http,$stateP
 			}
 		
 	});
-	var reslt=$http.get(baseUrl+"/getAllPolicies?userName="+loaduser.userName).success(function(response){
+	var reslt=$http.get(baseUrl+"/getAllPolicies?userName="+loadUser.userName).success(function(response){
 		$scope.listPolicies=response;
 		
 	});
