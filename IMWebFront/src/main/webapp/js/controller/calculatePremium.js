@@ -20,7 +20,7 @@ calculatePremium.controller("CalculatePremiumCtrl",function($scope,$http,$stateP
 			}
 		
 	});
-	var reslt=$http.get(baseUrl+"/policies?userName="+loadUser.userName).success(function(response){
+	var reslt=$http.get(baseUrl+"/policies/"+loadUser.userName).success(function(response){
 		$scope.listPolicies=response;
 		
 	});

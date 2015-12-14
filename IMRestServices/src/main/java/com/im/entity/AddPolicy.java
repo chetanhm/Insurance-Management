@@ -1,8 +1,5 @@
 package com.im.entity;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
 public class AddPolicy {
 
 	private String userName;

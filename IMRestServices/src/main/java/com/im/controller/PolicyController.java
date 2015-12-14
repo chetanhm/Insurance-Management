@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,14 +25,14 @@ public class PolicyController {
 	@Autowired
 	private PolicyService policyService;
 	
-	@RequestMapping(value=" /premium", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/premium", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public long getTotalPremium(@RequestParam(name="userName") String userName)
 	{
 		return policyService.calculatePremium(userName);
 	}
 	
-	@RequestMapping(value=" /policies", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
-	public List<PolicyDetails> getAllPolicies(@RequestParam(name="userName") String userName)
+	@RequestMapping(value="/policies/{userName}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public List<PolicyDetails> getAllPolicies(@PathVariable(value="userName") String userName)
 	{
 		return policyService.getRespectivePolicies(userName);
 	}

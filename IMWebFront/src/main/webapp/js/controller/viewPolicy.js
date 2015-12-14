@@ -9,11 +9,7 @@ allPolicy.controller("allPolicyCtrl",function($scope,$http)
 	{
 		$scope.policyList=response;
 	});
-	var result1=$http.post(baseUrl+"/policy").success(function(response)
-	{
-		$scope.policyData = response;
-		var Data = policyData
-	});
+
 });
 })();
 
