@@ -25,13 +25,13 @@ public class PolicyController {
 	@Autowired
 	private PolicyService policyService;
 	
-	@RequestMapping(value="/premium", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/premium/calculate", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public long getTotalPremium(@RequestParam(name="userName") String userName)
 	{
 		return policyService.calculatePremium(userName);
 	}
 	
-	@RequestMapping(value="/policies/{userName}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/policy/{userName}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<PolicyDetails> getAllPolicies(@PathVariable(value="userName") String userName)
 	{
 		return policyService.getRespectivePolicies(userName);
@@ -43,7 +43,7 @@ public class PolicyController {
 		return policyService.addPolicy(policy);
 	}
 	
-	@RequestMapping(value="/policies",method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/policy",method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<PolicyDetails> getAllPolicies()
 	{
 		return policyService.getAllPolicies();		

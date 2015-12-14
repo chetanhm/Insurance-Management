@@ -22,7 +22,7 @@ browse.controller("AddProductCtrl",function($scope,$http,$state){
 	
 	$scope.addProduct=function()
 	{
-		$http.get(baseUrl+"/productname?productName="+$scope.product.productName).success(
+		$http.get(baseUrl+"/product/"+$scope.product.productName).success(
 		function(response)
 		{
 
