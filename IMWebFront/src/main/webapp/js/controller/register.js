@@ -40,7 +40,16 @@ register.controller("RegistrationCtrl",function($scope,$http,$resource,$location
 			$http.post(baseUrl+"/imregister",dataObj).success(function(data){
 				localStorage.setItem("user", JSON.stringify(data));
 				$rootScope.$broadcast("recheck");
-				$location.path("website.home");
+				var lastLocation=localStorage.getItem("lastLocation");
+				if(lastLocation==null)
+				{
+				$location.path("website.home");	
+				}
+			else
+				{
+					$location.path(lastLocation);
+					localStorage.setItem("lastLocation", null);
+				}
 			});
 		}
 

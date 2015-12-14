@@ -19,7 +19,17 @@ register.controller("LoginCtrl",function($scope,$http,$resource,$location,$rootS
 					userDetails.password="";
 					localStorage.setItem("user", JSON.stringify(userDetails));
 					$rootScope.$broadcast("recheck");
-					$location.path("website.home");					
+					var lastLocation=localStorage.getItem("lastLocation");
+					if(lastLocation==null)
+						{
+						$location.path("website.home");	
+						}
+					else
+						{
+		
+						$location.path(lastLocation);
+						localStorage.setItem("lastLocation", null);
+						}
 					}
 				else
 					{

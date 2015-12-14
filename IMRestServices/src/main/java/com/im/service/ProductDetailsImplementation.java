@@ -1,6 +1,7 @@
 package com.im.service;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,9 +16,12 @@ public class ProductDetailsImplementation implements ProductDetailsService {
 	private ProductRepository productRepository;
 
 	public ProductDetails insertProduct(AddProduct product,String id) {
+		List<String> productTerms=product.getProductTerms();
+		while(productTerms.remove(null));
+		
 		ProductDetails productDetails = new ProductDetails(product.getProductName(), product.getBasicCoverage(),
 				product.getAccidentalBenefit(), product.getSettlementRatio(), product.getMonthlyPremium(),
-				product.getProductTerms(), product.getDescription(), product.getTermYear());
+				productTerms, product.getDescription(), product.getTermYear());
 
 		productDetails = productRepository.insert(productDetails);
 

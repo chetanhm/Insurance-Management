@@ -28,10 +28,10 @@
    Monthly Premium : {{policy.monthlyPremium}}<br>
    Annual Income : {{policy.annualIncome}}<br>
    Current status : {{policy.status}}<br>
-   Age Proof : <a href="http://localhost:8080/imservices/getFile?fileName={{policy.ageProofFile}} ">Download Now </a><br>
-   Income Proof : <a href="http://localhost:8080/imservices/getFile?fileName={{policy.incomeProofFile}} ">Download Now </a><br>
-   Resident Proof : <a href="http://localhost:8080/imservices/getFile?fileName={{policy.residenceProofFile}} ">Download Now </a><br>
-   Photo File : <a href="http://localhost:8080/imservices/getFile?fileName={{policy.photoFile}} ">Download Now </a><br>	
+   Age Proof : <a href="http://localhost:8080/imservices/files?fileName={{policy.ageProofFile}} ">Download Now </a><br>
+   Income Proof : <a href="http://localhost:8080/imservices/files?fileName={{policy.incomeProofFile}} ">Download Now </a><br>
+   Resident Proof : <a href="http://localhost:8080/imservices/files?fileName={{policy.residenceProofFile}} ">Download Now </a><br>
+   Photo File : <a href="http://localhost:8080/imservices/files?fileName={{policy.photoFile}} ">Download Now </a><br>	
    	 <input type="radio" name="status" id="status-2" ng-model="status" value="approved">approved
    	 <input type="radio" name="status" id="status-2" ng-model="status" value="rejected">rejected
    	

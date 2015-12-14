@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-@Service
+
 public class FileServiceImplementation implements FileService {
 
 	public String addFile(MultipartFile file) {

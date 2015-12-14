@@ -15,7 +15,7 @@
 			$scope.hideButton = true;
 			$scope.loaderShow = true;
 			$scope.statusMessage = "Uploading income proof...";
-			$http.post(baseUrl + "/addFile", fd, {
+			$http.post(baseUrl + "/files", fd, {
 				transformRequest : angular.identity,
 				headers : {
 					'Content-Type' : undefined
@@ -27,7 +27,7 @@
 						var fd2 = new FormData();
 						fd2.append('file', document
 								.getElementById('residenceProof').files[0]);
-						$http.post(baseUrl + "/addFile", fd2, {
+						$http.post(baseUrl + "/files", fd2, {
 							transformRequest : angular.identity,
 							headers : {
 								'Content-Type' : undefined
@@ -38,7 +38,7 @@
 							var fd3 = new FormData();
 							fd3.append('file', document
 									.getElementById('ageProof').files[0]);
-							$http.post(baseUrl + "/addFile", fd3, {
+							$http.post(baseUrl + "/files", fd3, {
 								transformRequest : angular.identity,
 								headers : {
 									'Content-Type' : undefined
@@ -49,7 +49,7 @@
 								var fd4 = new FormData();
 								fd4.append('file', document
 										.getElementById('photograph').files[0]);
-								$http.post(baseUrl + "/addFile", fd4, {
+								$http.post(baseUrl + "/files", fd4, {
 									transformRequest : angular.identity,
 									headers : {
 										'Content-Type' : undefined

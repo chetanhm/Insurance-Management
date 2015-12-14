@@ -1,3 +1,22 @@
+<style>
+.fileUpload {
+	position: relative;
+	overflow: hidden;
+	margin: 10px;
+}
+
+.fileUpload input.upload {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+}
+</style>
 <br>
 <br>
 <br>
@@ -6,139 +25,170 @@
 	 col-sm-2
 	 col-md-2
 	 col-lg-2
-	 ">
-		
-	</div>
+	 "></div>
 	<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
 				<h3 class="panel-title">Policy Application</h3>
 			</div>
 			<div class="panel-body">
-<form class="form-horizontal" ng-submit="apply()" ng-hide="hideForm">
-	<fieldset>
+				<form class="form-horizontal" ng-submit="apply()" ng-hide="hideForm">
+					<fieldset>
 
-		<!-- Form Name -->
-		<legend>Apply for Policy</legend>
+						<!-- Form Name -->
+						<legend>Apply for Policy</legend>
 
-		<!-- Text input-->
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="productName">Product</label>
-			<div class="col-md-4">
-				<input id="productName" name="productName" type="text"
-					placeholder="" ng-model="policy.productName"
-					class="form-control input-md" disabled>
+						<!-- Text input-->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="productName">Product*</label>
+							<div class="col-md-4">
+								<input id="productName" name="productName" type="text"
+									placeholder="" ng-model="policy.productName"
+									class="form-control input-md" disabled>
 
-			</div>
-		</div>
+							</div>
+						</div>
+
+
+						<!-- Select Basic -->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="employement">Employement*</label>
+							<div class="col-md-4">
+								<select id="employement" name="employement" class="form-control"
+									ng-model="policy.employement">
+									<option value="">Salaried</option>
+									<option value="">Self Employed Business</option>
+									<option value="">Self Employed Professional</option>
+									<option value="">Retired</option>
+									<option value="">Student</option>
+									<option value="">Homemaker</option>
+								</select>
+							</div>
+						</div>
+
+						<!-- Text input-->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="annualIncome">Annual
+								Income*</label>
+							<div class="col-md-4">
+								<input id="annualIncome" ng-model="policy.annualIncome"
+									type="number" placeholder="" class="form-control input-md"
+									required="">
+
+							</div>
+						</div>
+
+						<!-- Multiple Radios -->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="smoker">Do you
+								smoke? *</label>
+							<div class="col-md-4">
+								<div class="radio">
+									<label for="smoker-0"> <input type="radio"
+										ng-model="policy.smoker" id="smoker-0" value="Yes"
+										checked="checked"> Yes
+									</label>
+								</div>
+								<div class="radio">
+									<label for="smoker-1"> <input type="radio"
+										ng-model="policy.smoker" id="smoker-1" value="No"> No
+									</label>
+								</div>
+							</div>
+						</div>
+
+						<!-- File Button -->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="incomeProof">Income
+								Proof*</label>
+							<div class="col-md-6">
+
+
+								<div class="fileUpload btn btn-info">
+									<span>Select file</span> <input id="incomeProof" class="upload"
+										type="file" accept="application/pdf"
+										onchange="document.getElementById('incomeProofText').innerHTML=this.files[0].name"
+										required>
+
+								</div>
+								<span id="incomeProofText"></span>
+
+							</div>
+						</div>
+						<!-- File Button -->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="residenceProof">Residence
+								Proof*</label>
+							<div class="col-md-6">
+								<div class="fileUpload btn btn-info">
+									<span>Select file</span> <input id="residenceProof"
+										class="upload" type="file" accept="application/pdf"
+										onchange="document.getElementById('residenceProofText').innerHTML=this.files[0].name"
+										required>
+
+								</div>
+								<span id="residenceProofText"></span>
+
+							</div>
+						</div>
+
+
+
+			<!-- File Button -->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="ageProof">Age
+								Proof*</label>
+							<div class="col-md-6">
+								<div class="fileUpload btn btn-info">
+									<span>Select file</span> <input id="ageProof"
+										class="upload" type="file" accept="application/pdf"
+										onchange="document.getElementById('ageProofText').innerHTML=this.files[0].name"
+										required>
+
+								</div>
+								<span id="ageProofText"></span>
+
+							</div>
+						</div>
+
+					<!-- File Button -->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="photograph">Photograph*</label>
+							<div class="col-md-6">
+								<div class="fileUpload btn btn-info">
+									<span>Select file</span> <input id="photograph"
+										class="upload" type="file" accept="image/jpeg"
+										onchange="document.getElementById('photographText').innerHTML=this.files[0].name"
+										required>
+
+								</div>
+								<span id="photographText"></span>
+
+							</div>
+						</div>
 		
- 
-		<!-- Select Basic -->
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="employement">Employement</label>
-			<div class="col-md-4">
-				<select id="employement" name="employement" class="form-control"
-					ng-model="policy.employement">
-					<option value="">Salaried</option>
-					<option value="">Self Employed Business</option>
-					<option value="">Self Employed Professional</option>
-					<option value="">Retired</option>
-					<option value="">Student</option>
-					<option value="">Homemaker</option>
-				</select>
-			</div>
-		</div>
 
-		<!-- Text input-->
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="annualIncome">Annual
-				Income</label>
-			<div class="col-md-4">
-				<input id="annualIncome" ng-model="policy.annualIncome"
-					type="number" placeholder="" class="form-control input-md"
-					required="">
+						
+						<!-- Button -->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for=""></label>
+							<div class="col-md-4">
+								<button id="" name="" type="submit" class="btn btn-primary"
+									ng-hide="hideButton">Apply</button>
+								<img
+									src="https://i1.wp.com/cdnjs.cloudflare.com/ajax/libs/galleriffic/2.0.1/css/loader.gif"
+									ng-show="loaderShow"> {{statusMessage}}
+							</div>
+						</div>
 
-			</div>
-		</div>
+					</fieldset>
+				</form>
+				<div class="alert alert-success" ng-show="showSuccess">
 
-		<!-- Multiple Radios -->
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="smoker">Do you
-				smoke? </label>
-			<div class="col-md-4">
-				<div class="radio">
-					<label for="smoker-0"> <input type="radio"
-						ng-model="policy.smoker" id="smoker-0" value="Yes"
-						checked="checked"> Yes
-					</label>
-				</div>
-				<div class="radio">
-					<label for="smoker-1"> <input type="radio"
-						ng-model="policy.smoker" id="smoker-1" value="No"> No
-					</label>
+					Thank you for your interest. Our Representative will be contacting
+					you shortly. <br> Your policy number {{policyNumber}} (Pending
+					status)
 				</div>
 			</div>
+
 		</div>
-
-		<!-- File Button -->
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="incomeProof">Income
-				Proof</label>
-			<div class="col-md-4">
-				<input id="incomeProof" class="input-file" type="file"
-					accept="application/pdf">
-			</div>
-		</div>
-
-		<!-- File Button -->
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="residenceProof">Residence
-				Proof</label>
-			<div class="col-md-4">
-				<input id="residenceProof" fd-input class="input-file" type="file"
-					accept="application/pdf" required>
-			</div>
-		</div>
-
-		<!-- File Button -->
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="ageProof">Age
-				Proof</label>
-			<div class="col-md-4">
-				<input id="ageProof" fd-input class="input-file" type="file"
-					accept="application/pdf" required>
-			</div>
-		</div>
-
-		<!-- File Button -->
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="photograph">Photograph</label>
-			<div class="col-md-4">
-				<input id="photograph" fd-input class="input-file" type="file"
-					accept="image/jpeg" required>
-			</div>
-		</div>
-
-		<!-- Button -->
-		<div class="form-group">
-			<label class="col-md-4 control-label" for=""></label>
-			<div class="col-md-4">
-				<button id="" name="" type="submit" class="btn btn-primary"
-					ng-hide="hideButton">Apply</button>
-				<img
-					src="https://i1.wp.com/cdnjs.cloudflare.com/ajax/libs/galleriffic/2.0.1/css/loader.gif"
-					ng-show="loaderShow"> {{statusMessage}}
-			</div>
-		</div>
-
-	</fieldset>
-</form>
-	<div class="alert alert-success" ng-show="showSuccess">
-				
-					  Thank you for your interest. Our Representative will be contacting you shortly. 
-					  <br>
-					 Your policy number {{policyNumber}} (Pending status)
-				</div>
-	</div>
-
-</div>
