@@ -37,7 +37,7 @@ register.controller("RegistrationCtrl",function($scope,$http,$resource,$location
 		}
 	else
 		{
-			$http.post(baseUrl+"/imregister",dataObj).success(function(data){
+			$http.post(baseUrl+"/user",dataObj).success(function(data){
 				localStorage.setItem("user", JSON.stringify(data));
 				$rootScope.$broadcast("recheck");
 				var lastLocation=localStorage.getItem("lastLocation");

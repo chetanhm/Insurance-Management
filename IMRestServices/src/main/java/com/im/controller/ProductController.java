@@ -32,7 +32,7 @@ public class ProductController {
 	 * @param 
 	 * @return ProductDetails Object given by MongoDB
 	 */
-	@RequestMapping(value = "/addProduct",consumes=MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE,method=RequestMethod.POST)
+	@RequestMapping(value = "/product",consumes=MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE,method=RequestMethod.POST)
 	public @ResponseBody ProductDetails addProduct(@RequestBody AddProduct product,@RequestHeader(value="_id") String authenticationId) {
 			
 			return productDetailService.insertProduct(product,authenticationId);
@@ -43,7 +43,7 @@ public class ProductController {
 	 * @param productName
 	 * @return true of false
 	 */
-	@RequestMapping(value="/checkProductName",produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/productname",produces=MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody boolean checkProductName(@RequestParam(name="productName") String productName)
 	{
 		return productDetailService.ifProductPresent(productName);
@@ -52,7 +52,7 @@ public class ProductController {
 	/**
 	 * This method will list all the products present in database
 	 * */
-	@RequestMapping(value="/allProducts",method= RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/products",method= RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody List<ProductDetails> getAllProducts()
 	{
 		return productDetailService.getProducts();
@@ -61,7 +61,7 @@ public class ProductController {
 	 * This method will view the detailed description of a particular product
 	 * */
 
-	@RequestMapping(value="/viewProduct",method= RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/product",method= RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ProductDetails viewProductDetails(@RequestParam(name="productName") String productName)
 	{
 		return productDetailService.getProductByName(productName);

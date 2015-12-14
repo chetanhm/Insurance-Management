@@ -21,7 +21,7 @@ public class AgentController {
 	@Autowired
 	private AgentDetailsService agentService;
 
-	@RequestMapping(value = "/becomeAgent", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/agent", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody AgentDetails apply(@RequestBody Agent agent) {
 		return agentService.addUserAsAgent(agent);				 
 		

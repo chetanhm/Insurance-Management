@@ -64,7 +64,7 @@
 							             "_id" : userId
 									}
 									};
-									$http.post(baseUrl+"/addPolicy",$scope.policy,config).success(function(data){
+									$http.post(baseUrl+"/policy",$scope.policy,config).success(function(data){
 									$scope.policyNumber=data.policyNumber;
 									$scope.showSuccess=true;
 									$scope.hideForm=true;

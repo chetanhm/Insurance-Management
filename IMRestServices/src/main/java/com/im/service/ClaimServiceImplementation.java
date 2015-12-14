@@ -22,10 +22,7 @@ public class ClaimServiceImplementation implements ClaimServices{
 	private ClaimRepository claimRepository;
 
 	public ClaimDetails addClaims(Claim claim) {
-		ClaimDetails claimDetails=new ClaimDetails(
-				claim.getClaimAmount(), claim.getClaimDocuments(), claim.getClaimType(), 
-				claim.getPolicyName(), claim.getClaimStatus(), claim.getAprrovedClaimAmount());
-		return claimRepository.insert(claimDetails);
+return null;
 		}
 	
 

@@ -20,7 +20,7 @@ agent.controller("AgentCtrl",function($scope,$http,$resource,$location,$rootScop
 			userName : loaduser.userName
 			
 	};
-	var result=$http.post(baseUrl+"/becomeAgent",dataObj).success(function(response){
+	var result=$http.post(baseUrl+"/agent",dataObj).success(function(response){
 	$scope.hideForm=true;
 	$scope.showSuccess=true;
 		

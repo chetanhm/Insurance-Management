@@ -22,7 +22,7 @@ browse.controller("AddProductCtrl",function($scope,$http,$state){
 	
 	$scope.addProduct=function()
 	{
-		$http.get(baseUrl+"/checkProductName?productName="+$scope.product.productName).success(
+		$http.get(baseUrl+"/productname?productName="+$scope.product.productName).success(
 		function(response)
 		{
 
@@ -34,7 +34,7 @@ browse.controller("AddProductCtrl",function($scope,$http,$state){
 			             "_id" : adminId
 					}
 					};
-					$http.post(baseUrl+"/addProduct",$scope.product,config).success(function(data){
+					$http.post(baseUrl+"/product",$scope.product,config).success(function(data){
 					
 						if(data.productName!=$scope.product.productName)
 							{

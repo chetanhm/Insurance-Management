@@ -24,31 +24,31 @@ public class PolicyController {
 	@Autowired
 	private PolicyService policyService;
 	
-	@RequestMapping(value=" /getPremium", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value=" /premium", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public long getTotalPremium(@RequestParam(name="userName") String userName)
 	{
 		return policyService.calculatePremium(userName);
 	}
 	
-	@RequestMapping(value=" /getAllPolicies", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value=" /policies", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<PolicyDetails> getAllPolicies(@RequestParam(name="userName") String userName)
 	{
 		return policyService.getRespectivePolicies(userName);
 	}
 
-	@RequestMapping(value="/addPolicy", method=RequestMethod.POST)
+	@RequestMapping(value="/policy", method=RequestMethod.POST)
 	public PolicyDetails addPolicy(@RequestBody AddPolicy policy,@RequestHeader(name="_id") String id)
 	{
 		return policyService.addPolicy(policy);
 	}
 	
-	@RequestMapping(value="/allPolicies",method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/policies",method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<PolicyDetails> getAllPolicies()
 	{
 		return policyService.getAllPolicies();		
 	}
 	
-	@RequestMapping(value="/Status", method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE,consumes=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/policy", method=RequestMethod.PUT,produces=MediaType.APPLICATION_JSON_VALUE,consumes=MediaType.APPLICATION_JSON_VALUE)
 	public PolicyDetails setStatus(@RequestParam(name="policyNumber") String policyNumber ,@RequestParam(name="status") String status)
 	{
 		return policyService.setStatus(policyNumber,status);
