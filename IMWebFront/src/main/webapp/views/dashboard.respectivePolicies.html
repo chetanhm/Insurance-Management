@@ -1,0 +1,25 @@
+
+
+<form>
+
+<div class="form-group">
+  <div class="col-md-4">  
+   <h3 class="panel-title">{{userName}}'s policies</h3>
+   <div class="panel panel-success" ng-repeat="policy in listPolicies">
+  <div class="panel-body">
+   Policy Name : {{policy.policyName}}<br>
+   Policy Number : {{policy.policyNumber}}<br>
+   Monthly Premium : {{policy.monthlyPremium}}<br>
+   Current status : {{policy.status}}<br>
+   	 
+  </div>
+
+</div>
+  </div>
+</div>
+
+</form>
+
+
+
+

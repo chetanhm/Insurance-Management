@@ -48,10 +48,10 @@ public class PolicyController {
 		return policyService.getAllPolicies();		
 	}
 	
-	@RequestMapping(value="/setStatus", method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE,consumes=MediaType.APPLICATION_JSON_VALUE)
-	public PolicyDetails setStatus(@RequestParam("name=policyNumber") String policyNumber ,@RequestParam(name="status") String status)
+	@RequestMapping(value="/Status", method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE,consumes=MediaType.APPLICATION_JSON_VALUE)
+	public PolicyDetails setStatus(@RequestParam(name="policyNumber") String policyNumber ,@RequestParam(name="status") String status)
 	{
 		return policyService.setStatus(policyNumber,status);
 	}
-
+	
 }
