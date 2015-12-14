@@ -51,7 +51,7 @@ public class UserController {
 	}
 
 	
-	@RequestMapping(value = "/userNameAvailable", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/user/check", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody String usernameAvailable(
 			@RequestParam(name = "userName") String username,
 			@RequestParam(name = "email") String email) {

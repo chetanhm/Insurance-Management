@@ -24,14 +24,14 @@ public class FileController {
 	@Autowired
 	private FileService fileService;
 
-	@RequestMapping(value = "/files", method = RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE, consumes={MediaType.MULTIPART_FORM_DATA_VALUE})
+	@RequestMapping(value = "/file", method = RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE, consumes={MediaType.MULTIPART_FORM_DATA_VALUE})
 	public @ResponseBody String addFile(@RequestParam("file") MultipartFile file) throws IOException {
 
 		return fileService.addFile(file);
 
 	}
 
-	@RequestMapping(value = "/files", method = RequestMethod.GET)
+	@RequestMapping(value = "/file", method = RequestMethod.GET)
 	public ResponseEntity<?> getFile(@RequestParam("fileName") String fileName) throws IOException {
 		return fileService.getFile(fileName);
 	}

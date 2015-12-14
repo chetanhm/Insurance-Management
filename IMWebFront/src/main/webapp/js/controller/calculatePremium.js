@@ -6,7 +6,7 @@ var calculatePremium = angular.module("premium", []);
 calculatePremium.controller("CalculatePremiumCtrl",function($scope,$http,$stateParams){	
 	var loadUser=JSON.parse(localStorage.getItem("user"));
 
-	var result=$http.get(baseUrl+"/premium?userName="+loadUser.userName).success(function(response){
+	var result=$http.get(baseUrl+"/premium/calculate?userName="+loadUser.userName).success(function(response){
 		$scope.userName=loadUser.userName;
 		if(response==[])
 			{
@@ -20,7 +20,7 @@ calculatePremium.controller("CalculatePremiumCtrl",function($scope,$http,$stateP
 			}
 		
 	});
-	var reslt=$http.get(baseUrl+"/policies/"+loadUser.userName).success(function(response){
+	var reslt=$http.get(baseUrl+"/policy/"+loadUser.userName).success(function(response){
 		$scope.listPolicies=response;
 		
 	});

@@ -28,7 +28,7 @@ public class ProductDetailsImplementation implements ProductDetailsService {
 		return productDetails;
 	}
 
-	public boolean ifProductPresent(String name) {
+	public boolean isProductPresent(String name) {
 		
 		ProductDetails productDetails=productRepository.findByName(name);
 		if(productDetails!=null)

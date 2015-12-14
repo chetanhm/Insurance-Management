@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,16 +44,16 @@ public class ProductController {
 	 * @param productName
 	 * @return true of false
 	 */
-	@RequestMapping(value="/productname",produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/product/check",produces=MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody boolean checkProductName(@RequestParam(name="productName") String productName)
 	{
-		return productDetailService.ifProductPresent(productName);
+		return productDetailService.isProductPresent(productName);
 	}
 	
 	/**
 	 * This method will list all the products present in database
 	 * */
-	@RequestMapping(value="/products",method= RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/product",method= RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody List<ProductDetails> getAllProducts()
 	{
 		return productDetailService.getProducts();
@@ -61,8 +62,8 @@ public class ProductController {
 	 * This method will view the detailed description of a particular product
 	 * */
 
-	@RequestMapping(value="/product",method= RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ProductDetails viewProductDetails(@RequestParam(name="productName") String productName)
+	@RequestMapping(value="/product/{productName}",method= RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody ProductDetails viewProductDetails(@PathVariable(value="productName") String productName)
 	{
 		return productDetailService.getProductByName(productName);
 	}

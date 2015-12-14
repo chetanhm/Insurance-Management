@@ -21,7 +21,7 @@ register.controller("RegistrationCtrl",function($scope,$http,$resource,$location
 	};
 	$scope.errorShow=false;
 	
-	var result=$http.get(baseUrl+"/userNameAvailable?userName=" + $scope.userName + "&email=" + $scope.email).success(function(response){
+	var result=$http.get(baseUrl+"/user/check?userName=" + $scope.userName + "&email=" + $scope.email).success(function(response){
 
 	if(response.status!="ok")
 		{
