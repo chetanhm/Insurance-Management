@@ -4,7 +4,7 @@ var baseUrl = "http://localhost:8080/imservices";
 	var mainApp = angular.module("insuranceApp", [ 'ui.router', 'ngCookies',
 			'ui.bootstrap', 'register', 'login', 'ngResource', 'browse',
 			'viewProduct', 'navigation', 'logout', 'adminproduct', 'premium',
-			'agent', 'buyProduct', 'allPolicies', 'policy' ]);
+			'agent', 'buyProduct', 'allPolicies', 'policy' ,'disburse']);
 
 	mainApp.config(function($urlRouterProvider, $stateProvider) {
 
@@ -97,6 +97,13 @@ var baseUrl = "http://localhost:8080/imservices";
 			url : '/respectivePolicies',
 			templateUrl : 'views/dashboard.respectivePolicies.html',
 			controller : 'respectivePoliciesCtrl'
+		});
+		
+		
+		$stateProvider.state('dashboard.disburse', {
+			url : '/disburse',
+			templateUrl : 'views/dashboard.disburse.html',
+			controller : 'DisburseCtrl'
 		});
 
 	});

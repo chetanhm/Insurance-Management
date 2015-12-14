@@ -1,0 +1,36 @@
+<br>
+<div class="row">
+<div class="col-xs-6 col-sm-6 col-md-6 col-lg-12" >
+
+<div class="panel panel-primary">  
+   <div class="panel-heading">
+        <h3 class="panel-title">{{userName}}</h3>
+      </div>         
+      <br>
+  <table class="table table-hover" >
+    <thead>
+      <tr class="sucess">
+        <th>Policy Name</th>
+        <th>Policy Number</th>
+        <th>Claim Amount</th>
+        <th>Claim Type</th>
+        <th>Claim Status</th>
+        <th>Sanctioned amount</th>
+        <th>Date of claim</th>
+      </tr>
+    </thead>
+   
+      <tr ng-repeat="claim in claimDetailsList">
+      <td>{{claim.policyName}} </td>
+       <td>{{claim.policyNumber}} </td>
+       <td>{{claim.claimAmount}} INR</td>
+      <td>{{claim.claimType}} </td>
+      <td>{{claim.claimStatus}}</td>
+      <td>{{claim.aprrovedClaimAmount}} INR</td>
+      <td>{{claim.dateOfClaim | date:'MM/dd/yyyy'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>	
+</div>
