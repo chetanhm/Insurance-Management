@@ -25,13 +25,13 @@ public class PolicyController {
 	@Autowired
 	private PolicyService policyService;
 	
-	@RequestMapping(value="/premium/calculate", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/premium", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public long getTotalPremium(@RequestParam(name="userName") String userName)
 	{
 		return policyService.calculatePremium(userName);
 	}
 	
-	@RequestMapping(value="/policy/{userName}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/policies/{userName}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<PolicyDetails> getAllPolicies(@PathVariable(value="userName") String userName)
 	{
 		return policyService.getRespectivePolicies(userName);
@@ -43,15 +43,17 @@ public class PolicyController {
 		return policyService.addPolicy(policy);
 	}
 	
-	@RequestMapping(value="/policy",method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/policies",method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<PolicyDetails> getAllPolicies()
 	{
 		return policyService.getAllPolicies();		
 	}
 	
-	@RequestMapping(value="/policy", method=RequestMethod.PUT,produces=MediaType.APPLICATION_JSON_VALUE,consumes=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/policy", method=RequestMethod.PUT)
 	public PolicyDetails setStatus(@RequestParam(name="policyNumber") String policyNumber ,@RequestParam(name="status") String status)
 	{
+		System.out.println("policy Number"+policyNumber);
+		System.out.println("status"+status);
 		return policyService.setStatus(policyNumber,status);
 	}
 	

@@ -21,6 +21,7 @@
    <div class="panel panel-success" ng-repeat="policy in policyList | filter: status " ng-model="status1">
 
   <div class="panel-body">
+  
    Name : {{policy.userName}}<br>
    Smoker : {{policy.smoker}}<br>
    Product Name : {{policy.productName}}<br>
@@ -28,14 +29,14 @@
    Monthly Premium : {{policy.monthlyPremium}}<br>
    Annual Income : {{policy.annualIncome}}<br>
    Current status : {{policy.status}}<br>
-   Age Proof : <a href="http://localhost:8080/imservices/file?fileName={{policy.ageProofFile}} ">Download Now </a><br>
-   Income Proof : <a href="http://localhost:8080/imservices/file?fileName={{policy.incomeProofFile}} ">Download Now </a><br>
-   Resident Proof : <a href="http://localhost:8080/imservices/file?fileName={{policy.residenceProofFile}} ">Download Now </a><br>
-   Photo File : <a href="http://localhost:8080/imservices/file?fileName={{policy.photoFile}} ">Download Now </a><br>	
+   Age Proof : <a href="http://localhost:8080/imservices/files?fileName={{policy.ageProofFile}} ">Download Now </a><br>
+   Income Proof : <a href="http://localhost:8080/imservices/files?fileName={{policy.incomeProofFile}} ">Download Now </a><br>
+   Resident Proof : <a href="http://localhost:8080/imservices/files?fileName={{policy.residenceProofFile}} ">Download Now </a><br>
+   Photo File : <a href="http://localhost:8080/imservices/files?fileName={{policy.photoFile}} ">Download Now </a><br>	
    	 <input type="radio" name="status" id="status-2" ng-model="status" value="approved">approved
    	 <input type="radio" name="status" id="status-2" ng-model="status" value="rejected">rejected
    	
- 	<button type="button" ng-click="setStatus(status)" class="btn btn-sm btn-primary" ui-sref="">Set</button>
+ 	<button type="button" ng-click="setStatus(status,policy.policyNumber)" class="btn btn-sm btn-primary">Set</button>
    	 
   </div>
 

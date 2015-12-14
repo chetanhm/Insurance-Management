@@ -1,25 +1,31 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div  class=" panel panel-primary">
+      <div class="panel-heading">
+   <h3 class="panel-title">{{user}}</h3>
+    </div>
+      <div ng-hide="status=='Fail'" class="panel-body">
+      
+	<table class="table table-condensed">
+		<tr class="sucess" >
+			<th>Policy Name</th>
+			<th>Policy Number</th>
+			<th>Monthly Premium</th>
+			<th>Current Status</th>
+		</tr>
+		<tr ng-repeat="policy in listPolicies">
+			<td>{{policy.policyName}}</td>
+			<td>{{policy.policyNumber}}</td>
+			<td>{{policy.monthlyPremium}}</td>
+			<td>{{policy.status}}</td>
+			<td><button type="button"  class="btn btn-sm btn-success" ng-hide="status=='Fail'">&nbsp; View Details &nbsp;</button></td>
+		</tr>
+	</table>
+     
+      </div>
+      </div>
 
-
-<form>
-
-<div class="form-group">
-  <div class="col-md-4">  
-   <h3 class="panel-title">{{userName}}'s policies</h3>
-   <div class="panel panel-success" ng-repeat="policy in listPolicies">
-  <div class="panel-body">
-   Policy Name : {{policy.policyName}}<br>
-   Policy Number : {{policy.policyNumber}}<br>
-   Monthly Premium : {{policy.monthlyPremium}}<br>
-   Current status : {{policy.status}}<br>
-   	 
+    </div>
   </div>
-
-</div>
-  </div>
-</div>
-
-</form>
-
-
-
-
+   
+ 

@@ -49,7 +49,7 @@ public class PolicyServiceImplementation implements PolicyService {
 
 	public PolicyDetails setStatus(String policyNumber, String status) {
 		// TODO Auto-generated method stub
-		PolicyDetails updatePolicyDetails = policyRepository.findOne(policyNumber);
+		PolicyDetails updatePolicyDetails = policyRepository.findByPolicyNumber(Long.parseLong(policyNumber));
 		updatePolicyDetails.setStatus(status);
 		policyRepository.save(updatePolicyDetails);
 		return updatePolicyDetails;
