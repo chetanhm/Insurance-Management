@@ -1,6 +1,9 @@
 package com.im.collection;
 
+import java.util.Date;
+
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "claimDetails")
@@ -13,7 +16,9 @@ public class ClaimDetails {
 	private String policyName;
 	private String claimStatus;
 	private long aprrovedClaimAmount;
-
+	private String userName;
+	private Date dateOfClaim;
+	private String policyNumber;
 	
 	
 	public String getId() {
@@ -58,16 +63,40 @@ public class ClaimDetails {
 	public void setAprrovedClaimAmount(long aprrovedClaimAmount) {
 		this.aprrovedClaimAmount = aprrovedClaimAmount;
 	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public Date getDateOfClaim() {
+		return dateOfClaim;
+	}
+	public void setDateOfClaim(Date dateOfClaim) {
+		this.dateOfClaim = dateOfClaim;
+	}
+	public String getPolicyNumber() {
+		return policyNumber;
+	}
+	public void setPolicyNumber(String policyNumber) {
+		this.policyNumber = policyNumber;
+	}
+	
+	
+	
 	public ClaimDetails( long claimAmount, String claimDocuments, String claimType, String policyName,
-			String claimStatus, long aprrovedClaimAmount) {
-		super();
+			String claimStatus, long aprrovedClaimAmount, String userName, Date dateOfClaim, String policyNumber) {
 		this.claimAmount = claimAmount;
-		this.claimDocuments=claimDocuments;
+		this.claimDocuments = claimDocuments;
 		this.claimType = claimType;
 		this.policyName = policyName;
 		this.claimStatus = claimStatus;
 		this.aprrovedClaimAmount = aprrovedClaimAmount;
+		this.userName = userName;
+		this.dateOfClaim = dateOfClaim;
+		this.policyNumber = policyNumber;
 	}
+
 	@Override
 	public String toString() {
 		return "ClaimDetails [id=" + id + ", claimAmount=" + claimAmount + ", claimDocuments=" + claimDocuments
