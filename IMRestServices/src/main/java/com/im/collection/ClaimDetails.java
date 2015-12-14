@@ -8,7 +8,7 @@ public class ClaimDetails {
 	@Id
 	private String id;
 	private long claimAmount;
-	private String ClaimDocuments;
+	private String claimDocuments;
 	private String claimType;
 	private String policyName;
 	private String claimStatus;
@@ -29,10 +29,10 @@ public class ClaimDetails {
 		this.claimAmount = claimAmount;
 	}
 	public String getClaimDocuments() {
-		return ClaimDocuments;
+		return claimDocuments;
 	}
 	public void setClaimDocuments(String claimDocuments) {
-		ClaimDocuments = claimDocuments;
+		this.claimDocuments = claimDocuments;
 	}
 	public String getClaimType() {
 		return claimType;
@@ -58,12 +58,11 @@ public class ClaimDetails {
 	public void setAprrovedClaimAmount(long aprrovedClaimAmount) {
 		this.aprrovedClaimAmount = aprrovedClaimAmount;
 	}
-	public ClaimDetails(String id, long claimAmount, String claimDocuments, String claimType, String policyName,
+	public ClaimDetails( long claimAmount, String claimDocuments, String claimType, String policyName,
 			String claimStatus, long aprrovedClaimAmount) {
 		super();
-		this.id = id;
 		this.claimAmount = claimAmount;
-		ClaimDocuments = claimDocuments;
+		this.claimDocuments=claimDocuments;
 		this.claimType = claimType;
 		this.policyName = policyName;
 		this.claimStatus = claimStatus;
@@ -71,7 +70,7 @@ public class ClaimDetails {
 	}
 	@Override
 	public String toString() {
-		return "ClaimDetails [id=" + id + ", claimAmount=" + claimAmount + ", ClaimDocuments=" + ClaimDocuments
+		return "ClaimDetails [id=" + id + ", claimAmount=" + claimAmount + ", claimDocuments=" + claimDocuments
 				+ ", claimType=" + claimType + ", policyName=" + policyName + ", claimStatus=" + claimStatus
 				+ ", aprrovedClaimAmount=" + aprrovedClaimAmount + "]";
 	}

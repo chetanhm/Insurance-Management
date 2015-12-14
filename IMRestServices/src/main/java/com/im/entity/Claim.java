@@ -2,7 +2,7 @@ package com.im.entity;
 
 public class Claim {
 private long claimAmount;
-private String ClaimDocuments;
+private String claimDocuments;
 private String claimType;
 private String policyName;
 private String claimStatus;
@@ -21,11 +21,11 @@ public void setClaimAmount(long claimAmount) {
 }
 
 public String getClaimDocuments() {
-	return ClaimDocuments;
+	return claimDocuments;
 }
 
 public void setClaimDocuments(String claimDocuments) {
-	ClaimDocuments = claimDocuments;
+	this.claimDocuments= claimDocuments;
 }
 
 public String getClaimType() {
@@ -64,7 +64,7 @@ public Claim(long claimAmount, String claimDocuments, String claimType, String p
 		long aprrovedClaimAmount) {
 	super();
 	this.claimAmount = claimAmount;
-	ClaimDocuments = claimDocuments;
+	this.claimDocuments=claimDocuments;
 	this.claimType = claimType;
 	this.policyName = policyName;
 	this.claimStatus = claimStatus;
@@ -73,7 +73,7 @@ public Claim(long claimAmount, String claimDocuments, String claimType, String p
 
 @Override
 public String toString() {
-	return "Claim [claimAmount=" + claimAmount + ", ClaimDocuments=" + ClaimDocuments + ", claimType=" + claimType
+	return "Claim [claimAmount=" + claimAmount + ", ClaimDocuments=" + claimDocuments + ", claimType=" + claimType
 			+ ", policyName=" + policyName + ", claimStatus=" + claimStatus + ", aprrovedClaimAmount="
 			+ aprrovedClaimAmount + "]";
 }
