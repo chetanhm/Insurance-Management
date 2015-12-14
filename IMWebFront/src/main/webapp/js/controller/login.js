@@ -5,7 +5,7 @@
 	
 var register = angular.module("login", []);
 
-register.controller("LoginCtrl",function($scope,$http,$resource,$location,$rootScope){
+register.controller("LoginCtrl",function($scope,$http,$resource,$location,$rootScope,toaster){
 	
 	
 	$scope.submit=function(){
@@ -26,8 +26,9 @@ register.controller("LoginCtrl",function($scope,$http,$resource,$location,$rootS
 						}
 					else
 						{
-		
+					    toaster.pop('info', "Logged In", "You are successfully logged in!");
 						$location.path(lastLocation);
+
 						localStorage.setItem("lastLocation", null);
 						}
 					}

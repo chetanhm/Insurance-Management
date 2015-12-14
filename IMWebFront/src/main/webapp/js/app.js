@@ -4,7 +4,7 @@ var baseUrl = "http://localhost:8080/imservices";
 	var mainApp = angular.module("insuranceApp", [ 'ui.router', 'ngCookies',
 			'ui.bootstrap', 'register', 'login', 'ngResource', 'browse',
 			'viewProduct', 'navigation', 'logout', 'adminproduct', 'premium',
-			'agent', 'buyProduct', 'allPolicies', 'policy' ,'disburse']);
+			'agent', 'buyProduct', 'allPolicies', 'policy' ,'disburse','ngAnimate','toaster']);
 
 	mainApp.config(function($urlRouterProvider, $stateProvider) {
 

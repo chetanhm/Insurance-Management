@@ -33,6 +33,7 @@ browse.controller("NavigationController",function($scope,$rootScope){
 					$scope.hideDashboard=false;
 					var loaduser=JSON.parse(localStorage.getItem("user"));
 					$scope.welcomeMessage="Welcome" + loaduser.firstName;
+					$scope.userName=loaduser.userName;
 				}
 			else
 				{

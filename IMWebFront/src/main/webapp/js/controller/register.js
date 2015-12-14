@@ -5,7 +5,7 @@
 	
 var register = angular.module("register", []);
 
-register.controller("RegistrationCtrl",function($scope,$http,$resource,$location,$rootScope){
+register.controller("RegistrationCtrl",function($scope,$http,$resource,$location,$rootScope,toaster){
 	
 	$scope.submit=function(){
 	var dataObj = {
@@ -41,6 +41,7 @@ register.controller("RegistrationCtrl",function($scope,$http,$resource,$location
 				localStorage.setItem("user", JSON.stringify(data));
 				$rootScope.$broadcast("recheck");
 				var lastLocation=localStorage.getItem("lastLocation");
+			    toaster.pop('info', "Notification", "You have successfully registered and logged in !");
 				if(lastLocation==null)
 				{
 				$location.path("website.home");	
@@ -50,6 +51,7 @@ register.controller("RegistrationCtrl",function($scope,$http,$resource,$location
 					$location.path(lastLocation);
 					localStorage.setItem("lastLocation", null);
 				}
+			
 			});
 		}
 
