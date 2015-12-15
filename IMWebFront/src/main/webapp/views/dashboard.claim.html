@@ -28,6 +28,23 @@
 	background-color: rgb(217, 83, 79);
 	border-color: rgb(212, 63, 58);
 }
+.fileUpload {
+	position: relative;
+	overflow: hidden;
+	margin: 10px;
+}
+
+.fileUpload input.upload {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+}
 </style>
 
 <br><br><br>
@@ -97,7 +114,7 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="textinput" required="">Claim Amount *</label>  
+  <label class="col-md-4 control-label" for="claimAmount" required="">Claim Amount *</label>  
   <div class="col-md-4">
   <div class="input-group">
   <input type="text" id="claimAmount" name="claimAmount" ng-model="claimAmount"  placeholder="Enter amount you claim" class="form-control input-md" ng-pattern="/^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/" required >
@@ -121,10 +138,11 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="filebutton">Upload Document *</label>
   <div class="col-md-4">
-    <input id="filebutton" name="filebutton" class="upload" 
+  <div class="fileUpload btn btn-info">
+  <span>Select file</span>  <input id="filebutton" name="filebutton" class="upload" 
 										type="file" accept="application/pdf"
 										onchange="document.getElementById('filebutton').innerHTML=this.files[0].name" required="">
-  </div>
+  </div></div>
 </div>
 
 <!-- Button -->
