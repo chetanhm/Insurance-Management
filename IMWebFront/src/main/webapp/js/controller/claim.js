@@ -23,8 +23,14 @@
 				}
 			}).success(
 					function(response) {
-						
-						
+						alert($scope.claimAmount+"---" + ($scope.claimAmount+10));
+						if($scope.claimAmount==undefined)
+							{
+							alert("Re enter the amount with positive number");
+							
+							}
+						else
+							{
 						var date=new Date();
 						var dataObj = {
 								userName : loadUser.userName,
@@ -43,6 +49,7 @@
 							$scope.hideForm=true;
 							
 						});
+							}
 					});
 		}
 		
