@@ -28,11 +28,11 @@ register.controller("RegistrationCtrl",function($scope,$http,$resource,$location
 			$scope.errorShow=true;
 			if(response.status=="userName-fail")
 				{
-				$scope.errorMsg="UserName already present";
+				$scope.errorMsgUserName="UserName already present";
 				}
 			else
 				{
-				$scope.errorMsg="Email already present";
+				$scope.errorMsgEmail="Email already present";
 				}
 		}
 	else
@@ -59,6 +59,34 @@ register.controller("RegistrationCtrl",function($scope,$http,$resource,$location
 
 
 	
+	}
+	
+	
+	$scope.checkUsername=function()
+	{
+		var result=$http.get(baseUrl+"/user/check?userName=" + $scope.userName + "&email=" + $scope.email).success(function(response){
+			if(response.status!="ok")
+			{
+				$scope.errorShow=true;
+				if(response.status=="userName-fail")
+					{
+					$scope.userNameOk=false;
+					$scope.errorMsg="UserName already present";
+					}
+				else
+					{
+					$scope.emailOk=false;
+					$scope.errorMsg="Email already present";
+					}
+			}
+		else
+		{
+			$scope.emailOk=true;
+			$scope.userNameOk=true;
+			$scope.errorShow=false;
+		}
+		
+		}).error(function(response){});
 	}
 });
 

@@ -235,11 +235,11 @@
 								<div class="input-group">
 									<input id="email" name="email" ng-model="email"
 										ng-minlength="3" ng-maxlength="20" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/"
-										type="text" laceholder="" class="form-control input-md"
+										type="text" ng-change="checkUsername();"  laceholder="" class="form-control input-md"
 										required=""> <span class="input-group-addon none"
-										ng-class="{ 'danger' : userForm.email.$touched && userForm.email.$invalid , 'success' : userForm.email.$touched &&  !userForm.email.$invalid , 'block': userForm.email.$touched }">
+										ng-class="{ 'danger' : userForm.email.$touched && ( userForm.email.$invalid || !emailOk ), 'success' : userForm.email.$touched &&  !userForm.email.$invalid  && emailOk, 'block': userForm.email.$touched }">
 										<span class="glyphicon "
-										ng-class="{ 'glyphicon-remove' : userForm.email.$touched && userForm.email.$invalid , 'glyphicon-ok' : userForm.email.$touched &&  !userForm.email.$invalid}">
+										ng-class="{ 'glyphicon-remove' : userForm.email.$touched && (userForm.email.$invalid || !emailOk) , 'glyphicon-ok' : userForm.email.$touched &&  !userForm.email.$invalid && emailOk}">
 									</span>
 								</div>
 								<div class="help-block" ng-messages="userForm.email.$error"
@@ -247,6 +247,9 @@
 									<p ng-message="required">Email address is required.</p>
 									<p ng-message="pattern">Should be a valid email address.</p>
 
+								</div>
+								<div class="help-block" ng-show="!emailOk" >
+								<p ng-show="errorShow"><font color="red">{{errorMsgEmail}}</font></p>
 								</div>
 							</div>
 						</div>
@@ -257,13 +260,13 @@
 							<label class="col-md-4 control-label" for="userName">UserName*</label>
 							<div class="col-md-4">
 								<div class="input-group">
-									<input id="userName" name="userName" ng-model="userName"
+									<input id="userName" name="userName" ng-change="checkUsername();" ng-model="userName"
 										ng-minlength="3" ng-maxlength="20" ng-pattern="/^[a-zA-Z]+$/"
 										type="text" laceholder="" class="form-control input-md"
 										required=""> <span class="input-group-addon none"
-										ng-class="{ 'danger' : userForm.userName.$touched && userForm.userName.$invalid , 'success' : userForm.userName.$touched &&  !userForm.userName.$invalid , 'block': userForm.userName.$touched }">
+										ng-class="{ 'danger' : userForm.userName.$touched && (userForm.userName.$invalid || !userNameOk)  , 'success' : userForm.userName.$touched &&  !userForm.userName.$invalid && userNameOk , 'block': userForm.userName.$touched }">
 										<span class="glyphicon "
-										ng-class="{ 'glyphicon-remove' : userForm.userName.$touched && userForm.userName.$invalid , 'glyphicon-ok' : userForm.userName.$touched &&  !userForm.userName.$invalid}">
+										ng-class="{ 'glyphicon-remove' : userForm.userName.$touched && (userForm.userName.$invalid || !userNameOk) , 'glyphicon-ok' : userForm.userName.$touched &&  !userForm.userName.$invalid && userNameOk}">
 									</span>
 								</div>
 								<div class="help-block" ng-messages="userForm.userName.$error"
@@ -276,6 +279,9 @@
 									<p ng-message="pattern">Username should only contain
 										characters</p>
 
+								</div>
+								<div class="help-block" ng-show="!userNameOk" >
+								<p ng-show="errorShow"><font color="red">{{errorMsgUserName}}</font></p>
 								</div>
 							</div>
 						</div>
@@ -321,7 +327,7 @@
 							</div>
 					</fieldset>
 				</form>
-				<div class="alert alert-danger" ng-show="errorShow">
+				<div class="alert alert-danger" ng-show="errorShowx">
 					<button type="button" class="close" data-dismiss="alert"
 						aria-hidden="true">&times;</button>
 					<strong>Error :</strong>{{errorMsg}}
