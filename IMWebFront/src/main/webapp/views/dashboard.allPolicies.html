@@ -3,49 +3,79 @@
 <form>
 
 <div class="form-group">
-  <label class="col-md-4 control-label" for="status">status</label>
-  <div class="col-md-4">
+  
+  <div class="col-md-16">
+  	<label class="radio-inline" for="status-0">
+      <input type="radio" name="status" id="status-0" ng-model="status" value=" " checked="checked">
+      All
+    </label>
     <label class="radio-inline" for="status-0">
-      <input type="radio" name="status" id="status-0" value="approved" ng-model="status" checked="checked">
+      <input type="radio" name="status" id="status-1" ng-model="status" value="approved" >
       Approved
     </label> 
     <label class="radio-inline" for="status-1">
-      <input type="radio" name="status" id="status-1" ng-model="status" value="rejected" >
+      <input type="radio" name="status" id="status-2" ng-model="status" value="rejected" >
       Rejected
     </label> 
     <label class="radio-inline" for="status-2">
-      <input type="radio" name="status" id="status-2" ng-model="status" value="pending">
+      <input type="radio" name="status" id="status-3" ng-model="status" value="pending" >
       Pending
     </label>
    
-   <div class="panel panel-success" ng-repeat="policy in policyList | filter: status " ng-model="status1">
-
-  <div class="panel-body">
+   
+   
+   
+   <div class="row">
+  	
+	<div  class=" panel panel-primary">
+ 
+  	<table class="table table-condensed">
+  	
+ 	 
+  	<tr>
+  		<th>Name</th>
+  		<th>Smoker</th>
+  		<th>Policy Name</th>
+  		<th>Monthly Premium</th>
+  		<th>Annual Income</th>
+  		<th>Age Proof</th>
+  		<th>Income Proof</th>
+  		<th>Resident Proof</th>
+  		<th>Photo File</th>
+  		<th>Current Status</th>
+  		<th>Change Status</th>
+  	</tr> 
+  	   	<tr ng-repeat="policy in policyList | filter: status ">
+  		<td>{{policy.userName}}</td>
+  		<td>{{policy.smoker}}</td>
+  		<td>{{policy.policyName}}</td>
+  		<td>{{policy.monthlyPremium}}</td>
+  		<td>{{policy.annualIncome}}</td>
+  		<td><a href="http://localhost:8080/imservices/files?fileName={{policy.ageProofFile}} ">{{policy.userName}}'s Age Proof</a></td>
+  		<td><a href="http://localhost:8080/imservices/files?fileName={{policy.incomeProofFile}} ">{{policy.userName}}'s Income Proof</a></td>
+  		<td><a href="http://localhost:8080/imservices/files?fileName={{policy.residenceProofFile}} ">{{policy.userName}}'s Resident Proof</a></td>
+  		<td><a href="http://localhost:8080/imservices/files?fileName={{policy.photoFile}} ">{{policy.userName}}'s Photo File</a></td>
+  		<td>{{policy.status}}</td>
+  		<td><input type="radio" name="status" id="status-2" ng-model="status" value="approved">approved<br>
+  		 <input type="radio" name="status" id="status-2" ng-model="status" value="rejected">rejected<br>	
+ 	<button type="button" value="Refresh page" onclick="location.reload(true);" ng-click="setStatus(status,policy.policyNumber)" class="btn btn-sm btn-primary">Set</button></td>
+  	</tr>
+  	
+  </table>
   
-   Name : {{policy.userName}}<br>
-   Smoker : {{policy.smoker}}<br>
-   Product Name : {{policy.productName}}<br>
-   Policy Name : {{policy.policyName}}<br>
-   Monthly Premium : {{policy.monthlyPremium}}<br>
-   Annual Income : {{policy.annualIncome}}<br>
-   Current status : {{policy.status}}<br>
-   Age Proof : <a href="http://localhost:8080/imservices/files?fileName={{policy.ageProofFile}} ">Download Now </a><br>
-   Income Proof : <a href="http://localhost:8080/imservices/files?fileName={{policy.incomeProofFile}} ">Download Now </a><br>
-   Resident Proof : <a href="http://localhost:8080/imservices/files?fileName={{policy.residenceProofFile}} ">Download Now </a><br>
-   Photo File : <a href="http://localhost:8080/imservices/files?fileName={{policy.photoFile}} ">Download Now </a><br>	
-   	 <input type="radio" name="status" id="status-2" ng-model="status" value="approved">approved
-   	 <input type="radio" name="status" id="status-2" ng-model="status" value="rejected">rejected
-   	
- 	<button type="button" ng-click="setStatus(status,policy.policyNumber)" class="btn btn-sm btn-primary">Set</button>
-   	 
+  
+  
+  
   </div>
-
-</div>
   </div>
-</div>
+  </div>
+  
+  </div>
+  	</div>
+  
 
 </form>
-</div>
+
 
 
 
