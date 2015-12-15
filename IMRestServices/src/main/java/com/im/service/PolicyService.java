@@ -8,7 +8,7 @@ import com.im.entity.AddPolicy;
 public interface PolicyService  {
 	
 	public long calculatePremium(String userName);
-	public List<PolicyDetails> getRespectivePolicies(String userName);
+	public List<PolicyDetails> getPoliciesByUserName(String userName);
 	public PolicyDetails addPolicy(AddPolicy policy);
 	public List<PolicyDetails> getAllPolicies();	
 	public PolicyDetails setStatus(String policyNumber, String status);

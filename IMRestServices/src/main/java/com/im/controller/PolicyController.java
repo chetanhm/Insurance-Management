@@ -34,7 +34,7 @@ public class PolicyController {
 	@RequestMapping(value="/policy/{userName}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<PolicyDetails> getAllPolicies(@PathVariable(value="userName") String userName)
 	{
-		return policyService.getRespectivePolicies(userName);
+		return policyService.getPoliciesByUserName(userName);
 	}
 
 	@RequestMapping(value="/policy", method=RequestMethod.POST)

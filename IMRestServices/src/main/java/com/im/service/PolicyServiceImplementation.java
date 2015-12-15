@@ -31,7 +31,7 @@ public class PolicyServiceImplementation implements PolicyService {
 		return totalPremium;
 	}
 
-	public List<PolicyDetails> getRespectivePolicies(String userName) {
+	public List<PolicyDetails> getPoliciesByUserName(String userName) {
 		return policyRepository.findByUserName(userName);
 	}
 
