@@ -5,7 +5,7 @@ var baseUrl = "http://localhost:8080/imservices";
 			'ui.bootstrap', 'register', 'login', 'ngResource', 'browse',
 			'viewProduct', 'navigation', 'logout', 'adminproduct', 'premium',
 			'agent', 'buyProduct', 'allPolicies', 'policy' ,'disburse','ngAnimate','toaster',
-			'claim','angular.filter','claimDetail']);
+			'claim','angular.filter']);
 
 	mainApp.config(function($urlRouterProvider, $stateProvider) {
 
@@ -113,11 +113,6 @@ var baseUrl = "http://localhost:8080/imservices";
 			controller : 'claimCtrl'
 		});
 		
-		$stateProvider.state('dashboard.claimDetail', {
-			url : '/claimDetail',
-			templateUrl : 'views/dashboard.claimDetail.html',
-			controller : 'claimCtrl'
-		});
 	});
 
 })();
