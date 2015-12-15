@@ -22,6 +22,7 @@ register.controller("LoginCtrl",function($scope,$http,$resource,$location,$rootS
 					var lastLocation=localStorage.getItem("lastLocation");
 					if(lastLocation==null)
 						{
+						 toaster.pop('info', "Logged In", "You are successfully logged in!");
 						$location.path("website.home");	
 						}
 					else

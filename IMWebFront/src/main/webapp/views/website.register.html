@@ -1,3 +1,34 @@
+<style>
+.input-group-addon.primary {
+	color: rgb(255, 255, 255);
+	background-color: rgb(50, 118, 177);
+	border-color: rgb(40, 94, 142);
+}
+
+.input-group-addon.success {
+	color: rgb(255, 255, 255);
+	background-color: rgb(92, 184, 92);
+	border-color: rgb(76, 174, 76);
+}
+
+.input-group-addon.info {
+	color: rgb(255, 255, 255);
+	background-color: rgb(57, 179, 215);
+	border-color: rgb(38, 154, 188);
+}
+
+.input-group-addon.warning {
+	color: rgb(255, 255, 255);
+	background-color: rgb(240, 173, 78);
+	border-color: rgb(238, 162, 54);
+}
+
+.input-group-addon.danger {
+	color: rgb(255, 255, 255);
+	background-color: rgb(217, 83, 79);
+	border-color: rgb(212, 63, 58);
+}
+</style>
 <br>
 <br>
 <br>
@@ -6,100 +37,293 @@
 	 col-sm-1
 	 col-md-1
 	 col-lg-1
-	 ">
-		
-	</div>
+	 "></div>
 	<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
 				<h3 class="panel-title">Registration</h3>
 			</div>
 			<div class="panel-body">
-				<form class="form-horizontal" ng-submit="submit()">
+				<form name="userForm" class="form-horizontal" ng-submit="submit()"
+					novalidate>
 					<fieldset>
+
+
+
 						<!-- Text input-->
-						<div class="form-group">
-							<label class="col-md-4 control-label" for="firstName">First Name</label>
+						<div class="form-group"
+							ng-class="{ 'has-error': userForm.firstName.$touched && userForm.firstName.$invalid }">
+							<label class="col-md-4 control-label" for="firstName">First
+								Name*</label>
 							<div class="col-md-4">
-								<input id="firstName" name="firstName" ng-model="firstName" type="text" placeholder="" class="form-control input-md" required="">
-								
+								<div class="input-group">
+									<input id="firstName" name="firstName" ng-model="firstName"
+										ng-minlength="3" ng-maxlength="20" ng-pattern="/^[a-zA-Z]+$/"
+										type="text" laceholder="" class="form-control input-md"
+										required=""> <span class="input-group-addon none"
+										ng-class="{ 'danger' : userForm.firstName.$touched && userForm.firstName.$invalid , 'success' : userForm.firstName.$touched &&  !userForm.firstName.$invalid , 'block': userForm.firstName.$touched }">
+										<span class="glyphicon "
+										ng-class="{ 'glyphicon-remove' : userForm.firstName.$touched && userForm.firstName.$invalid , 'glyphicon-ok' : userForm.firstName.$touched &&  !userForm.firstName.$invalid}">
+									</span>
+								</div>
+								<div class="help-block" ng-messages="userForm.firstName.$error"
+									ng-if="userForm.firstName.$touched">
+									<p ng-message="minlength">Name length cannot be smaller
+										than 3 characters.</p>
+									<p ng-message="maxlength">Name length cannot be greater
+										than 20 characters.</p>
+									<p ng-message="required">First name is required.</p>
+									<p ng-message="pattern">First name should only contain
+										characters</p>
+
+								</div>
 							</div>
 						</div>
+
+
+
+
 						<!-- Text input-->
-						<div class="form-group">
-							<label class="col-md-4 control-label" for="lastName">Last Name</label>
+						<div class="form-group"
+							ng-class="{ 'has-error': userForm.lastName.$touched && userForm.lastName.$invalid }">
+							<label class="col-md-4 control-label" for="lastName">Last
+								Name*</label>
 							<div class="col-md-4">
-								<input id="lastName" name="lastName" ng-model="lastName" type="text" placeholder="" class="form-control input-md" required="">
-								
+								<div class="input-group">
+									<input id="lastName" name="lastName" ng-model="lastName"
+										ng-minlength="3" ng-maxlength="20" ng-pattern="/^[a-zA-Z]+$/"
+										type="text" laceholder="" class="form-control input-md"
+										required=""> <span class="input-group-addon none"
+										ng-class="{ 'danger' : userForm.lastName.$touched && userForm.lastName.$invalid , 'success' : userForm.lastName.$touched &&  !userForm.lastName.$invalid , 'block': userForm.lastName.$touched }">
+										<span class="glyphicon "
+										ng-class="{ 'glyphicon-remove' : userForm.lastName.$touched && userForm.lastName.$invalid , 'glyphicon-ok' : userForm.lastName.$touched &&  !userForm.lastName.$invalid}">
+									</span>
+								</div>
+								<div class="help-block" ng-messages="userForm.lastName.$error"
+									ng-if="userForm.lastName.$touched">
+									<p ng-message="minlength">Name length cannot be smaller
+										than 3 characters.</p>
+									<p ng-message="maxlength">Name length cannot be greater
+										than 20 characters.</p>
+									<p ng-message="required">Last name is required.</p>
+									<p ng-message="pattern">Last name should only contain
+										characters</p>
+
+								</div>
 							</div>
 						</div>
+
+
 						<!-- Text input-->
-						<div class="form-group">
-							<label class="col-md-4 control-label" for="address">Address</label>
+						<div class="form-group"
+							ng-class="{ 'has-error': userForm.address.$touched && userForm.address.$invalid }">
+							<label class="col-md-4 control-label" for="address">Address*</label>
 							<div class="col-md-4">
-								<input id="address" name="address" ng-model="address" type="text" placeholder="" class="form-control input-md" required="">
-								
+								<div class="input-group">
+									<textarea id="address" name="address" ng-model="address"
+										ng-minlength="8" ng-maxlength="60" type="text" laceholder=""
+										class="form-control input-md" required=""></textarea>
+									<span class="input-group-addon none"
+										ng-class="{ 'danger' : userForm.address.$touched && userForm.address.$invalid , 'success' : userForm.address.$touched &&  !userForm.address.$invalid , 'block': userForm.address.$touched }">
+										<span class="glyphicon "
+										ng-class="{ 'glyphicon-remove' : userForm.address.$touched && userForm.address.$invalid , 'glyphicon-ok' : userForm.address.$touched &&  !userForm.address.$invalid}">
+									</span>
+								</div>
+								<div class="help-block" ng-messages="userForm.address.$error"
+									ng-if="userForm.address.$touched">
+									<p ng-message="minlength">Address length cannot be smaller
+										than 8 characters.</p>
+									<p ng-message="maxlength">Address length cannot be greater
+										than 60 characters.</p>
+									<p ng-message="required">Address is required.</p>
+
+								</div>
 							</div>
 						</div>
+
+
+
+
+						<div
+							ng-init="states = {
+
+             'Maharashtra': {
+                        'Nagpur': {'state':'Maharashtra','city':'Nagpur'},
+                        'Pune': {'state':'Maharashtra','city':'Pune'},
+                        'Mumbai': {'state':'Maharashtra','city':'Mumbai'},
+                        'Kohlapur': {'state':'Maharashtra','city':'Kohlapur'},
+
+                    },
+                    'Madhya Pradesh': {
+                        'Indore': {'state':'Madhya Pradesh','city':'Indore'},
+                        'Raipur': {'state':'Madhya Pradesh','city':'Raipur'},
+                        'Jabalpur': {'state':'Madhya Pradesh','city':'Jabalpur'}
+                    },
+                    'Rajasthan': {
+                        'Udaipur': {'state':'Rajasthan','city':'Udaipur'},
+                        'Jaipur': {'state':'Rajasthan','city':'Jaipur'}
+                    }
+
+                };">
+
+							<!-- Text input-->
+							<div class="form-group">
+
+								<label class="col-md-4 control-label" for="state">State*</label>
+								<div class="col-md-4">
+									<div class="input-group">
+										<select class="form-control input-md" name="state" id="state"
+											ng-model="state"
+											ng-options="state for (state, cities) in states" required>
+									</select> <span class="input-group-addon none"
+											ng-class="{ 'danger' :  userForm.state.$touched && userForm.state.$invalid  , 'success' : 	 !userForm.state.$invalid }">
+											<span class="glyphicon "
+											ng-class="{ 'glyphicon-remove' : userForm.state.$touched && userForm.state.$invalid , 'glyphicon-ok' :  !userForm.state.$invalid}">
+										</span>
+									</div>
+								</div>
+							</div>
+							<!-- Text input-->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="city">City*</label>
+								<div class="col-md-4">
+									<div class="input-group">
+										<select class="form-control input-md" name="city" id="city"
+											ng-disabled="!state" ng-model="city"
+											ng-options="city for (city,area) in state" required>
+											<option value=''>Select</option>
+										</select><span class="input-group-addon none"
+											ng-class="{ 'danger' : userForm.city.$touched && userForm.city.$invalid  , 'success' : 	 !userForm.city.$invalid }">
+											<span class="glyphicon "
+											ng-class="{ 'glyphicon-remove' : userForm.city.$touched && userForm.city.$invalid , 'glyphicon-ok' :  !userForm.city.$invalid}">
+										</span>
+									</div>
+								</div>
+
+							</div>
+							
+							
+							
+									<!-- Text input-->
+						<div class="form-group"
+							ng-class="{ 'has-error': userForm.contactNo.$touched && userForm.contactNo.$invalid }">
+							<label class="col-md-4 control-label" for="contactNo">Contact number*</label>
+							<div class="col-md-4">
+								<div class="input-group">
+									<input id="contactNo" name="contactNo" ng-model="contactNo"
+										ng-pattern="/^\d{10}$/"
+										type="text" laceholder="" class="form-control input-md"
+										required=""> <span class="input-group-addon none"
+										ng-class="{ 'danger' : userForm.contactNo.$touched && userForm.contactNo.$invalid , 'success' : userForm.contactNo.$touched &&  !userForm.contactNo.$invalid , 'block': userForm.contactNo.$touched }">
+										<span class="glyphicon "
+										ng-class="{ 'glyphicon-remove' : userForm.contactNo.$touched && userForm.contactNo.$invalid , 'glyphicon-ok' : userForm.contactNo.$touched &&  !userForm.contactNo.$invalid}">
+									</span>
+								</div>
+								<div class="help-block" ng-messages="userForm.contactNo.$error"
+									ng-if="userForm.contactNo.$touched">
+									<p ng-message="required">Contact number is required.</p>
+									<p ng-message="pattern">Contact number should be in format of 10 digit contact number</p>
+
+								</div>
+							</div>
+						</div>
+										<!-- Text input-->
+						<div class="form-group"
+							ng-class="{ 'has-error': userForm.email.$touched && userForm.email.$invalid }">
+							<label class="col-md-4 control-label" for="email">Email address*</label>
+							<div class="col-md-4">
+								<div class="input-group">
+									<input id="email" name="email" ng-model="email"
+										ng-minlength="3" ng-maxlength="20" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/"
+										type="text" laceholder="" class="form-control input-md"
+										required=""> <span class="input-group-addon none"
+										ng-class="{ 'danger' : userForm.email.$touched && userForm.email.$invalid , 'success' : userForm.email.$touched &&  !userForm.email.$invalid , 'block': userForm.email.$touched }">
+										<span class="glyphicon "
+										ng-class="{ 'glyphicon-remove' : userForm.email.$touched && userForm.email.$invalid , 'glyphicon-ok' : userForm.email.$touched &&  !userForm.email.$invalid}">
+									</span>
+								</div>
+								<div class="help-block" ng-messages="userForm.email.$error"
+									ng-if="userForm.email.$touched">
+									<p ng-message="required">Email address is required.</p>
+									<p ng-message="pattern">Should be a valid email address.</p>
+
+								</div>
+							</div>
+						</div>
+								
+									<!-- Text input-->
+						<div class="form-group"
+							ng-class="{ 'has-error': userForm.userName.$touched && userForm.userName.$invalid }">
+							<label class="col-md-4 control-label" for="userName">UserName*</label>
+							<div class="col-md-4">
+								<div class="input-group">
+									<input id="userName" name="userName" ng-model="userName"
+										ng-minlength="3" ng-maxlength="20" ng-pattern="/^[a-zA-Z]+$/"
+										type="text" laceholder="" class="form-control input-md"
+										required=""> <span class="input-group-addon none"
+										ng-class="{ 'danger' : userForm.userName.$touched && userForm.userName.$invalid , 'success' : userForm.userName.$touched &&  !userForm.userName.$invalid , 'block': userForm.userName.$touched }">
+										<span class="glyphicon "
+										ng-class="{ 'glyphicon-remove' : userForm.userName.$touched && userForm.userName.$invalid , 'glyphicon-ok' : userForm.userName.$touched &&  !userForm.userName.$invalid}">
+									</span>
+								</div>
+								<div class="help-block" ng-messages="userForm.userName.$error"
+									ng-if="userForm.userName.$touched">
+									<p ng-message="minlength">Username cannot be smaller
+										than 3 characters.</p>
+									<p ng-message="maxlength">Username cannot be greater
+										than 20 characters.</p>
+									<p ng-message="required">Username is required.</p>
+									<p ng-message="pattern">Username should only contain
+										characters</p>
+
+								</div>
+							</div>
+						</div>
+							
+				
+				
 						<!-- Text input-->
-						<div class="form-group">
-							<label class="col-md-4 control-label" for="state">State</label>
+						<div class="form-group"
+							ng-class="{ 'has-error': userForm.password.$touched && userForm.password.$invalid }">
+							<label class="col-md-4 control-label" for="password">Password*</label>
 							<div class="col-md-4">
-								<input id="state" name="state" ng-model="state" type="text" placeholder="" class="form-control input-md" required="">
+								<div class="input-group">
+									<input id="password" name="password" ng-model="password"
+										ng-minlength="3" ng-maxlength="20" 
+										type="password" laceholder="" class="form-control input-md"
+										required=""> <span class="input-group-addon none"
+										ng-class="{ 'danger' : userForm.password.$touched && userForm.password.$invalid , 'success' : userForm.password.$touched &&  !userForm.password.$invalid , 'block': userForm.password.$touched }">
+										<span class="glyphicon "
+										ng-class="{ 'glyphicon-remove' : userForm.password.$touched && userForm.password.$invalid , 'glyphicon-ok' : userForm.password.$touched &&  !userForm.password.$invalid}">
+									</span>
+								</div>
+								<div class="help-block" ng-messages="userForm.password.$error"
+									ng-if="userForm.password.$touched">
+									<p ng-message="minlength">Password cannot be smaller
+										than 3 characters.</p>
+									<p ng-message="maxlength">Password cannot be greater
+										than 20 characters.</p>
+									<p ng-message="required">Password is required.</p>
 								
+
+								</div>
 							</div>
 						</div>
-						<!-- Text input-->
-						<div class="form-group">
-							<label class="col-md-4 control-label" for="city">City</label>
-							<div class="col-md-4">
-								<input id="city" name="city" ng-model="city" type="text" placeholder="" class="form-control input-md" required="">
-								
+							
+				
+					<!-- Button -->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for=""></label>
+								<div class="col-md-4">
+									<input type="submit" id="" name="" class="btn btn-primary"
+										value="Register" ng-disabled="!userForm.$valid">
+								</div>
 							</div>
-						</div>
-						<!-- Text input-->
-						<div class="form-group">
-							<label class="col-md-4 control-label" for="contactNo">Contact No</label>
-							<div class="col-md-4">
-								<input id="contactNo" name="contactNo" ng-model="contactNo" type="tel" pattern='^([0|\+[0-9]{1,5})?([7-9][0-9]{9})$' placeholder="" class="form-control input-md" required="">
-								
-							</div>
-						</div>
-						<!-- Text input-->
-						<div class="form-group">
-							<label class="col-md-4 control-label" for="email">Email</label>
-							<div class="col-md-4">
-								<input id="email" name="email" ng-model="email" type="email" placeholder="" class="form-control input-md" required="">
-								
-							</div>
-						</div>
-						<!-- Text input-->
-						<div class="form-group">
-							<label class="col-md-4 control-label" for="userName">userName</label>
-							<div class="col-md-4">
-								<input id="userName" name="userName"  ng-model="userName" type="text" placeholder="" class="form-control input-md" required="" pattern=".{5,15}"  title="5 to 15 characters">
-								
-							</div>
-						</div>
-						<!-- Password input-->
-						<div class="form-group">
-							<label class="col-md-4 control-label" for="password">Password</label>
-							<div class="col-md-4">
-								<input id="password" name="password" ng-model="password" type="password" placeholder="" class="form-control input-md" pattern=".{5,15}"  title="5 to 15 characters" required="">
-								
-							</div>
-						</div>
-						<!-- Button -->
-						<div class="form-group">
-							<label class="col-md-4 control-label" for=""></label>
-							<div class="col-md-4">
-								<input type="submit" id="" name="" class="btn btn-primary" value="Register">
-							</div>
-						</div>
 					</fieldset>
 				</form>
 				<div class="alert alert-danger" ng-show="errorShow">
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<button type="button" class="close" data-dismiss="alert"
+						aria-hidden="true">&times;</button>
 					<strong>Error :</strong>{{errorMsg}}
 				</div>
 			</div>
@@ -107,16 +331,17 @@
 	</div>
 	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 		<div class="panel panel-info">
-			  <div class="panel-heading">
-					<h3 class="panel-title">Guidelines</h3>
-			  </div>
-			  <div class="panel-body">
-					<ul class="list-group">
-						<li class="list-group-item">Please fill up correct details</li>
-						<li class="list-group-item">All fields are mandontary</li>
-						<li class="list-group-item">Username cannot be changed once registered</li>
-					</ul>
-			  </div>
+			<div class="panel-heading">
+				<h3 class="panel-title">Guidelines</h3>
+			</div>
+			<div class="panel-body">
+				<ul class="list-group">
+					<li class="list-group-item">Please fill up correct details</li>
+					<li class="list-group-item">All fields are mandontary</li>
+					<li class="list-group-item">Username cannot be changed once
+						registered</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>

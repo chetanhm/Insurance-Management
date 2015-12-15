@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.im.collection.ProductDetails;
 import com.im.entity.AddProduct;
 import com.im.service.ProductDetailsService;
-import com.im.service.UserDetailsService;
 
 @CrossOrigin
 @RestController
@@ -25,9 +24,6 @@ import com.im.service.UserDetailsService;
 public class ProductController {
 	@Autowired
 	private ProductDetailsService productDetailService;
-	@Autowired
-	private UserDetailsService registerService;
-
 	/**
 	 * This method handle REST call from  administrator for adding new product
 	 * @param 
