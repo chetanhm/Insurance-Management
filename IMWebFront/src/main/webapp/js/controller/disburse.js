@@ -10,7 +10,8 @@ disburse.controller("DisburseCtrl",function($scope,$http){
 		$scope.userName=loadUser.userName;
 		$scope.claimDetailsList=response;
 	});
-	 
+	
 });
+
 })();
 		
