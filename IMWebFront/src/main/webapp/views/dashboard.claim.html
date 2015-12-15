@@ -1,0 +1,87 @@
+<form name="form" class="form-horizontal" ng-submit="submit()" ng-hide="hideForm">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Form Name</legend>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="hello">Policy Name *</label>
+  <div class="col-md-4">
+    <select id="policyName" name="policyName" class="form-control" ng-model="policyName"  required>
+      <option selected="selected" value='{{policy.policyName}}' ng-repeat="policy in listPolicies | unique: 'policyName'">{{policy.policyName}}</option>
+    </select>
+    
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectbasic">Policy Number *</label>
+  <div class="col-md-4">
+    <select id="policyNumber" name="policyNumber" class="form-control" ng-disabled="!policyName" ng-model="policyNumber" required>
+      <option  value='{{policy.policyNumber}}' ng-repeat=" policy in listPolicies |filter: policyName" selected="selected">{{policy.policyNumber}}</option>
+     
+    </select>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectbasic">Claim Type *</label>
+  <div class="col-md-4">
+    <select id="claimType" name="claimType" ng-model="claimType" class="form-control"  required>
+      <option selected="selected" value="Medical" >Medical Claim</option>
+      <option value="Accidental Death">Accidental Claim</option>
+      <option value="Natural Death">Disease Claim</option>
+    </select>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput" required="">Claim Amount *</label>  
+  <div class="col-md-4">
+  <input type="text" id="claimAmount" name="claimAmount" ng-model="claimAmount"  placeholder="Enter amount you claim" class="form-control input-md" ng-pattern="/^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/" required >
+ 
+  </div>
+</div>
+
+<!-- File Button --> 
+<div class="form-group">
+  <label class="col-md-4 control-label" for="filebutton">Upload Document *</label>
+  <div class="col-md-4">
+    <input id="filebutton" name="filebutton" class="upload" 
+										type="file" accept="application/pdf"
+										onchange="document.getElementById('filebutton').innerHTML=this.files[0].name" required="">
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton" ></label>
+  <div class="col-md-4">
+    <input type="submit" id="" name="" class="btn btn-primary" value="Claim">
+  </div>
+</div>
+</fieldset>
+</form>
+		
+<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" ng-show="showSuccess">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">Claim Notification</h3>
+			</div>
+			<div class="panel-body">
+
+				<div class="alert alert-success" >
+     Your Claim is saved and will be served soon. Thank You!!
+				</div>
+				<div class="col-md-6">
+   					 <button type="button" class="btn btn-primary" value="Refresh" onclick="location.reload(true);">Add New Claim</button>
+   					 <button type="button" class="btn btn-primary" ui-sref="dashboard.home">Back</button>
+ 			 </div>
+				
+			</div>
+
+				

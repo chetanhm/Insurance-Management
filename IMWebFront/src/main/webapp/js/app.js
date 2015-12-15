@@ -4,7 +4,8 @@ var baseUrl = "http://localhost:8080/imservices";
 	var mainApp = angular.module("insuranceApp", [ 'ui.router', 'ngCookies',
 			'ui.bootstrap', 'register', 'login', 'ngResource', 'browse',
 			'viewProduct', 'navigation', 'logout', 'adminproduct', 'premium',
-			'agent', 'buyProduct', 'allPolicies', 'policy' ,'disburse','ngAnimate','toaster']);
+			'agent', 'buyProduct', 'allPolicies', 'policy' ,'disburse','ngAnimate','toaster',
+			'claim','angular.filter','claimDetail']);
 
 	mainApp.config(function($urlRouterProvider, $stateProvider) {
 
@@ -106,6 +107,17 @@ var baseUrl = "http://localhost:8080/imservices";
 			controller : 'DisburseCtrl'
 		});
  
+		$stateProvider.state('dashboard.claim', {
+			url : '/claim',
+			templateUrl : 'views/dashboard.claim.html',
+			controller : 'claimCtrl'
+		});
+		
+		$stateProvider.state('dashboard.claimDetail', {
+			url : '/claimDetail',
+			templateUrl : 'views/dashboard.claimDetail.html',
+			controller : 'claimCtrl'
+		});
 	});
 
 })();

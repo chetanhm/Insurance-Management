@@ -25,7 +25,11 @@ public class ClaimServiceImplementation implements ClaimServices{
 	private ClaimRepository claimRepository;
 
 	public ClaimDetails addClaims(Claim claim) {
-return null;
+
+		ClaimDetails claimDetails=new ClaimDetails(claim.getClaimAmount(), claim.getClaimDocuments(), claim.getClaimType(),
+				claim.getPolicyName(), claim.getClaimStatus(), claim.getAprrovedClaimAmount(),
+				claim.getUserName(), claim.getDateOfClaim(), claim.getPolicyNumber());
+			return claimRepository.insert(claimDetails);
 		}
 	
 	public List<ClaimDetails> getClaimDisbursementByUserName(String userName) {
