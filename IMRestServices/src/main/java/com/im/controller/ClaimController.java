@@ -25,7 +25,7 @@ public class ClaimController {
 	@Autowired
 	private ClaimServices claimService;
 	
-	@RequestMapping(value="claim", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/claim", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ClaimDetails submitClaim(@RequestBody Claim claim)
 	{
 		return claimService.addClaims(claim);
