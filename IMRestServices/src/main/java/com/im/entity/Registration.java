@@ -11,6 +11,11 @@ public class Registration {
 	private String email;
 	private String userName;
 	private String password;
+	private String userType;
+	private String agentName;
+	
+	
+	
 	public Registration(String firstName, String fastName, String address, String state, String city, String contact_no,
 			String email, String username, String password) {
 		super();
@@ -23,6 +28,22 @@ public class Registration {
 		this.email = email;
 		this.userName = username;
 		this.password = password;
+	}
+	
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+
+	public String getAgentName() {
+		return agentName;
+	}
+
+	public void setAgentName(String agentName) {
+		this.agentName = agentName;
 	}
 	public Registration() {
 		super();
@@ -81,12 +102,17 @@ public class Registration {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+
+
+
 	@Override
 	public String toString() {
 		return "Registration [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", state="
-				+ state + ", city=" + city + ", contact_no=" + contactNo + ", email=" + email + ", userName="
-				+ userName + ", password=" + password + "]";
+				+ state + ", city=" + city + ", contactNo=" + contactNo + ", email=" + email + ", userName=" + userName
+				+ ", password=" + password + ", userType=" + userType + ", agentName=" + agentName + "]";
 	}
+	
 	
 	
 		

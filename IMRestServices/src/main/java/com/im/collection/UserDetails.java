@@ -18,6 +18,24 @@ public class UserDetails {
 	private String userName;
 	private String password;
 	private String loginStatus;
+	private String userType;
+	private String agentName;
+
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+
+	public String getAgentName() {
+		return agentName;
+	}
+
+	public void setAgentName(String agentName) {
+		this.agentName = agentName;
+	}
 
 	public String getLoginStatus() {
 		return loginStatus;
@@ -128,11 +146,12 @@ public class UserDetails {
 
 	@Override
 	public String toString() {
-		return "UserRegisterPojo [id=" + id + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", address=" + address
-				+ ", state=" + state + ", city=" + city + ", contact_no="
-				+ contactNo + ", email=" + email + ", username=" + userName
-				+ ", password=" + password + "]";
+		return "UserDetails [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", address=" + address
+				+ ", state=" + state + ", city=" + city + ", contactNo=" + contactNo + ", email=" + email
+				+ ", userName=" + userName + ", password=" + password + ", loginStatus=" + loginStatus + ", userType="
+				+ userType + ", agentName=" + agentName + "]";
 	}
+
+	
 
 }

@@ -6,6 +6,15 @@ private String lastQualification;
 private String presentOccupation;
 private String rewards;
 private String workExperience;
+private String status;
+
+
+public String getStatus() {
+	return status;
+}
+public void setStatus(String status) {
+	this.status = status;
+}
 public String getUserName() {
 	return userName;
 }
@@ -57,13 +66,11 @@ public Agent()
 {
 	super();
 }
-
 @Override
 public String toString() {
-	return "Agent [userName=" + userName + ", age=" + age
-			+ ", lastQualification=" + lastQualification
-			+ ", presentOccupation=" + presentOccupation + ", rewards="
-			+ rewards + ", workExperience=" + workExperience + "]";
+	return "Agent [userName=" + userName + ", age=" + age + ", lastQualification=" + lastQualification
+			+ ", presentOccupation=" + presentOccupation + ", rewards=" + rewards + ", workExperience=" + workExperience
+			+ ", status=" + status + "]";
 }
 
 
