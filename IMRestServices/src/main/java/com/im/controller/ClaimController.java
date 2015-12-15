@@ -32,10 +32,10 @@ public class ClaimController {
 	}
 	
 	@RequestMapping(value = "/claim", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody List<ClaimDetails> assessClaimDisbursement(
+	public @ResponseBody List<ClaimDetails> getClaimDisbursementByUserName(
 			@RequestParam(name = "userName") String userName)
 	{
-	return claimService.assessClaimDisbursement(userName);
+	return claimService.getClaimDisbursementByUserName(userName);
 		
 	}
 	

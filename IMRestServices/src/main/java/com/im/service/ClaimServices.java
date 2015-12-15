@@ -10,11 +10,12 @@ import com.im.entity.Claim;
 
 /**
  * @author khatwani_s
+ * @author gurav_s
  *
  */
 public interface ClaimServices {
 	
 	public ClaimDetails addClaims(Claim claim);
-	public List<ClaimDetails> assessClaimDisbursement(String userName);
+	public List<ClaimDetails> getClaimDisbursementByUserName(String userName);
 
 	}

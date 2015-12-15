@@ -28,7 +28,7 @@ public class ClaimServiceImplementation implements ClaimServices{
 return null;
 		}
 	
-	public List<ClaimDetails> assessClaimDisbursement(String userName) {
+	public List<ClaimDetails> getClaimDisbursementByUserName(String userName) {
 		
 		return claimRepository.findByUserName(userName);
 
