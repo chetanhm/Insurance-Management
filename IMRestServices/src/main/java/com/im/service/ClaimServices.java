@@ -17,5 +17,6 @@ public interface ClaimServices {
 	
 	public ClaimDetails addClaims(Claim claim);
 	public List<ClaimDetails> getClaimDisbursementByUserName(String userName);
+	public List<ClaimDetails> getAllClaims();
 
 	}

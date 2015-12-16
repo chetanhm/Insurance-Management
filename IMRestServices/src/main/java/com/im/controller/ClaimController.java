@@ -39,5 +39,11 @@ public class ClaimController {
 		
 	}
 	
+	@RequestMapping(value="/claim/pending", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<ClaimDetails> getAllClaims()
+	{
+		return claimService.getAllClaims();		
+	}
+	
 
 }

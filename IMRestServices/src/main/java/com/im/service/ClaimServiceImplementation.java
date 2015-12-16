@@ -37,4 +37,9 @@ public class ClaimServiceImplementation implements ClaimServices{
 		return claimRepository.findByUserName(userName);
 
 	}
+
+	public List<ClaimDetails> getAllClaims() {
+		// TODO Auto-generated method stub
+		return claimRepository.findAll();
+	}
 }
