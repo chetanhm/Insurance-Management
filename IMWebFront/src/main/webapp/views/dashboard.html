@@ -52,13 +52,13 @@
                     <li ng-show="user.userName=='admin'">
                     	<a ui-sref="dashboard.allPolicies"><i class="fa fa-fw fa-edit"></i> All Policies</a>
                     </li>
-                        <li ng-show="user.userName!='admin'">
+                        <li ng-show="user.userName!='admin' && user.userType!='agent'">
                     	<a ui-sref="dashboard.applyForAgent"><i class="fa fa-fw fa-edit"></i>Apply for Agent</a>
                     </li>
                     <li>
                        <a ui-sref="dashboard.premium"><i class="fa fa-fw fa-edit"></i> Calculate Premium</a>
                     </li>
-                     <li>
+                     <li ng-show="user.userType!='agent'">
                        <a ui-sref="dashboard.respectivePolicies"><i class="fa fa-fw fa-edit"></i> My Policies</a>
                     </li>
                      <li>
@@ -66,6 +66,9 @@
                     </li>
                      <li>
                        <a ui-sref="dashboard.claim"><i class="fa fa-fw fa-edit"></i>Claim</a>
+                    </li>
+                     <li ng-show="user.userType=='agent'">
+                    	<a ui-sref="dashboard.addManagedCustomer"><i class="fa fa-fw fa-edit"></i>Add Customer</a>
                     </li>
                     <!-- 
            
