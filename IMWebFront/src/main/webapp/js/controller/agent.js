@@ -35,7 +35,7 @@ agent.controller("AgentCtrl",function($scope,$http,$resource,$location,$rootScop
 agent.controller("AgentClaimCtrl", function($scope, $http){
 	var loadUser=JSON.parse(localStorage.getItem("user"));
 	
-	var result=$http.get(baseUrl+"/agent/"+loadUser.userName).success(function(response){
+	var result=$http.get(baseUrl+"/agent/"+loadUser.userName+"/user").success(function(response){
 		$scope.userList=response;
 		
 	});
