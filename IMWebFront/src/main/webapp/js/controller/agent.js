@@ -103,7 +103,7 @@ agent.controller("ApproveAgentCtrl",function($scope, $http,$window)
 					});			
 			$scope.setAgentStatus= function(userName,userType)
 			{		
-				alert(userName+"--"+userType);
+			
 				$http.put(baseUrl+"/user?userName="+userName+"&userType="+userType);
 			 $window.location.reload();	
 			};
