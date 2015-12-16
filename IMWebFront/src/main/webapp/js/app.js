@@ -5,7 +5,7 @@ var baseUrl = "http://localhost:8080/imservices";
 			'ui.bootstrap', 'register', 'login', 'ngResource', 'browse',
 			'viewProduct', 'navigation', 'logout', 'adminproduct', 'premium',
 			'agent', 'buyProduct', 'allPolicies', 'policy' ,'disburse','ngAnimate','toaster',
-			'claim','angular.filter','ngMessages']);
+			'claim','angular.filter','ngMessages','addManagedCustomer']);
 
 	mainApp.config(function($urlRouterProvider, $stateProvider) {
 
@@ -119,7 +119,11 @@ var baseUrl = "http://localhost:8080/imservices";
 			templateUrl : 'views/dashboard.viewProduct.html',
 			controller : 'onePolicyController'
 		});
-		
+		$stateProvider.state('dashboard.addManagedCustomer', {
+			url : '/addManagedCustomer',
+			templateUrl : 'views/dashboard.addManagedCustomer.html',
+			controller : 'CustomerCtrl'
+		});
 	});
 
 })();

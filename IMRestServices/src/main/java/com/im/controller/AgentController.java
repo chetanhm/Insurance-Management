@@ -30,11 +30,12 @@ public class AgentController {
 
 	@RequestMapping(value = "/agent", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody AgentDetails apply(@RequestBody Agent agent) {
+		
 		return agentService.addUserAsAgent(agent);				 
 		
 	}
 
-	@RequestMapping(value = "/agent/{agentUserName}/", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/agent/{agentUserName}/user", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody UserDetails registerManagedCustomer(
 			@RequestBody Registration managedCustomer, @PathVariable(value="agentUserName") String agentUserName ) {
 		UserDetails users = registerService.registerManagedCustomer(managedCustomer,agentUserName);

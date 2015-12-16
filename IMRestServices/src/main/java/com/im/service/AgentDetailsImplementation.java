@@ -7,6 +7,8 @@ import com.im.collection.AgentDetails;
 import com.im.entity.Agent;
 import com.im.repository.AgentRepository;
 import com.im.repository.RegisterRepository;
+
+import ch.qos.logback.core.net.SyslogOutputStream;
 @Service
 public class AgentDetailsImplementation implements AgentDetailsService{	
 	
