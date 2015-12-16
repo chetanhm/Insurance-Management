@@ -35,9 +35,9 @@ public class ManagedCustomerTest {
 	{
 		webResource = client
 				.resource("http://localhost:8080/imservices/agent/seeya/user");
-		String agentData =null;
+		String managedCustomerData =null;
 		ClientResponse response = webResource.type("application/json").post(
-				ClientResponse.class, agentData);
+				ClientResponse.class, managedCustomerData);
 		Assert.assertEquals(400,response.getStatus());
 	}
 	
