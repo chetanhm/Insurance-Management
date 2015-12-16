@@ -58,9 +58,8 @@ public class PolicyServiceImplementation implements PolicyService {
 	public PolicyDetails getPolicyByPolicyNumber(String policyNumber) {
 		// TODO Auto-generated method stub
 		return policyRepository.findByPolicyNumber(Long.parseLong(policyNumber));
+		
 	}
 
-	
-	
 	
 }
