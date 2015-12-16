@@ -59,5 +59,6 @@ public class PolicyController {
 	public PolicyDetails getPolicy(@PathVariable(value="userName") String userName,@PathVariable(value="policyNumber") String policyNumber)
 	{
 		return policyService.getPolicyByPolicyNumber(policyNumber);	
+		
 	}
 }
