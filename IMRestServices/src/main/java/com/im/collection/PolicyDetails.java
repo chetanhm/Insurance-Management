@@ -19,14 +19,17 @@ public class PolicyDetails {
 	private String ageProofFile;
 	private String photoFile;
 	private String status;
+	private String employement;
 
 	public PolicyDetails() {
 
 	}
 
-	public PolicyDetails(int policyNumber, String userName, String productName, long monthlyPremium,
-			long annualIncome, String smoker, String incomeProofFile, String residenceProofFile, String ageProofFile,
-			String photoFile, String status) {
+
+
+	public PolicyDetails(long policyNumber, String userName, String productName, long monthlyPremium, long annualIncome,
+			String smoker, String incomeProofFile, String residenceProofFile, String ageProofFile, String photoFile,
+			String status, String employement) {
 		this.policyNumber = policyNumber;
 		this.userName = userName;
 		this.productName = productName;
@@ -38,7 +41,28 @@ public class PolicyDetails {
 		this.ageProofFile = ageProofFile;
 		this.photoFile = photoFile;
 		this.status = status;
+		this.employement = employement;
 	}
+
+
+
+	public String getEmployement() {
+		return employement;
+	}
+
+
+
+	public void setEmployement(String employement) {
+		this.employement = employement;
+	}
+
+
+
+	public void setPolicyNumber(long policyNumber) {
+		this.policyNumber = policyNumber;
+	}
+
+
 
 	public String getStatus() {
 		return status;

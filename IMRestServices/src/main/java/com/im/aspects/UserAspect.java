@@ -6,6 +6,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.im.collection.UserDetails;
 import com.im.entity.AddPolicy;
 import com.im.service.UserDetailsService;
 
@@ -32,8 +33,10 @@ class UserAspect{
 	public Object authenticateUserOnAddPolicy(ProceedingJoinPoint pjp) throws Throwable
 	{
 		String requestId=pjp.getArgs()[1].toString();
+		/*check if agent*/
+		UserDetails user=registerService.getUserById(requestId);
 		String userId=registerService.getUserByUsername(((AddPolicy)pjp.getArgs()[0]).getUserName()).getId();
-		if(requestId.equals(userId))
+		if(requestId.equals(userId)||user.getUserType().equals("agent"))
 		{
 			Object obj=pjp.proceed();
 			return obj;

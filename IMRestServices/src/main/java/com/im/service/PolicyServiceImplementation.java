@@ -40,7 +40,7 @@ public class PolicyServiceImplementation implements PolicyService {
 		long monthlyPremium = productRepository.findByName(policy.getProductName()).getMonthlyPremium();
 		return policyRepository.insert(new PolicyDetails(policyNumber, policy.getUserName(), policy.getProductName(),
 				monthlyPremium, policy.getAnnualIncome(), policy.getSmoker(), policy.getIncomeProofFile(),
-				policy.getResidenceProofFile(), policy.getAgeProofFile(), policy.getPhotoFile(), "pending"));
+				policy.getResidenceProofFile(), policy.getAgeProofFile(), policy.getPhotoFile(), "pending",policy.getEmployement()));
 	}
 	
 	public List<PolicyDetails> getAllPolicies() {

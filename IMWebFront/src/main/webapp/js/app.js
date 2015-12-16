@@ -135,7 +135,22 @@ var baseUrl = "http://localhost:8080/imservices";
 			templateUrl : 'views/dashboard.allAgents.html',
 			controller : 'ApproveAgentCtrl'
 		});
-		
+		$stateProvider.state('dashboard.listManagedCustomers',{
+			url: '/listManagedCustomers',
+			templateUrl: 'views/dashboard.agent.listManagedCustomers.html',
+			controller : 'ListManagedCustomersCtrl'
+			
+		});
+		$stateProvider.state('dashboard.applyForCustomer', {
+			url : '/applyForCustomer/:userName',
+			templateUrl : 'views/dashboard.agent.applyForCustomer.html',
+			controller : 'ApplyForCustomerCtrl'
+		});
+		$stateProvider.state('dashboard.applyForCustomerForm', {
+			url : '/applyForCustomerForm/:userName/:productName',
+			templateUrl : 'views/dashboard.agent.applyForCustomerForm.html',
+			controller : 'ApplyForCustomerFormCtrl'
+		});
 	});
 
 })();

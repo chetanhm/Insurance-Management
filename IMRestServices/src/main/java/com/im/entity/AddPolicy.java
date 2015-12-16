@@ -10,6 +10,7 @@ public class AddPolicy {
 	private String residenceProofFile;
 	private String ageProofFile;
 	private String photoFile;
+	private String employement;
 	
 	
 	public AddPolicy() {
@@ -17,8 +18,10 @@ public class AddPolicy {
 	}
 
 
+
+
 	public AddPolicy(String userName, String productName, long annualIncome, String smoker, String incomeProofFile,
-			String residenceProofFile, String ageProofFile, String photoFile) {
+			String residenceProofFile, String ageProofFile, String photoFile, String employement) {
 		this.userName = userName;
 		this.productName = productName;
 		this.annualIncome = annualIncome;
@@ -27,7 +30,24 @@ public class AddPolicy {
 		this.residenceProofFile = residenceProofFile;
 		this.ageProofFile = ageProofFile;
 		this.photoFile = photoFile;
+		this.employement = employement;
 	}
+
+
+
+
+	public String getEmployement() {
+		return employement;
+	}
+
+
+
+
+	public void setEmployement(String employement) {
+		this.employement = employement;
+	}
+
+
 
 
 	public String getUserName() {
