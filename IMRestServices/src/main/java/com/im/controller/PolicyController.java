@@ -55,4 +55,9 @@ public class PolicyController {
 		return policyService.setStatus(policyNumber,status);
 	}
 	
+	@RequestMapping(value="/policy/{userName}/{policyNumber}/", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public PolicyDetails getPolicy(@PathVariable(value="userName") String userName,@PathVariable(value="policyNumber") String policyNumber)
+	{
+		return policyService.getPolicyByPolicyNumber(policyNumber);	
+	}
 }

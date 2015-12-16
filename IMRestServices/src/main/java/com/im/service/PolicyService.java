@@ -12,4 +12,5 @@ public interface PolicyService  {
 	public PolicyDetails addPolicy(AddPolicy policy);
 	public List<PolicyDetails> getAllPolicies();	
 	public PolicyDetails setStatus(String policyNumber, String status);
+	public PolicyDetails getPolicyByPolicyNumber(String policyNumber);
 }
