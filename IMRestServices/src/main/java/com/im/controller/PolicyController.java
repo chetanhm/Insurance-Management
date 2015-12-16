@@ -32,7 +32,7 @@ public class PolicyController {
 	}
 	
 	@RequestMapping(value="/policy/{userName}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
-	public List<PolicyDetails> getAllPolicies(@PathVariable(value="userName") String userName)
+	public List<PolicyDetails> getAllPoliciesByUserName(@PathVariable(value="userName") String userName)
 	{
 		return policyService.getPoliciesByUserName(userName);
 	}
@@ -50,7 +50,7 @@ public class PolicyController {
 	}
 	
 	@RequestMapping(value="/policy", method=RequestMethod.PUT)
-	public PolicyDetails setStatus(@RequestParam(name="policyNumber") String policyNumber ,@RequestParam(name="status") String status)
+	public PolicyDetails updateStatus(@RequestParam(name="policyNumber") String policyNumber ,@RequestParam(name="status") String status)
 	{
 		return policyService.setStatus(policyNumber,status);
 	}
