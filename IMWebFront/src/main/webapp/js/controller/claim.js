@@ -24,7 +24,19 @@
 			}).success(
 					function(response) {
 						
-						
+						if($scope.claimAmount==undefined || $scope.policyName==undefined || $scope.policyNumber==undefined || $scope.claimType==undefined )
+							{
+							if($scope.claimAmount==undefined )
+							alert("Re enter the amount with positive number");
+							else if($scope.policyName==undefined )
+								alert("Select the Policy Name");
+							else if($scope.policyNumber==undefined)
+								alert("Select the policy number");
+							else if($scope.claimType==undefined )
+								alert("Select the type of claim ");
+							}
+						else
+							{
 						var date=new Date();
 						var dataObj = {
 								userName : loadUser.userName,
@@ -43,6 +55,7 @@
 							$scope.hideForm=true;
 							
 						});
+							}
 					});
 		}
 		

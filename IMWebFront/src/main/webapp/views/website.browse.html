@@ -1,49 +1,81 @@
-<br><br>
+<br>
+<br>
 <div class="row">
-  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-    <input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="Search" ng-model="productName" placeholder="Search product">
-	<br>
-    Order by:
-    <a href="" ng-click="predicate = 'productName'">Name</a> |
-    <a href="" ng-click="predicate = 'settlementRatio'">Settlement Ratio</a> |
-    <a href="" ng-click="predicate = 'monthlyPremium'">Monthly Premium</a> |
-    <a href="" ng-click="predicate = 'accidentalBenefit'">Accidental Benefit </a> 
-    <br>   Sort : <a href="" ng-click="reverse=true">Descending</a>&nbsp;|&nbsp;<a href="" ng-click="reverse=false">Ascending</a><br><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" ng-repeat="product in productList | filter: productName | orderBy: predicate:reverse">
-    <div class=" panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">{{product.productName}}</h3>
-      </div>
-      <div class="panel-body">
-      
-		<table class="table table-condensed">
-		<tr class="sucess">
-		<td>Monthly Premium
-		</td>
-		<td>{{product.monthlyPremium}} INR</td>
-		</tr>
-			<td>Basic Coverage
-		</td>
-		<td>{{product.basicCoverage}} INR</td>
-		</tr>
-			<td>Accidental Benefit
-		</td>
-		<td>{{product.accidentalBenefit}} INR</td>
-		</tr>
-			<td>Settlement Ratio
-		</td>
-		<td>{{product.settlementRatio}} % of claim</td>
-		</tr>
-		</table>
-  
-        <button type="button" class="btn btn-sm btn-success" ui-sref="website.buyProduct({productName: product.productName})">&nbsp; Buy &nbsp;</button>
-        <button type="button" class="btn btn-sm btn-primary" ui-sref="website.viewProduct({productName: product.productName})">View in Detail</button>
-      </div>
-      
+	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+<!-- 
+		Order by: <a href="" ng-click="predicate = 'productName'">Name</a> | <a
+			href="" ng-click="predicate = 'settlementRatio'">Settlement Ratio</a>
+		| <a href="" ng-click="predicate = 'monthlyPremium'">Monthly
+			Premium</a> | <a href="" ng-click="predicate = 'accidentalBenefit'">Accidental
+			Benefit </a> -->
+    <div class="btn-group" uib-dropdown is-open="status.isopen">
+      <button id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
+        Filter By <span class="caret"></span>
+      </button>
+      <ul class="uib-dropdown-menu" role="menu" aria-labelledby="single-button">
+        <li role="menuitem"><a  ng-click="predicate = 'productName'">Name</a></li>
+        <li role="menuitem"><a href="" ng-click="predicate = 'settlementRatio'">Settlement Ratio</a></li>
+        <li role="menuitem"><a href="" ng-click="predicate = 'monthlyPremium'">Monthly
+			Premium</a></li>
+        <li role="menuitem"><a href="" ng-click="predicate = 'accidentalBenefit'">Accidental
+			Benefit </a></li>
+     
+      </ul>
     </div>
-  </div>
-  
+
+ <div class="btn-group">
+        <label class="btn btn-primary" ng-model="reverse" uib-btn-radio="true">Descending</label>
+        <label class="btn btn-primary" ng-model="reverse" uib-btn-radio="false">Ascending</label>
+
+    </div>
+
+	</div>
+	<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">   </div>
+	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+		<div class="input-group">
+			<span class="input-group-addon" style="background-color: rgb(50, 118, 177);   color: rgb(255, 255, 255); border-color: rgb(40, 94, 142);" id="basic-addon1"><i
+				class="fa fa-search"></i></span> <input type="text" name="" id="input"
+				class="form-control" value="" required="required" pattern=""
+				title="Search" ng-model="productName" placeholder="Search product">
+		</div>
+
+	</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4"
+		ng-repeat="product in productList | filter: productName | orderBy: predicate:reverse">
+		<div class=" panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">{{product.productName}}</h3>
+			</div>
+			<div class="panel-body">
+
+				<table class="table table-condensed">
+					<tr class="sucess">
+						<td>Monthly Premium</td>
+						<td>{{product.monthlyPremium}} INR</td>
+					</tr>
+					<td>Basic Coverage</td>
+					<td>{{product.basicCoverage}} INR</td>
+					</tr>
+					<td>Accidental Benefit</td>
+					<td>{{product.accidentalBenefit}} INR</td>
+					</tr>
+					<td>Settlement Ratio</td>
+					<td>{{product.settlementRatio}} % of claim</td>
+					</tr>
+				</table>
+
+				<button type="button" class="btn btn-sm btn-success"
+					ui-sref="website.buyProduct({productName: product.productName})">&nbsp;
+					Buy &nbsp;</button>
+				<button type="button" class="btn btn-sm btn-primary"
+					ui-sref="website.viewProduct({productName: product.productName})">View
+					in Detail</button>
+			</div>
+
+		</div>
+	</div>
+
 </div>

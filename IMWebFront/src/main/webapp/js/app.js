@@ -5,7 +5,7 @@ var baseUrl = "http://localhost:8080/imservices";
 			'ui.bootstrap', 'register', 'login', 'ngResource', 'browse',
 			'viewProduct', 'navigation', 'logout', 'adminproduct', 'premium',
 			'agent', 'buyProduct', 'allPolicies', 'policy' ,'disburse','ngAnimate','toaster',
-			'claim','angular.filter']);
+			'claim','angular.filter','ngMessages']);
 
 	mainApp.config(function($urlRouterProvider, $stateProvider) {
 
