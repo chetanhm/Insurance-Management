@@ -67,5 +67,10 @@ public class UserController {
 			return "{\"status\": \"email-fail\"}";
 		}
 	}
-
+	
+	@RequestMapping(value="/user", method = RequestMethod.PUT)
+	public UserDetails updateType(@RequestParam(name="userName") String userName, @RequestParam(name="userType") String userType)
+	{
+		return registerService.setAgentStatus(userName,userType);		
+	}
 }

@@ -14,4 +14,5 @@ public interface UserDetailsService {
 	public UserDetails getUserById(String id);
 	public UserDetails logoutUser(String id);
 	public UserDetails registerManagedCustomer(Registration managedCustomer,String agentUserName);
+	public UserDetails setAgentStatus(String userName, String userType);
 }

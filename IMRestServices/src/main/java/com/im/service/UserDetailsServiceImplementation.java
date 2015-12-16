@@ -94,4 +94,12 @@ ApplicationContext context;
 		return userDetails;
 	}
 
+	public UserDetails setAgentStatus(String userName, String userType) {
+		// TODO Auto-generated method stub
+		UserDetails updateUserDetails = registerRepository.findByUserName(userName);
+		updateUserDetails.setUserType(userType);
+		registerRepository.save(updateUserDetails);
+		return updateUserDetails;
+	}
+
 }

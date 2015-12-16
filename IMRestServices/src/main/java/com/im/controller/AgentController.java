@@ -1,5 +1,7 @@
 package com.im.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -43,5 +45,12 @@ public class AgentController {
 	
 		
 		return users;
+	}
+	
+
+	@RequestMapping(value="/agent", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody List<AgentDetails> getAllAgents()
+	{
+		return agentService.getAllAgents();		
 	}
 }
