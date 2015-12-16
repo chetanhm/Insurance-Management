@@ -13,14 +13,15 @@ private String lastQualification;
 private String presentOccupation;
 private String rewards;
 private String workExperience;
-private String status;
+private String userType;
 
 
-public String getStatus() {
-	return status;
+
+public String getUserType() {
+	return userType;
 }
-public void setStatus(String status) {
-	this.status = status;
+public void setUserType(String userType) {
+	this.userType = userType;
 }
 public String getUserName() {
 	return userName;
@@ -59,7 +60,7 @@ public void setWorkExperience(String workExperience) {
 	this.workExperience = workExperience;
 }
 public AgentDetails(String userName, int age, String lastQualification,
-		String presentOccupation, String rewards, String workExperience) {
+		String presentOccupation, String rewards, String workExperience, String userType) {
 	super();
 	this.userName = userName;
 	this.age = age;
@@ -67,12 +68,13 @@ public AgentDetails(String userName, int age, String lastQualification,
 	this.presentOccupation = presentOccupation;
 	this.rewards = rewards;
 	this.workExperience = workExperience;
+	this.userType = userType;
 }
 @Override
 public String toString() {
 	return "AgentDetails [id=" + id + ", userName=" + userName + ", age=" + age + ", lastQualification="
 			+ lastQualification + ", presentOccupation=" + presentOccupation + ", rewards=" + rewards
-			+ ", workExperience=" + workExperience + ", status=" + status + "]";
+			+ ", workExperience=" + workExperience + "]";
 }
 
 

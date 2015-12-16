@@ -32,11 +32,11 @@
   		<td>{{agent.lastQualification}}</td>
   		<td>{{agent.presentOccupation}}</td>
   		<td>{{agent.rewards}}</td>
-  		<td>{{agent.workExperience}}</td>
-  		<td>{{user.userType}}</td>
+  		<td>{{agent.workExperience}} Year</td>
+  		<td>{{agent.userType}}</td>
   		<td>
   			<input type="radio" name="userType" id="userType-1" ng-model="userType" value="agent">approved<br>
-  		 <input type="radio" name="userType" id="userType-2" ng-model="userType" value=" ">rejected<br>	
+  		 <input type="radio" name="userType" id="userType-2" ng-model="userType" value="reject">rejected<br>	
  	<button type="button" value="Refresh page" ng-click="setAgentStatus(agent.userName,userType)" class="btn btn-sm btn-primary">Set</button>
  	  		</td>
   	</tr>

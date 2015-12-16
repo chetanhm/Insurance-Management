@@ -19,7 +19,7 @@ public class AgentDetailsImplementation implements AgentDetailsService{
 	@Autowired
 	private AgentRepository agentRepository;
 	public AgentDetails addUserAsAgent(Agent agent) {
-		AgentDetails agentDetails=new AgentDetails(agent.getUserName(),agent.getAge(), agent.getLastQualification(),agent.getPresentOccupation(),agent.getRewards(),agent.getWorkExperience());
+		AgentDetails agentDetails=new AgentDetails(agent.getUserName(),agent.getAge(), agent.getLastQualification(),agent.getPresentOccupation(),agent.getRewards(),agent.getWorkExperience(),"pending");
 		
 		
 		if(registerRepository.findByUserName(agent.getUserName()) != null && (agent.getAge()>18))
@@ -33,6 +33,13 @@ public class AgentDetailsImplementation implements AgentDetailsService{
 	public List<AgentDetails> getAllAgents() {
 		// TODO Auto-generated method stub
 		return agentRepository.findAll();
+	}
+	public AgentDetails setAgentType(String userName, String userType) {
+		// TODO Auto-generated method stub
+		AgentDetails updateAgentDetails = agentRepository.findByUserName(userName);
+		updateAgentDetails.setUserType(userType);
+		agentRepository.save(updateAgentDetails);
+		return updateAgentDetails;
 	}
 
 }
