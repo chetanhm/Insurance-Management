@@ -19,7 +19,7 @@ public class UserDetails {
 	private String password;
 	private String loginStatus;
 	private String userType;
-	private String agentName;
+	private String agentUserName;
 
 	public String getUserType() {
 		return userType;
@@ -29,12 +29,12 @@ public class UserDetails {
 		this.userType = userType;
 	}
 
-	public String getAgentName() {
-		return agentName;
+	public String getAgentUserName() {
+		return agentUserName;
 	}
 
-	public void setAgentName(String agentName) {
-		this.agentName = agentName;
+	public void setAgentUserName(String agentName) {
+		this.agentUserName = agentName;
 	}
 
 	public String getLoginStatus() {
@@ -149,7 +149,7 @@ public class UserDetails {
 		return "UserDetails [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", address=" + address
 				+ ", state=" + state + ", city=" + city + ", contactNo=" + contactNo + ", email=" + email
 				+ ", userName=" + userName + ", password=" + password + ", loginStatus=" + loginStatus + ", userType="
-				+ userType + ", agentName=" + agentName + "]";
+				+ userType + ", agentName=" + agentUserName + "]";
 	}
 
 	

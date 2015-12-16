@@ -1,6 +1,7 @@
 package com.im.service;
 
 import com.im.collection.UserDetails;
+import com.im.entity.Registration;
 
 public interface UserDetailsService {
 	
@@ -12,4 +13,5 @@ public interface UserDetailsService {
 	public UserDetails saveUser(UserDetails userDetails);
 	public UserDetails getUserById(String id);
 	public UserDetails logoutUser(String id);
+	public UserDetails registerManagedCustomer(Registration managedCustomer,String agentUserName);
 }
