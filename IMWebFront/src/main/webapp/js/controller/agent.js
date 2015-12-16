@@ -34,7 +34,7 @@ agent.controller("AgentCtrl",function($scope,$http,$resource,$location,$rootScop
 
 agent.controller("AgentClaimCtrl", function($scope, $http){
 	var loadUser=JSON.parse(localStorage.getItem("user"));
-	
+	var productDetails=null;
 	var result=$http.get(baseUrl+"/agent/"+loadUser.userName+"/user").success(function(response){
 		$scope.userList=response;
 		
@@ -45,7 +45,12 @@ agent.controller("AgentClaimCtrl", function($scope, $http){
 			$scope.policyList=response;
 		});
 	}
-	
+	$scope.updateDetails=function()
+	{
+		var result2=$http.get(baseUrl+"/product/"+$scope.policyName).success(function(response){
+			productDetails=response;
+		});
+	}
 	$scope.submit=function()
 	{
 		var fd = new FormData();
@@ -91,6 +96,24 @@ agent.controller("AgentClaimCtrl", function($scope, $http){
 					});
 						}
 				});
+	}
+	
+	$scope.check=function()
+	{
+		var basicCoverage=productDetails.basicCoverage;
+		
+		if($scope.claimAmount>basicCoverage)
+			{
+			//alert("You cannot enter more than Rs" +basicCoverage);
+			$scope.claimAmountErrortext="You cannot enter more than Rs" +basicCoverage + " . Which is your basic coverage under term of your policy.";
+			$scope.claimAmountError=true;
+			$scope.claimAmount="";
+			}
+		else
+			{
+			$scope.claimAmountError=false;
+			}
+		
 	}
 });
 

@@ -83,7 +83,7 @@
   <label class="col-md-4 control-label" for="hello">Policy Name *</label>
   <div class="col-md-4">
   <div class="input-group">
-    <select id="policyName" name="policyName" class="form-control" ng-model="policyName" ng-disabled="!managedCustomer"  required>
+    <select ng-change="updateDetails()" id="policyName" name="policyName" class="form-control" ng-model="policyName" ng-disabled="!managedCustomer"  required>
       <option value='{{policy.productName}}' ng-repeat="policy in policyList | unique: 'productName'">{{policy.productName}}</option>
     </select>
     <span class="input-group-addon none"
@@ -137,7 +137,7 @@
   <label class="col-md-4 control-label" for="claimAmount" required="">Claim Amount *</label>  
   <div class="col-md-4">
   <div class="input-group">
-  <input type="text" id="claimAmount" name="claimAmount" ng-model="claimAmount"  placeholder="Enter amount you claim" class="form-control input-md" ng-pattern="/^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/" required >
+  <input type="text" id="claimAmount" ng-change="check()" name="claimAmount" ng-model="claimAmount"  placeholder="Enter amount you claim" class="form-control input-md" ng-pattern="/^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/" required >
   <span class="input-group-addon none"
 										ng-class="{ 'danger' : userForm.claimAmount.$touched && userForm.claimAmount.$invalid , 'success' : userForm.claimAmount.$touched &&  !userForm.claimAmount.$invalid , 'block': userForm.claimAmount.$touched }">
 										<span class="glyphicon "
@@ -148,8 +148,11 @@
 									ng-if="userForm.claimAmount.$touched">
 									<p ng-message="required">Amount is required.</p>
 									<p ng-message="pattern">Amount has to be in numbers</p>
-
+									
 								</div>
+									<div class="help-block">
+									<p ng-show="claimAmountError">{{claimAmountErrortext}}</p>
+									</div>
 							</div>
   </div>
 </div>

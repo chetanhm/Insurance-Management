@@ -3,8 +3,9 @@
 	
 	var claims = angular.module("claim", []);
 	
-	claims.controller("claimCtrl",function($scope,$http){
+	claims.controller("claimCtrl",function($scope,$http,$location){
 		var loadUser=JSON.parse(localStorage.getItem("user"));
+		var newProductDetails=null;
 	
 		var result=$http.get(baseUrl+"/policy/"+loadUser.userName).success(function(response)
 		{
@@ -12,7 +13,12 @@
 			$scope.listPolicies=response;
 			
 		});		
-		
+		$scope.updateDetails=function()
+		{
+			var result2=$http.get(baseUrl+"/product/"+$scope.policyName).success(function(response){
+				newProductDetails=response;
+			});
+		}
 		$scope.submit=function()
 		{
 			var fd = new FormData();
@@ -52,6 +58,7 @@
 								
 						};
 						var result1=$http.post(baseUrl+"/claim", dataObj).success(function(response){
+							$location.path("/dashboard/disburse");
 							$scope.showSuccess=true;
 							$scope.hideForm=true;
 							
@@ -59,7 +66,23 @@
 							}
 					});
 		}
-		
+		$scope.check=function()
+		{
+			var basicCoverage=newProductDetails.basicCoverage;
+			
+			if($scope.claimAmount>basicCoverage)
+				{
+				//alert("You cannot enter more than Rs" +basicCoverage);
+				$scope.claimAmountErrortext="You cannot enter more than Rs" +basicCoverage + " . Which is your basic coverage under term of your policy.";
+				$scope.claimAmountError=true;
+				$scope.claimAmount="";
+				}
+			else
+				{
+				$scope.claimAmountError=false;
+				}
+			
+		}
 	});
 	
 })();
