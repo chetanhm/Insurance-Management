@@ -3,8 +3,6 @@ package com.im.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 import com.im.collection.UserDetails;
 import com.im.entity.Registration;
@@ -13,7 +11,10 @@ import com.im.util.MailMail;
 
 @Service
 public class UserDetailsServiceImplementation implements UserDetailsService {
-ApplicationContext context;
+
+@Autowired
+private MailMail mm;
+
 	@Autowired
 	private RegisterRepository registerRepository;
 
@@ -88,11 +89,8 @@ ApplicationContext context;
 	userDetails.setUserType("managed");
 	userDetails.setAgentUserName(agentUserName);
 	registerRepository.insert(userDetails);
-	
-	context = new ClassPathXmlApplicationContext("Spring-Mail.xml");
-	    	String emailId=userDetails.getEmail();
-	    	MailMail mm = (MailMail) context.getBean("mailMail");
-	        mm.sendMail("xorinsurancemanagement@gmail.com",emailId,"Worldwide Life Insurance","Hello "+userDetails.getFirstName()+"\nThank you for your interest. We are happy to have you as our customer. \n username: "+userDetails.getUserName()+" & password: "+userDetails.getPassword()+"\n\nRegards,\n"+userDetails.getAgentUserName()+"\nWorldwide Life Insurance");
+	String emailId=userDetails.getEmail();
+	mm.sendMail("xorinsurancemanagement@gmail.com",emailId,"Worldwide Life Insurance","Hello "+userDetails.getFirstName()+"\nThank you for your interest. We are happy to have you as our customer. \n username: "+userDetails.getUserName()+" & password: "+userDetails.getPassword()+"\n\nRegards,\n"+userDetails.getAgentUserName()+"\nWorldwide Life Insurance");
 		return userDetails;
 	}
 
