@@ -16,6 +16,6 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>IMWebFront</finalName>
+    <finalName>IMWebFront</finalName> 
   </build>
 </project>
