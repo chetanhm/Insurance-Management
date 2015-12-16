@@ -129,6 +129,13 @@ var baseUrl = "http://localhost:8080/imservices";
 			templateUrl : 'views/dashboard.agentClaim.html',
 			controller : 'AgentClaimCtrl'
 		});
+		
+		$stateProvider.state('dashboard.allAgents', {
+			url : '/allAgents',
+			templateUrl : 'views/dashboard.allAgents.html',
+			controller : 'ApproveAgentCtrl'
+		});
+		
 	});
 
 })();

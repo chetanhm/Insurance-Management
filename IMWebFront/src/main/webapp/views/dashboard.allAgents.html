@@ -1,0 +1,60 @@
+
+
+<form>
+
+<div class="form-group">
+  
+  <div class="col-md-16">
+  	
+   
+   
+   
+   <div class="row">
+  	
+	<div  class=" panel panel-primary">
+ 
+  	<table class="table table-condensed" class="panel-heading">
+  	
+ 	 
+  	<tr  class="panel panel-info" >
+  		<th>Name</th>
+  		<th>Age</th>
+  		<th>Last Qualification</th>
+  		<th>Present Occupation</th>
+  		<th>Rewards</th>
+  		<th>Work Experience</th>
+  		<th>Current Status</th>
+  		<th>Approve/Reject</th>
+  	</tr> 
+  	<tr ng-repeat="agent in agentList">
+  		<td>{{agent.userName}}</td>
+  		<td>{{agent.age}}</td>
+  		<td>{{agent.lastQualification}}</td>
+  		<td>{{agent.presentOccupation}}</td>
+  		<td>{{agent.rewards}}</td>
+  		<td>{{agent.workExperience}}</td>
+  		<td>{{user.userType}}</td>
+  		<td>
+  			<input type="radio" name="userType" id="userType-1" ng-model="userType" value="agent">approved<br>
+  		 <input type="radio" name="userType" id="userType-2" ng-model="userType" value=" ">rejected<br>	
+ 	<button type="button" value="Refresh page" ng-click="setAgentStatus(agent.userName,userType)" class="btn btn-sm btn-primary">Set</button>
+ 	  		</td>
+  	</tr>
+  	
+  </table>
+  
+  
+  </div>
+  </div>
+  </div>
+  
+  </div>
+  	
+  
+
+</form>
+
+
+
+
+
