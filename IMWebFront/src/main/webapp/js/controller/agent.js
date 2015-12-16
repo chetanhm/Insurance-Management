@@ -228,7 +228,7 @@ agent.controller("ApplyForCustomerFormCtrl",function($stateParams,$scope,$http,$
 		{
 
 			var loadUser=JSON.parse(localStorage.getItem("user"));
-				var result=$http.get(baseUrl+"/agent/"+loadUser.userName).success(function(response){
+				var result=$http.get(baseUrl+"/agent/"+loadUser.userName+"/user").success(function(response){
 					if(response.length!=0)
 						{
 						$scope.userList=response;
