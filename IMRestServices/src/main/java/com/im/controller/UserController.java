@@ -69,7 +69,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/user", method = RequestMethod.PUT)
-	public UserDetails updateType(@RequestParam(name="userName") String userName, @RequestParam(name="userType") String userType)
+	public UserDetails updateUserType(@RequestParam(name="userName") String userName, @RequestParam(name="userType") String userType)
 	{
 		return registerService.setAgentStatus(userName,userType);		
 	}
