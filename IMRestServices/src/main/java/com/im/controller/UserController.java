@@ -52,7 +52,7 @@ public class UserController {
 
 	
 	@RequestMapping(value = "/user/check", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody String usernameAvailable(
+	public @ResponseBody String isUserExists(
 			@RequestParam(name = "userName") String username,
 			@RequestParam(name = "email") String email) {
 		UserDetails userDetails = registerService.getUserByEmail(email);
