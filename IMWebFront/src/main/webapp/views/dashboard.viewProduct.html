@@ -1,0 +1,102 @@
+<br>
+<br>
+
+<div class="row">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">{{policy.userName}}</h3>
+			</div>
+			
+			<table class="table table-condensed">
+		<tr class="sucess">
+			<td>Name</td>
+			<td>{{policy.userName}}</td>
+			<td>Policy Name</td>
+			<td>{{policy.policyName}}</td>
+		</tr>
+		<tr class="sucess">
+			<td>Policy Number</td>
+			<td>{{policy.policyNumber}}</td>
+			<td>Monthly Premium</td>
+			<td>{{policy.monthlyPremium}}</td>			
+		</tr>
+		<tr class="sucess">
+			<td>Annual Income</td>
+			<td>{{policy.annualIncome}}</td>
+			<td>Income Proof</td>
+			<td><a href="http://localhost:8080/imservices/files?fileName={{policy.incomeProofFile}} ">{{policy.userName}}'s Income Proof</a></td>
+		</tr>
+		<tr class="sucess">
+			<td>Age Proof</td>
+			<td><a href="http://localhost:8080/imservices/files?fileName={{policy.ageProofFile}} ">{{policy.userName}}'s Age Proof</a></td>
+			<td>Resident Proof</td>
+			<td><a href="http://localhost:8080/imservices/files?fileName={{policy.residenceProofFile}} ">{{policy.userName}}'s Resident Proof</a></td>		
+		</tr>
+		<tr class="sucess">
+			<td>Photo File</td>
+			<td><a href="http://localhost:8080/imservices/files?fileName={{policy.photoFile}} ">{{policy.userName}}'s Photo File</a></td>
+			<td>Current Status</td>
+			<td>{{policy.status}}</td>
+		</tr>
+ </table>
+  
+  
+  </div>
+  </div>
+ </div>
+
+
+
+<div class="row">
+	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">{{product.productName}}</h3>
+			</div>
+
+				<table class="table table-condensed">
+		<tr class="sucess">
+		<td>Monthly Premium
+		</td>
+		<td>{{product.monthlyPremium}} INR</td>
+		</tr>
+			<td>Basic Coverage
+		</td>
+		<td>{{product.basicCoverage}} INR</td>
+		</tr>
+			<td>Accidental Benefit
+		</td>
+		<td>{{product.accidentalBenefit}} INR</td>
+		</tr>
+			<td>Settlement Ratio
+		</td>
+		<td>{{product.settlementRatio}} % of claim</td>
+		</tr>
+		</table>
+		<br>
+			<div class="well">
+				Description: {{product.description}} <br>
+			</div>
+			<button type="button" class="btn btn-sm btn-primary"
+				ui-sref="dashboard.respectivePolicies">Back</button>
+			<br> <br>
+		</div>
+
+	</div>
+	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Product terms</h3>
+			</div>
+			<div class="panel-body">
+				<ul>
+					<li ng-repeat="term in product.productTerms">{{term}}</li>
+				</ul>
+				<br>
+			</div>
+		</div>
+	</div>
+</div>

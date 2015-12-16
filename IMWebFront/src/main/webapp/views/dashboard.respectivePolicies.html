@@ -18,7 +18,7 @@
 			<td>{{policy.policyNumber}}</td>
 			<td>{{policy.monthlyPremium}}</td>
 			<td>{{policy.status}}</td>
-			<td><button type="button"  class="btn btn-sm btn-success" ui-sref="website.viewProduct({productName: policy.productName})" ng-hide="status=='Fail'">&nbsp; View Details &nbsp;</button></td>
+			<td><button type="button"  class="btn btn-sm btn-success" ui-sref="dashboard.viewProduct({policyNumber: policy.policyNumber})" ng-hide="status=='Fail'">&nbsp; View Details &nbsp;</button></td>
 		</tr>
 	</table>
      

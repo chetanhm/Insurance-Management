@@ -113,6 +113,13 @@ var baseUrl = "http://localhost:8080/imservices";
 			controller : 'claimCtrl'
 		});
 		
+
+		$stateProvider.state('dashboard.viewProduct', {
+			url : '/viewProduct/:policyNumber',
+			templateUrl : 'views/dashboard.viewProduct.html',
+			controller : 'onePolicyController'
+		});
+		
 	});
 
 })();
