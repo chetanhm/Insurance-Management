@@ -58,13 +58,33 @@
 <h3 class="panel-title">Add Claim</h3>
 </div>
 <div class="panel-body">
+
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="user">Managed Customer</label>
+  <div class="col-md-4">
+  <div class="input-group">
+    <select id="managedCustomer" ng-change="policy()" name="managedCustomer" ng-model="managedCustomer" class="form-control" required="">
+      <option value='{{user.userName}}' ng-repeat="user in userList | unique: 'userName'">{{user.userName}}</option>
+    </select>
+    <span class="input-group-addon none"
+		ng-class="{ 'danger' :  userForm.managedCustomer.$touched && userForm.managedCustomer.$invalid  , 'success' : 	 !userForm.managedCustomer.$invalid }">
+		<span class="glyphicon "
+		ng-class="{ 'glyphicon-remove' : userForm.managedCustomer.$touched && userForm.managedCustomer.$invalid , 'glyphicon-ok' :  !userForm.managedCustomer.$invalid}">
+		</span>
+	</div>
+  </div>
+</div>
+
+
 <!-- Select Basic -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="hello">Policy Name *</label>
   <div class="col-md-4">
   <div class="input-group">
-    <select id="policyName" name="policyName" class="form-control" ng-model="policyName"  required>
-      <option value='{{policy.policyName}}' ng-repeat="policy in listPolicies | unique: 'policyName'">{{policy.policyName}}</option>
+    <select id="policyName" name="policyName" class="form-control" ng-model="policyName" ng-disabled="!managedCustomer"  required>
+      <option value='{{policy.productName}}' ng-repeat="policy in policyList | unique: 'productName'">{{policy.productName}}</option>
     </select>
     <span class="input-group-addon none"
 		ng-class="{ 'danger' :  userForm.policyName.$touched && userForm.policyName.$invalid  , 'success' : 	 !userForm.policyName.$invalid }">
@@ -80,8 +100,8 @@
   <label class="col-md-4 control-label" for="selectbasic" required="">Policy Number *</label>
   <div class="col-md-4">
    <div class="input-group">
-    <select id="policyNumber" name="policyNumber" class="form-control" ng-disabled="!policyName" ng-model="policyNumber" required>
-      <option  value='{{policy.policyNumber}}' ng-repeat=" policy in listPolicies |filter: policyName" >{{policy.policyNumber}}</option>
+    <select id="policyNumber" name="policyNumber" class="form-control" ng-disabled="!policyName || !managedCustomer" ng-model="policyNumber" required>
+      <option  value='{{policy.policyNumber}}' ng-repeat=" policy in policyList |filter: policyName" >{{policy.policyNumber}}</option>
      
     </select>
     <span class="input-group-addon none"
@@ -162,8 +182,7 @@
   </div>
 </fieldset>
 </form>
-<br><br><br><br>
-	
+
 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" ng-show="showSuccess">
 		<div class="panel panel-primary">
 			<div class="panel-heading">

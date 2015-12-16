@@ -41,9 +41,6 @@ public class AgentController {
 	public @ResponseBody UserDetails registerManagedCustomer(
 			@RequestBody Registration managedCustomer, @PathVariable(value="agentUserName") String agentUserName ) {
 		UserDetails users = registerService.registerManagedCustomer(managedCustomer,agentUserName);
-		
-	
-		
 		return users;
 	}
 	
@@ -52,5 +49,10 @@ public class AgentController {
 	public @ResponseBody List<AgentDetails> getAllAgents()
 	{
 		return agentService.getAllAgents();		
+	}
+	
+	@RequestMapping(value="/agent/{agentUserName}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody List<UserDetails> getUserByAgentName(@PathVariable(value="agentUserName") String agentUserName){
+		return registerService.getUserByAgentName(agentUserName);
 	}
 }

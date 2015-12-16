@@ -9,7 +9,8 @@
 		var result=$http.get(baseUrl+"/policy/"+loadUser.userName).success(function(response)
 		{
 			$scope.userName=loadUser.userName;
-			$scope.listPolicies=response;				
+			$scope.listPolicies=response;
+			
 		});		
 		
 		$scope.submit=function()

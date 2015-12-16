@@ -1,5 +1,7 @@
 package com.im.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -102,4 +104,8 @@ ApplicationContext context;
 		return updateUserDetails;
 	}
 
+	public List<UserDetails> getUserByAgentName(String agentUserName) {
+		return registerRepository.findByAgentUserName(agentUserName);
+		
+	}
 }

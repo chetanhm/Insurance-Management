@@ -64,11 +64,14 @@
                      <li>
                        <a ui-sref="dashboard.disburse"><i class="fa fa-fw fa-edit"></i> Assess disbursement of claims</a>
                     </li>
-                     <li>
+                     <li ng-show="user.userType!='agent'">
                        <a ui-sref="dashboard.claim"><i class="fa fa-fw fa-edit"></i>Claim</a>
                     </li>
                      <li ng-show="user.userType=='agent'">
                     	<a ui-sref="dashboard.addManagedCustomer"><i class="fa fa-fw fa-edit"></i>Add Customer</a>
+                    </li>
+                    <li ng-show="user.userType=='agent'">
+                       <a ui-sref="dashboard.agentClaim"><i class="fa fa-fw fa-edit"></i>Claim for Customer</a>
                     </li>
                     <!-- 
            

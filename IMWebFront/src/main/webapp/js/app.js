@@ -124,6 +124,11 @@ var baseUrl = "http://localhost:8080/imservices";
 			templateUrl : 'views/dashboard.addManagedCustomer.html',
 			controller : 'CustomerCtrl'
 		});
+		$stateProvider.state('dashboard.agentClaim', {
+			url : '/agentClaim',
+			templateUrl : 'views/dashboard.agentClaim.html',
+			controller : 'AgentClaimCtrl'
+		});
 	});
 
 })();

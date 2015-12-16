@@ -1,5 +1,7 @@
 package com.im.service;
 
+import java.util.List;
+
 import com.im.collection.UserDetails;
 import com.im.entity.Registration;
 
@@ -15,4 +17,5 @@ public interface UserDetailsService {
 	public UserDetails logoutUser(String id);
 	public UserDetails registerManagedCustomer(Registration managedCustomer,String agentUserName);
 	public UserDetails setAgentStatus(String userName, String userType);
+	public List<UserDetails> getUserByAgentName(String agentUserName);
 }
