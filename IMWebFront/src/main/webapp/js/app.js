@@ -84,7 +84,7 @@ var baseUrl = "http://localhost:8080/imservices";
 
 		$stateProvider.state('dashboard.applyForAgent', {
 			url : '/applyForAgent',
-			templateUrl : 'views/dashboard.agent.html',
+			templateUrl : 'views/dashboard.applyForAgent.html',
 			controller : 'AgentCtrl'
 		});
 
