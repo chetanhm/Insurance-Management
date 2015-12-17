@@ -5,7 +5,7 @@ var baseUrl = "http://localhost:8080/imservices";
 			'ui.bootstrap', 'register', 'login', 'ngResource', 'browse',
 			'viewProduct', 'navigation', 'logout', 'adminproduct', 'premium',
 			'agent', 'buyProduct', 'allPolicies', 'policy' ,'disburse','ngAnimate','toaster',
-			'claim','angular.filter','ngMessages','addManagedCustomer','monitor','agentDisburse']);
+			'claim','angular.filter','ngMessages','addManagedCustomer','monitor','agentDisburse','chart.js','imcharts']);
 
 	mainApp.config(function($urlRouterProvider, $stateProvider) {
 
@@ -166,6 +166,12 @@ var baseUrl = "http://localhost:8080/imservices";
 			url : '/monitorDisbursements',
 			templateUrl : 'views/dashboard.agent.monitorDisbursements.html',
 			controller : 'MonitorCtrl'
+		});
+		$stateProvider.state('dashboard.charts',{
+			url : '/charts',
+			templateUrl : 'views/dashboard.charts.html',
+			controller : 'ChartCtrl'
+			
 		});
 	});
 

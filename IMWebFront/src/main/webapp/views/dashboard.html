@@ -56,6 +56,9 @@
                     	<a ui-sref="dashboard.allPolicies"><i class="fa fa-fw fa-edit"></i> All Policies</a>
                     </li>
                     <li ng-show="user.userName=='admin'">
+                    	<a ui-sref="dashboard.charts"><i class="fa fa-fw fa-edit"></i>Chart Analysis</a>
+                    </li>
+                    <li ng-show="user.userName=='admin'">
                     	<a ui-sref="dashboard.allClaims"><i class="fa fa-fw fa-edit"></i> All Claims</a>
                     </li>
                         <li ng-show="user.userType==null">
