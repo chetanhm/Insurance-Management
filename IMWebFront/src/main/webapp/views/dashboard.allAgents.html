@@ -5,7 +5,7 @@
 <div class="form-group">
   
   <div class="col-md-16">
-  	
+  	<div ng-hide="hideTable" >
    <label class="radio-inline" for="userType-0">
       <input type="radio" name="userType" id="userType-0" ng-model="userType" value=" " checked="checked">
       All
@@ -22,14 +22,14 @@
       <input type="radio" name="userType" id="userType-3" ng-model="userType" value="pending" >
       Pending
     </label>
-   
+   	</div>
    
    <div class="row">
   	
-	<div  class=" panel panel-primary">
+	<div  class=" panel panel-primary" ng-hide="hideTable">
  
   	<table class="table table-condensed" class="panel-heading">
-  <tr>	<div class="panel-heading">
+  <tr>	<div class="panel-heading" ng-hide="showSuccess">
 				<h3 class="panel-title">Agent List</h3>
 			</div>
  	 </tr>
@@ -62,6 +62,11 @@
   
   
   </div>
+  <br><br>
+   <div class="alert alert-danger" ng-hide="showSuccess">
+				
+			You have no agents associated.		   
+</div>
   </div>
   </div>
   

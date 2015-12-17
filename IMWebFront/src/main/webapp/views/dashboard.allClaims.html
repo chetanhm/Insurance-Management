@@ -5,7 +5,7 @@
 <div class="form-group">
   
   <div class="col-md-16">
-  	
+  <div  ng-hide="hideTable">	
   	<label class="radio-inline" for="claimStatus-0">
       <input type="radio" name="claimStatus" id="claimStatus-0" ng-model="claimStatus" value=" " checked="checked">
       All
@@ -22,13 +22,13 @@
       <input type="radio" name="claimStatus" id="claimStatus-3" ng-model="claimStatus" value="pending" >
       Pending
     </label>
-  
-   
+
+   </div>
    
    
    <div class="row">
   	
-	<div  class=" panel panel-primary">
+	<div  class=" panel panel-primary" ng-hide="hideTable">
  
   	<table class="table table-condensed" class="panel-heading">
   	
@@ -70,6 +70,11 @@
   
   
   </div>
+  <br><br>
+   <div class="alert alert-danger" ng-hide="showSuccess">
+				
+			You have no claims.		   
+</div>
   </div>
   </div>
   

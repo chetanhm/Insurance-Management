@@ -134,6 +134,17 @@ agent.controller("ApproveAgentCtrl",function($scope, $http,$window)
 			var result=$http.get(baseUrl+"/agent").success(function(response)
 					{
 						$scope.agentList=response;
+						
+						if($scope.agentList=='')
+							{
+							$scope.hideTable=true;
+							$scope.showSuccess=false;
+							}
+						else
+							{
+							$scope.hideTable=false;
+							$scope.showSuccess=true;
+							}
 					});			
 			$scope.setAgentStatus= function(userName,userType)
 			{		
@@ -142,6 +153,7 @@ agent.controller("ApproveAgentCtrl",function($scope, $http,$window)
 					$http.put(baseUrl+"/agent?userName="+userName+"&userType="+userType);									
 					$window.location.reload();
 			};
+			
 		});
 
 

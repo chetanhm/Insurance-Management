@@ -99,6 +99,16 @@
 				var result = $http.get(baseUrl+"/claim/pending").success(function(response)
 				{			
 					$scope.claimList = response;
+					if($scope.claimList=='')
+						{
+						$scope.hideTable=true;
+						$scope.showSuccess=false;
+						}
+					else
+						{
+						$scope.hideTable=false;
+						$scope.showSuccess=true;
+						}
 				});
 				$scope.setClaimStatus=function(id,claimStatus)
 				{
