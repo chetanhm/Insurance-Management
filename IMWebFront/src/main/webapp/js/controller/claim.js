@@ -11,6 +11,16 @@
 		{
 			$scope.userName=loadUser.userName;
 			$scope.listPolicies=response;
+			if($scope.listPolicies=='')
+			{
+			$scope.policyError=true;
+			$scope.policyErrorText="No policy is approved";
+			
+			}
+		else
+			{
+			$scope.policyError=false;
+			}
 			
 		});		
 		$scope.updateDetails=function()
