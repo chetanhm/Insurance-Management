@@ -1,5 +1,6 @@
 package com.im.service;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -59,6 +60,22 @@ public class PolicyServiceImplementation implements PolicyService {
 		// TODO Auto-generated method stub
 		return policyRepository.findByPolicyNumber(Long.parseLong(policyNumber));
 		
+	}
+
+	
+	public List<PolicyDetails> getApprovedPolicy(String userName) {
+		List<PolicyDetails> approvedPolicyList=new ArrayList<PolicyDetails>();
+		List<PolicyDetails> listPolicies=policyRepository.findByUserName(userName);
+		Iterator<PolicyDetails> iterator=listPolicies.iterator();
+		while(iterator.hasNext())
+		{
+			PolicyDetails policy=iterator.next();
+			if(policy.getStatus().equals("approved"))
+			{
+				approvedPolicyList.add(policy);
+			}
+		}
+		return approvedPolicyList;
 	}
 
 	

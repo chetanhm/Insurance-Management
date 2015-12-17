@@ -74,6 +74,9 @@
 		ng-class="{ 'glyphicon-remove' : userForm.managedCustomer.$touched && userForm.managedCustomer.$invalid , 'glyphicon-ok' :  !userForm.managedCustomer.$invalid}">
 		</span>
 	</div>
+	<div class="help-block">
+									<p ng-show="policyError">{{policyErrorText}}</p>
+									</div>	
   </div>
 </div>
 
@@ -91,7 +94,9 @@
 		<span class="glyphicon "
 		ng-class="{ 'glyphicon-remove' : userForm.policyName.$touched && userForm.policyName.$invalid , 'glyphicon-ok' :  !userForm.policyName.$invalid}">
 		</span>
-	</div>							
+	</div>	
+	</div>
+														
   </div>
 </div>
 

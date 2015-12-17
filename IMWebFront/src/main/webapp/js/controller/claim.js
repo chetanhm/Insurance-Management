@@ -7,7 +7,7 @@
 		var loadUser=JSON.parse(localStorage.getItem("user"));
 		var newProductDetails=null;
 	
-		var result=$http.get(baseUrl+"/policy/"+loadUser.userName).success(function(response)
+		var result=$http.get(baseUrl+"/policy/"+loadUser.userName+"/approved").success(function(response)
 		{
 			$scope.userName=loadUser.userName;
 			$scope.listPolicies=response;

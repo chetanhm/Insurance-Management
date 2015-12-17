@@ -60,4 +60,10 @@ public class PolicyController {
 	{
 		return policyService.getPolicyByPolicyNumber(policyNumber);			
 	}
+	
+	@RequestMapping(value="/policy/{userName}/approved", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public List<PolicyDetails> getAllApprovedPoliciesByUserName(@PathVariable(value="userName") String userName)
+	{
+		return policyService.getApprovedPolicy(userName);
+	}
 }

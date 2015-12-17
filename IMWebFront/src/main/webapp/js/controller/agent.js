@@ -41,8 +41,20 @@ agent.controller("AgentClaimCtrl", function($scope, $http){
 	});
 	
 	$scope.policy=function(){
-		var result2=$http.get(baseUrl+"/policy/"+$scope.managedCustomer).success(function(response){
+		var policyList= null;
+		var result2=$http.get(baseUrl+"/policy/"+$scope.managedCustomer+"/approved").success(function(response){
 			$scope.policyList=response;
+			alert($scope.policyList);
+			if($scope.policyList=='')
+			{
+			$scope.policyError=true;
+			$scope.policyErrorText="No policy is approved";
+			
+			}
+		else
+			{
+			$scope.policyError=false;
+			}
 		});
 	}
 	$scope.updateDetails=function()
