@@ -8,4 +8,5 @@ public interface AgentDetailsService {
 	public AgentDetails addUserAsAgent(Agent agent);
 	public List<AgentDetails> getAllAgents();
 	public AgentDetails setAgentType(String userName, String userType);
+	public AgentDetails getAgent(String userName);
 }

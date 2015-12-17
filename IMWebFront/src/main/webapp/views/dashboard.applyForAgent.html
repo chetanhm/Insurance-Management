@@ -1,7 +1,7 @@
 <br>
 <br>
 <br>
-<div class="row">
+<div class="row" ng-hide="hideDiv">
 	<div class="col-xs-1
 	 col-sm-1
 	 col-md-1
@@ -71,10 +71,12 @@
 					
 				</form>
 				
+				
 				<div class="alert alert-success" ng-show="showSuccess">
 				
 					  Thank you for your interest. Our Representative will be contacting you shortly. Have a nice day..! 
 				</div>
+				
 				
 				
 			
@@ -96,3 +98,8 @@
 		</div>
 	</div>
 </div>
+<div class="alert alert-danger" ng-show="showDanger">
+				
+					  You have already applied. We will contact you shortly. Have a nice day..! 
+				</div>
+				<br><br>

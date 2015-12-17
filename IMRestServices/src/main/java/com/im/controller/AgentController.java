@@ -52,6 +52,11 @@ public class AgentController {
 		return agentService.getAllAgents();		
 	}
 	
+	@RequestMapping(value="/agent/{agentUserName}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody AgentDetails getAgentByName(@PathVariable(value="agentUserName") String agentUserName){
+		return agentService.getAgent(agentUserName);
+	}
+	
 	@RequestMapping(value="/agent/{agentUserName}/user", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody List<UserDetails> getUserByAgentName(@PathVariable(value="agentUserName") String agentUserName){
 		return registerService.getUserByAgentName(agentUserName);

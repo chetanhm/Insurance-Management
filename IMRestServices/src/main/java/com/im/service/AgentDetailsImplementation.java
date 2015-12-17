@@ -41,5 +41,9 @@ public class AgentDetailsImplementation implements AgentDetailsService{
 		agentRepository.save(updateAgentDetails);
 		return updateAgentDetails;
 	}
+	public AgentDetails getAgent(String userName) {
+		
+		return agentRepository.findByUserName(userName);
+	}
 
 }

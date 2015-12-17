@@ -7,6 +7,18 @@ var agent = angular.module("agent", []);
 
 agent.controller("AgentCtrl",function($scope,$http,$resource,$location,$rootScope){
 	
+	var loaduser=JSON.parse(localStorage.getItem("user"));
+	var reslt3=$http.get(baseUrl+"/agent/"+loaduser.userName).success(function(response){
+		if(response.userType=='pending')
+			{
+			$scope.hideForm=true;
+			$scope.showDanger=true;
+			$scope.hideDiv=true;
+		
+			}
+	})
+	
+	
 	$scope.submit=function(){
 
 
