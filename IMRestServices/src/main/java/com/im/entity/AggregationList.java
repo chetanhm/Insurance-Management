@@ -26,7 +26,7 @@ public void setData(List<String> data) {
 }
 @Override
 public String toString() {
-	return "PolicyStatusChart [labels=" + labels + ", data=" + data + "]";
+	return "AggregationList [labels=" + labels + ", data=" + data + "]";
 }
 
 }

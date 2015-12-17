@@ -68,7 +68,7 @@ public class PolicyController {
 	{
 		return policyService.getApprovedPolicy(userName);
 	}
-	@RequestMapping(value = "/policy/status/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/policy/status/total", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody AggregationList getAllPolicyStatusAggregated() {
 	
 		return 	policyService.getAggregatedPolicyStatus();				 

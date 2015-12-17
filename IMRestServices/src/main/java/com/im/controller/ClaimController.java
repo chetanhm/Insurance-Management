@@ -51,7 +51,7 @@ public class ClaimController {
 	{
 		return claimService.setClaimStatus(id,claimStatus);
 	}
-	@RequestMapping(value = "/claim/type/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/claim/type/total", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody AggregationList getAllClaimsAggregated() {
 	
 		return 	claimService.getAggregatedClaimType();				 
