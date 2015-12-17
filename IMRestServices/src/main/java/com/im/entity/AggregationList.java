@@ -2,14 +2,14 @@ package com.im.entity;
 
 import java.util.List;
 
-public class PieChart {
+public class AggregationList {
 List<String> labels;
 List<String> data;
-public PieChart(List<String> labels, List<String> data) {
+public AggregationList(List<String> labels, List<String> data) {
 	this.labels = labels;
 	this.data = data;
 }
-public PieChart() {
+public AggregationList() {
 	// TODO Auto-generated constructor stub
 }
 public List<String> getLabels() {

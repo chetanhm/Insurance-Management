@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.im.collection.PolicyDetails;
 import com.im.entity.AddPolicy;
+import com.im.entity.AggregationList;
 
 public interface PolicyService  {
 	
@@ -14,6 +15,6 @@ public interface PolicyService  {
 	public PolicyDetails setStatus(String policyNumber, String status);
 	public PolicyDetails getPolicyByPolicyNumber(String policyNumber);
 	public List<PolicyDetails> getApprovedPolicy(String userName);
-	
+	public AggregationList getAggregatedPolicyStatus();
 	
 }

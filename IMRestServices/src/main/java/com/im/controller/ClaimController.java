@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.im.collection.ClaimDetails;
 import com.im.entity.Claim;
+import com.im.entity.AggregationList;
 import com.im.service.ClaimServices;
 
 
@@ -49,5 +50,11 @@ public class ClaimController {
 	public ClaimDetails updateStatus(@RequestParam(name="id")String id, @RequestParam(name="claimStatus")String claimStatus)
 	{
 		return claimService.setClaimStatus(id,claimStatus);
+	}
+	@RequestMapping(value = "/claim/type/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody AggregationList getAllClaimsAggregated() {
+	
+		return 	claimService.getAggregatedClaimType();				 
+		
 	}
 }

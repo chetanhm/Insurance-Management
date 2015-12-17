@@ -1,11 +1,11 @@
 package com.im.entity;
 
-public class PieChartElement {
+public class AggregationElement {
 private String _id;
 private String total;
 
 
-public PieChartElement(String _id, String total) {
+public AggregationElement(String _id, String total) {
 	this._id = _id;
 	this.total = total;
 }
@@ -18,7 +18,7 @@ public void setTotal(String total) {
 	this.total = total;
 }
 
-public PieChartElement() {
+public AggregationElement() {
 	// TODO Auto-generated constructor stub
 }
 

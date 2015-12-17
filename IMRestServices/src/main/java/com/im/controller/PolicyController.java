@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.im.collection.PolicyDetails;
 import com.im.entity.AddPolicy;
+import com.im.entity.AggregationList;
 import com.im.service.PolicyService;
 
 @CrossOrigin
@@ -65,5 +67,11 @@ public class PolicyController {
 	public List<PolicyDetails> getAllApprovedPoliciesByUserName(@PathVariable(value="userName") String userName)
 	{
 		return policyService.getApprovedPolicy(userName);
+	}
+	@RequestMapping(value = "/policy/status/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody AggregationList getAllPolicyStatusAggregated() {
+	
+		return 	policyService.getAggregatedPolicyStatus();				 
+		
 	}
 }

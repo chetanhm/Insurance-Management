@@ -1,14 +1,22 @@
 package com.im.service;
 
+import static org.springframework.data.mongodb.core.aggregation.Aggregation.group;
+import static org.springframework.data.mongodb.core.aggregation.Aggregation.newAggregation;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.aggregation.Aggregation;
+import org.springframework.data.mongodb.core.aggregation.AggregationResults;
 import org.springframework.stereotype.Service;
 
 import com.im.collection.PolicyDetails;
 import com.im.entity.AddPolicy;
+import com.im.entity.AggregationList;
+import com.im.entity.AggregationElement;
 import com.im.repository.PolicyRepository;
 import com.im.repository.ProductRepository;
 
@@ -20,6 +28,8 @@ public class PolicyServiceImplementation implements PolicyService {
 	private PolicyRepository policyRepository;
 	@Autowired
 	private ProductRepository productRepository;
+	@Autowired
+	private MongoOperations mongoOperations;
 
 	public long calculatePremium(String userName) {
 		long totalPremium = 0;
@@ -76,6 +86,19 @@ public class PolicyServiceImplementation implements PolicyService {
 			}
 		}
 		return approvedPolicyList;
+	}
+
+	public AggregationList getAggregatedPolicyStatus() {
+		AggregationList aggregationList = new AggregationList(new ArrayList<String>(), new ArrayList<String>());
+		Aggregation agg = newAggregation(group("status").count().as("total"));
+		AggregationResults<AggregationElement> aggregate = mongoOperations.aggregate(agg, "policies",
+				AggregationElement.class);
+		List<AggregationElement> mappedResults = aggregate.getMappedResults();
+		for (AggregationElement m : mappedResults) {
+			aggregationList.getLabels().add(m.get_id());
+			aggregationList.getData().add(m.getTotal());
+		}
+		return aggregationList;
 	}
 
 	
