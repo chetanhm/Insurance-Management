@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <div  class=" panel panel-primary">
+  <br>
+    <div  class=" panel panel-primary" ng-hide="hideTable">
       <div class="panel-heading">
    <h3 class="panel-title">{{user}}</h3>
     </div>
@@ -23,8 +24,14 @@
 	</table>
      
       </div>
+      
+      
+      
       </div>
-
+ <div class="alert alert-danger" ng-hide="showSuccess">
+				
+			You have no policies.		   
+</div>
     </div>
   </div>
    
