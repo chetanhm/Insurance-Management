@@ -83,14 +83,14 @@
   <label class="col-md-4 control-label" for="selectbasic" required="">Policy Number *</label>
   <div class="col-md-4">
    <div class="input-group">
-    <select ng-change="updateDetails()" id="policyNumber" name="policyNumber" class="form-control" ng-disabled="!policyName" ng-model="policyNumber" required>
+    <select ng-change="updateDetails()" id="policyNumber" name="policyNumber" class="form-control" ng-disabled="!policyName || policyError" ng-model="policyNumber" required>
       <option  value='{{policy.policyNumber}}' ng-repeat=" policy in listPolicies |filter: policyName" >{{policy.policyNumber}}</option>
      
     </select>
     <span class="input-group-addon none"
-		ng-class="{ 'danger' :  userForm.policyNumber.$touched && userForm.policyNumber.$invalid  , 'success' : 	 !userForm.policyNumber.$invalid }">
+		ng-class="{ 'danger' :  userForm.policyNumber.$touched && userForm.policyNumber.$invalid  , 'success' : 	 !userForm.policyNumber.$invalid && !policyError }">
 		<span class="glyphicon "
-		ng-class="{ 'glyphicon-remove' : userForm.policyNumber.$touched && userForm.policyNumber.$invalid , 'glyphicon-ok' :  !userForm.policyNumber.$invalid}">
+		ng-class="{ 'glyphicon-remove' : userForm.policyNumber.$touched && userForm.policyNumber.$invalid , 'glyphicon-ok' :  !userForm.policyNumber.$invalid && !policyError}">
 		</span>
 	</div>	
   </div>
@@ -107,9 +107,9 @@
       <option value="Natural Death">Disease Claim</option>
     </select>
     <span class="input-group-addon none"
-		ng-class="{ 'danger' :  userForm.claimType.$touched && userForm.claimType.$invalid  , 'success' : 	 !userForm.claimType.$invalid }">
+		ng-class="{ 'danger' :  userForm.claimType.$touched && userForm.claimType.$invalid  , 'success' : 	 !userForm.claimType.$invalid && !policyError }">
 		<span class="glyphicon "
-		ng-class="{ 'glyphicon-remove' : userForm.claimType.$touched && userForm.claimType.$invalid , 'glyphicon-ok' :  !userForm.claimType.$invalid}">
+		ng-class="{ 'glyphicon-remove' : userForm.claimType.$touched && userForm.claimType.$invalid , 'glyphicon-ok' :  !userForm.claimType.$invalid && !policyError}">
 		</span>
 	</div>	
   </div>
@@ -122,9 +122,9 @@
   <div class="input-group">
   <input type="text" id="claimAmount" name="claimAmount" ng-model="claimAmount"  ng-change="check()"  placeholder="Enter amount you claim" class="form-control input-md" ng-pattern="/^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/" required >
   <span class="input-group-addon none"
-										ng-class="{ 'danger' : userForm.claimAmount.$touched && userForm.claimAmount.$invalid , 'success' : userForm.claimAmount.$touched &&  !userForm.claimAmount.$invalid , 'block': userForm.claimAmount.$touched }">
+										ng-class="{ 'danger' : userForm.claimAmount.$touched && userForm.claimAmount.$invalid , 'success' : userForm.claimAmount.$touched &&  !userForm.claimAmount.$invalid && !policyError , 'block': userForm.claimAmount.$touched }">
 										<span class="glyphicon "
-										ng-class="{ 'glyphicon-remove' : userForm.claimAmount.$touched && userForm.claimAmount.$invalid , 'glyphicon-ok' : userForm.claimAmount.$touched &&  !userForm.claimAmount.$invalid}">
+										ng-class="{ 'glyphicon-remove' : userForm.claimAmount.$touched && userForm.claimAmount.$invalid , 'glyphicon-ok' : userForm.claimAmount.$touched &&  !userForm.claimAmount.$invalid && !policyError}">
 									</span>
 								</div>
 								<div class="help-block" ng-messages="userForm.claimAmount.$error"
