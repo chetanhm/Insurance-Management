@@ -10,9 +10,14 @@ monitor.controller("MonitorCtrl",function($scope,$http)
 						{
 						$scope.customerList=response;
 						$scope.tableShow=true;
+						$scope.hideTable=false;
+						$scope.showSuccess=true;
+						
 						}
 					else
 						{
+						$scope.hideTable=true;
+						$scope.showSuccess=false;
 						$scope.dataError=true;
 						}
 				});	

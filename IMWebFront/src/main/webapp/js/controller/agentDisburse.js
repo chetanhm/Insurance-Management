@@ -12,11 +12,12 @@ agent.controller("AgentDisburseCtrl",function($scope,$stateParams,$http){
 		$scope.claimDetailsList=response;
 		if($scope.claimDetailsList=='')
 			{
-			$scope.showSuccess=false;
 			$scope.hideTable=true;
+			$scope.showSuccess=false;
 			}
 		else
 			{
+			$scope.hideTable=false;
 			$scope.showSuccess=true;
 			}
 		
