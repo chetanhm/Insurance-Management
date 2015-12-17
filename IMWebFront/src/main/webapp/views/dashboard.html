@@ -45,49 +45,50 @@
                     <li>
                         <a  ui-sref="dashboard.home"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
-                    
+                     <li >
+                       <a ui-sref="dashboard.respectivePolicies"><i class="fa fa-fw fa-edit"></i> My Policies</a>
+                    </li>
+                    <li ng-show="user.userType!='managed'">
+                       <a ui-sref="dashboard.claim"><i class="fa fa-fw fa-edit"></i> Make Claim</a>
+                    </li>
+                    <li>
+                       <a ui-sref="dashboard.disburse"><i class="fa fa-fw fa-edit"></i> Assess disbursement of my claims</a>
+                    </li>
                     <li ng-show="user.userName=='admin'">
                     	<a ui-sref="dashboard.addProduct"><i class="fa fa-fw fa-edit"></i> Add Product</a>
                     </li>
                      <li ng-show="user.userName=='admin'">
-                    	<a ui-sref="dashboard.allAgents"><i class="fa fa-fw fa-edit"></i>All Agents</a>
+                    	<a ui-sref="dashboard.allAgents"><i class="fa fa-fw fa-edit"></i> All Agents</a>
                     </li>
                     <li ng-show="user.userName=='admin'">
                     	<a ui-sref="dashboard.allPolicies"><i class="fa fa-fw fa-edit"></i> All Policies</a>
                     </li>
-                    <li ng-show="user.userName=='admin'">
-                    	<a ui-sref="dashboard.charts"><i class="fa fa-fw fa-edit"></i>Chart Analysis</a>
-                    </li>
-                    <li ng-show="user.userName=='admin'">
+                     <li ng-show="user.userName=='admin'">
                     	<a ui-sref="dashboard.allClaims"><i class="fa fa-fw fa-edit"></i> All Claims</a>
                     </li>
-                        <li ng-show="user.userType==null">
-                    	<a ui-sref="dashboard.applyForAgent"><i class="fa fa-fw fa-edit"></i>Apply for Agent</a>
+                    <li ng-show="user.userName=='admin'">
+                    	<a ui-sref="dashboard.charts"><i class="fa fa-fw fa-edit"></i> Chart Analysis</a>
                     </li>
-                    <li>
-                       <a ui-sref="dashboard.premium"><i class="fa fa-fw fa-edit"></i> Calculate Premium</a>
+                   
+                        <li ng-show="user.userName!='admin' && user.userType!='managed' && user.userType!='agent'">
+                    	<a ui-sref="dashboard.applyForAgent"><i class="fa fa-fw fa-edit"></i> Apply for Agent</a>
                     </li>
-                     <li >
-                       <a ui-sref="dashboard.respectivePolicies"><i class="fa fa-fw fa-edit"></i> My Policies</a>
-                    </li>
-                     <li>
-                       <a ui-sref="dashboard.disburse"><i class="fa fa-fw fa-edit"></i> Assess disbursement of claims</a>
-                    </li>
-                    <li ng-show="user.userType=='agent'">
-                    	<a ui-sref="dashboard.addManagedCustomer"><i class="fa fa-fw fa-edit"></i>Add Customer</a>
-                    </li>
-                     <li ng-show="user.userType!='managed'">
-                       <a ui-sref="dashboard.claim"><i class="fa fa-fw fa-edit"></i>My Claim</a>
-                    </li>
+                  
+                    
                      
                     <li ng-show="user.userType=='agent'">
-                       <a ui-sref="dashboard.agentClaim"><i class="fa fa-fw fa-edit"></i>Claim for Customer</a>
+                    	<a ui-sref="dashboard.addManagedCustomer"><i class="fa fa-fw fa-edit"></i> Add Customer</a>
+                    </li>
+                     
+                     
+                    <li ng-show="user.userType=='agent'">
+                       <a ui-sref="dashboard.agentClaim"><i class="fa fa-fw fa-edit"></i> Claim for Customer</a>
                     </li>
                     <li ng-show="user.userType=='agent'">
-                    	<a ui-sref="dashboard.listManagedCustomers"><i class="fa fa-fw fa-edit"></i>Apply policy for customer</a>
+                    	<a ui-sref="dashboard.listManagedCustomers"><i class="fa fa-fw fa-edit"></i> Apply policy for customer</a>
                     </li>
                         <li ng-show="user.userType=='agent'">
-                    	<a ui-sref="dashboard.monitorDisbursements"><i class="fa fa-fw fa-edit"></i>Monitor Disbursements</a>
+                    	<a ui-sref="dashboard.monitorDisbursements"><i class="fa fa-fw fa-edit"></i> Monitor Disbursements of customer</a>
                     </li>
                     <!-- 
            
