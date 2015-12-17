@@ -6,6 +6,23 @@
   
   <div class="col-md-16">
   	
+  	<label class="radio-inline" for="claimStatus-0">
+      <input type="radio" name="claimStatus" id="claimStatus-0" ng-model="claimStatus" value=" " checked="checked">
+      All
+    </label>
+    <label class="radio-inline" for="claimStatus-1">
+      <input type="radio" name="claimStatus" id="claimStatus-1" ng-model="claimStatus" value="approved" >
+      Approved
+    </label> 
+    <label class="radio-inline" for="claimStatus-2">
+      <input type="radio" name="claimStatus" id="claimStatus-2" ng-model="claimStatus" value="rejected" >
+      Rejected
+    </label> 
+    <label class="radio-inline" for="claimStatus-3">
+      <input type="radio" name="claimStatus" id="claimStatus-3" ng-model="claimStatus" value="pending" >
+      Pending
+    </label>
+  
    
    
    
@@ -28,7 +45,7 @@
   		<th>Current Status</th>
   		<th>Approve/Reject</th>
   	</tr> 
-  	<tr ng-repeat="claim in claimList">
+  	<tr ng-repeat="claim in claimList | filter: claimStatus">
   		<td>{{claim.userName}}</td>
   		<td>{{claim.policyNumber}}</td>
   		<td>{{claim.policyName}}</td>
@@ -36,11 +53,11 @@
   		<td>{{claim.dateOfClaim}}</td>
   		<td>{{claim.claimType}}</td>
   		<td>{{claim.approvedClaimAmount}} Year</td>
-  		<td><a href="http://localhost:8080/imservices/file/{{claim.claimDocuments}}">{{claim.claimDocuments}}</td>
+  		<td><a href="http://localhost:8080/imservices/file/{{claim.claimDocuments}}">{{claim.claimDocuments}}</a></td>
   		<td>{{claim.claimStatus}}</td>
   		<td>
-  			<input type="radio" name="claimStatus" id="claimStatus-1" ng-model="claimStatus" value="approve">approved<br>
-  		 <input type="radio" name="claimStatus" id="claimStatus-2" ng-model="claimStatus" value="reject">rejected<br>	
+  			<input type="radio" name="claimStatus" id="claimStatus-4" ng-model="claimStatus" value="approved">approved<br>
+  		 <input type="radio" name="claimStatus" id="claimStatus-5" ng-model="claimStatus" value="rejected">rejected<br>	
  	<button type="button" value="Refresh page" ng-click="setClaimStatus(claim.id,claimStatus)" class="btn btn-sm btn-primary">Set</button>
  	  		</td>
   	</tr>

@@ -9,15 +9,15 @@
       <input type="radio" name="status" id="status-0" ng-model="status" value=" " checked="checked">
       All
     </label>
-    <label class="radio-inline" for="status-0">
+    <label class="radio-inline" for="status-1">
       <input type="radio" name="status" id="status-1" ng-model="status" value="approved" >
       Approved
     </label> 
-    <label class="radio-inline" for="status-1">
+    <label class="radio-inline" for="status-2">
       <input type="radio" name="status" id="status-2" ng-model="status" value="rejected" >
       Rejected
     </label> 
-    <label class="radio-inline" for="status-2">
+    <label class="radio-inline" for="status-3">
       <input type="radio" name="status" id="status-3" ng-model="status" value="pending" >
       Pending
     </label>
@@ -56,8 +56,8 @@
   		<td><a href="http://localhost:8080/imservices/file/{{policy.residenceProofFile}} ">{{policy.userName}}'s Resident Proof</a></td>
   		<td><a href="http://localhost:8080/imservices/file/{{policy.photoFile}} ">{{policy.userName}}'s Photo File</a></td>
   		<td>{{policy.status}}</td>
-  		<td><input type="radio" name="status" id="status-2" ng-model="status" value="approved">approved<br>
-  		 <input type="radio" name="status" id="status-2" ng-model="status" value="rejected">rejected<br>	
+  		<td><input type="radio" name="status" id="status-4" ng-model="status" value="approved">approved<br>
+  		 <input type="radio" name="status" id="status-5" ng-model="status" value="rejected">rejected<br>	
  	<button type="button" value="Refresh page" onclick="location.reload(true);" ng-click="setStatus(status,policy.policyNumber)" class="btn btn-sm btn-primary">Set</button></td>
   	</tr>
   	

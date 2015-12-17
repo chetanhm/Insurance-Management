@@ -128,6 +128,7 @@ agent.controller("AgentClaimCtrl", function($scope, $http){
 	}
 });
 
+
 agent.controller("ApproveAgentCtrl",function($scope, $http,$window)
 		{
 			var result=$http.get(baseUrl+"/agent").success(function(response)
@@ -137,15 +138,11 @@ agent.controller("ApproveAgentCtrl",function($scope, $http,$window)
 			$scope.setAgentStatus= function(userName,userType)
 			{		
 				
-					$http.put(baseUrl+"/user?userName="+userName+"&userType="+userType).success(function(r)
-					{
-						$http.put(baseUrl+"/agent?userName="+userName+"&userType="+userType);
-					});
-									
-								$window.location.reload();
+					$http.put(baseUrl+"/user?userName="+userName+"&userType="+userType);
+					$http.put(baseUrl+"/agent?userName="+userName+"&userType="+userType);									
+					$window.location.reload();
 			};
 		});
-
 
 
 /**

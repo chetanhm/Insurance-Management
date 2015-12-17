@@ -6,7 +6,22 @@
   
   <div class="col-md-16">
   	
-   
+   <label class="radio-inline" for="userType-0">
+      <input type="radio" name="userType" id="userType-0" ng-model="userType" value=" " checked="checked">
+      All
+    </label>
+    <label class="radio-inline" for="userType-1">
+      <input type="radio" name="userType" id="userType-1" ng-model="userType" value="agent" >
+      Approved
+    </label> 
+    <label class="radio-inline" for="userType-2">
+      <input type="radio" name="userType" id="userType-2" ng-model="userType" value="rejected" >
+      Rejected
+    </label> 
+    <label class="radio-inline" for="userType-3">
+      <input type="radio" name="userType" id="userType-3" ng-model="userType" value="pending" >
+      Pending
+    </label>
    
    
    <div class="row">
@@ -26,7 +41,7 @@
   		<th>Current Status</th>
   		<th>Approve/Reject</th>
   	</tr> 
-  	<tr ng-repeat="agent in agentList">
+  	<tr ng-repeat="agent in agentList | filter: userType">
   		<td>{{agent.userName}}</td>
   		<td>{{agent.age}}</td>
   		<td>{{agent.lastQualification}}</td>
@@ -35,8 +50,8 @@
   		<td>{{agent.workExperience}} Year</td>
   		<td>{{agent.userType}}</td>
   		<td>
-  			<input type="radio" name="userType" id="userType-1" ng-model="userType" value="agent">approved<br>
-  		 <input type="radio" name="userType" id="userType-2" ng-model="userType" value="reject">rejected<br>	
+  			<input type="radio" name="userType" id="userType-4" ng-model="userType" value="agent">approved<br>
+  		 <input type="radio" name="userType" id="userType-5" ng-model="userType" value="rejected">rejected<br>	
  	<button type="button" value="Refresh page" ng-click="setAgentStatus(agent.userName,userType)" class="btn btn-sm btn-primary">Set</button>
  	  		</td>
   	</tr>
