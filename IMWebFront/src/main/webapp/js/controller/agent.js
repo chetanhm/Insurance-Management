@@ -44,7 +44,6 @@ agent.controller("AgentClaimCtrl", function($scope, $http){
 		var policyList= null;
 		var result2=$http.get(baseUrl+"/policy/"+$scope.managedCustomer+"/approved").success(function(response){
 			$scope.policyList=response;
-			alert($scope.policyList);
 			if($scope.policyList=='')
 			{
 			$scope.policyError=true;
@@ -116,7 +115,7 @@ agent.controller("AgentClaimCtrl", function($scope, $http){
 		
 		if($scope.claimAmount>basicCoverage)
 			{
-			//alert("You cannot enter more than Rs" +basicCoverage);
+			
 			$scope.claimAmountErrortext="You cannot enter more than Rs" +basicCoverage + " . Which is your basic coverage under term of your policy.";
 			$scope.claimAmountError=true;
 			$scope.claimAmount="";
