@@ -84,5 +84,17 @@
 			
 		}
 	});
+	claims.controller("AllClaimsCtrl",function($scope,$http,$window)
+			{
+				var result = $http.get(baseUrl+"/claim/pending").success(function(response)
+				{			
+					$scope.claimList = response;
+				});
+				$scope.setClaimStatus=function(id,claimStatus)
+				{
+					$http.put(baseUrl+"/claim?id="+id+"&claimStatus="+claimStatus);
+					$window.location.reload();
+				}
+			});
 	
 })();

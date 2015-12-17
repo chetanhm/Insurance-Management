@@ -151,6 +151,12 @@ var baseUrl = "http://localhost:8080/imservices";
 			templateUrl : 'views/dashboard.agent.applyForCustomerForm.html',
 			controller : 'ApplyForCustomerFormCtrl'
 		});
+		
+		$stateProvider.state('dashboard.allClaims', {
+			url : '/allClaims',
+			templateUrl : 'views/dashboard.allClaims.html',
+			controller : 'AllClaimsCtrl'
+		});
 	});
 
 })();

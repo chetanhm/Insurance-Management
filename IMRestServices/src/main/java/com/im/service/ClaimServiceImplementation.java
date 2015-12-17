@@ -16,7 +16,7 @@ import com.im.repository.ClaimRepository;
 /**
  * @author khatwani_s
  * @author gurav_s
- *
+ * @author soni_k
  */
 @Service
 public class ClaimServiceImplementation implements ClaimServices{
@@ -41,5 +41,13 @@ public class ClaimServiceImplementation implements ClaimServices{
 	public List<ClaimDetails> getAllClaims() {
 		// TODO Auto-generated method stub
 		return claimRepository.findAll();
+	}
+
+	public ClaimDetails setClaimStatus(String id, String claimStatus) {
+		// TODO Auto-generated method stub
+		ClaimDetails updateClaimDetails = claimRepository.findOne(id);
+		updateClaimDetails.setClaimStatus(claimStatus);
+		claimRepository.save(updateClaimDetails);
+		return updateClaimDetails;
 	}
 }

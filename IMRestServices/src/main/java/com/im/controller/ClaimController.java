@@ -45,5 +45,9 @@ public class ClaimController {
 		return claimService.getAllClaims();		
 	}
 	
-
+	@RequestMapping(value="/claim",method = RequestMethod.PUT)
+	public ClaimDetails updateStatus(@RequestParam(name="id")String id, @RequestParam(name="claimStatus")String claimStatus)
+	{
+		return claimService.setClaimStatus(id,claimStatus);
+	}
 }

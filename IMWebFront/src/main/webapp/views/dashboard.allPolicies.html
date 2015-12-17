@@ -51,10 +51,10 @@
   		<td>{{policy.policyName}}</td>
   		<td>{{policy.monthlyPremium}}</td>
   		<td>{{policy.annualIncome}}</td>
-  		<td><a href="http://localhost:8080/imservices/files?fileName={{policy.ageProofFile}} ">{{policy.userName}}'s Age Proof</a></td>
-  		<td><a href="http://localhost:8080/imservices/files?fileName={{policy.incomeProofFile}} ">{{policy.userName}}'s Income Proof</a></td>
-  		<td><a href="http://localhost:8080/imservices/files?fileName={{policy.residenceProofFile}} ">{{policy.userName}}'s Resident Proof</a></td>
-  		<td><a href="http://localhost:8080/imservices/files?fileName={{policy.photoFile}} ">{{policy.userName}}'s Photo File</a></td>
+  		<td><a href="http://localhost:8080/imservices/file/{{policy.ageProofFile}} ">{{policy.userName}}'s Age Proof</a></td>
+  		<td><a href="http://localhost:8080/imservices/file/{{policy.incomeProofFile}} ">{{policy.userName}}'s Income Proof</a></td>
+  		<td><a href="http://localhost:8080/imservices/file/{{policy.residenceProofFile}} ">{{policy.userName}}'s Resident Proof</a></td>
+  		<td><a href="http://localhost:8080/imservices/file/{{policy.photoFile}} ">{{policy.userName}}'s Photo File</a></td>
   		<td>{{policy.status}}</td>
   		<td><input type="radio" name="status" id="status-2" ng-model="status" value="approved">approved<br>
   		 <input type="radio" name="status" id="status-2" ng-model="status" value="rejected">rejected<br>	
