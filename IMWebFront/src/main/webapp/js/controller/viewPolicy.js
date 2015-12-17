@@ -9,6 +9,16 @@ allPolicy.controller("allPolicyCtrl",function($scope,$http)
 	var result=$http.get(baseUrl+"/policy").success(function(response)
 	{		
 		$scope.policyList=response;
+		if($scope.policyList=='')
+		{
+		$scope.hideTable=true;
+		$scope.showSuccess=false;
+		}
+	else
+		{
+		$scope.hideTable=false;
+		$scope.showSuccess=true;
+		}
 	});
 	$scope.setStatus= function(status,policyNumber)
 	{
