@@ -3,6 +3,13 @@ package com.im.entity;
 public class PieChartElement {
 private String _id;
 private String total;
+
+
+public PieChartElement(String _id, String total) {
+	this._id = _id;
+	this.total = total;
+}
+
 public String getTotal() {
 	return total;
 }
