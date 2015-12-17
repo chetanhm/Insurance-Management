@@ -4,30 +4,22 @@
 
 <div class="form-group">
   
-  <div class="col-md-16">
-  	<label class="radio-inline" for="status-0">
-      <input type="radio" name="status" id="status-0" ng-model="status" value=" " checked="checked">
-      All
-    </label>
-    <label class="radio-inline" for="status-1">
-      <input type="radio" name="status" id="status-1" ng-model="status" value="approved" >
-      Approved
-    </label> 
-    <label class="radio-inline" for="status-2">
-      <input type="radio" name="status" id="status-2" ng-model="status" value="rejected" >
-      Rejected
-    </label> 
-    <label class="radio-inline" for="status-3">
-      <input type="radio" name="status" id="status-3" ng-model="status" value="pending" >
-      Pending
-    </label>
+    
    
+  	<div class="col-md-16">
+
+   <div class="btn-group">
    
-   
-   
-   <div class="row">
-  	
-	<div  class=" panel panel-primary">
+    <label class="btn btn-primary" ng-model="status" uib-btn-radio="''">All</label>
+        <label class="btn btn-primary" ng-model="status" uib-btn-radio="'approved'">Approved</label>
+        <label class="btn btn-primary" ng-model="status" uib-btn-radio="'rejected'">Rejected</label>
+  <label class="btn btn-primary" ng-model="status" uib-btn-radio="'pending'">Pending</label>
+    </div>
+    
+    
+   <br><br>
+   <div class="row">  
+	<div  class=" panel panel-primary" ng-hide="hideTable">
  
   	<table class="table table-condensed">
   	
@@ -67,15 +59,12 @@
   	
   </table>
   
-  
-  
-  
   </div>
   </div>
   </div>
   
   </div>
-  	</div>
+
   
 
 </form>

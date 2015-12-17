@@ -5,26 +5,16 @@
 <div class="form-group">
   
   <div class="col-md-16">
-  <div  ng-hide="hideTable">	
-  	<label class="radio-inline" for="claimStatus-0">
-      <input type="radio" name="claimStatus" id="claimStatus-0" ng-model="claimStatus" value=" " checked="checked">
-      All
-    </label>
-    <label class="radio-inline" for="claimStatus-1">
-      <input type="radio" name="claimStatus" id="claimStatus-1" ng-model="claimStatus" value="approved" >
-      Approved
-    </label> 
-    <label class="radio-inline" for="claimStatus-2">
-      <input type="radio" name="claimStatus" id="claimStatus-2" ng-model="claimStatus" value="rejected" >
-      Rejected
-    </label> 
-    <label class="radio-inline" for="claimStatus-3">
-      <input type="radio" name="claimStatus" id="claimStatus-3" ng-model="claimStatus" value="pending" >
-      Pending
-    </label>
-
-   </div>
+  
+  	<div class="btn-group">
    
+    <label class="btn btn-primary" ng-model="claimStatus" uib-btn-radio="''">All</label>
+        <label class="btn btn-primary" ng-model="claimStatus" uib-btn-radio="'approved'">Approved</label>
+        <label class="btn btn-primary" ng-model="claimStatus" uib-btn-radio="'rejected'">Rejected</label>
+  <label class="btn btn-primary" ng-model="claimStatus" uib-btn-radio="'pending'">Pending</label>
+    </div>
+   
+   <br><br>
    
    <div class="row">
   	

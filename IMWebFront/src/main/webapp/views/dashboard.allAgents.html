@@ -5,31 +5,25 @@
 <div class="form-group">
   
   <div class="col-md-16">
-  	<div ng-hide="hideTable" >
-   <label class="radio-inline" for="userType-0">
-      <input type="radio" name="userType" id="userType-0" ng-model="userType" value=" " checked="checked">
-      All
-    </label>
-    <label class="radio-inline" for="userType-1">
-      <input type="radio" name="userType" id="userType-1" ng-model="userType" value="agent" >
-      Approved
-    </label> 
-    <label class="radio-inline" for="userType-2">
-      <input type="radio" name="userType" id="userType-2" ng-model="userType" value="rejected" >
-      Rejected
-    </label> 
-    <label class="radio-inline" for="userType-3">
-      <input type="radio" name="userType" id="userType-3" ng-model="userType" value="pending" >
-      Pending
-    </label>
-   	</div>
+  	
+  <div class="btn-group">
+   
+    <label class="btn btn-primary" ng-model="claimStatus" uib-btn-radio="''">All</label>
+        <label class="btn btn-primary" ng-model="claimStatus" uib-btn-radio="'agent'">Approved</label>
+        <label class="btn btn-primary" ng-model="claimStatus" uib-btn-radio="'rejected'">Rejected</label>
+  <label class="btn btn-primary" ng-model="claimStatus" uib-btn-radio="'pending'">Pending</label>
+    </div>
+   
+    
+   <br><br>
+    	</div>
    
    <div class="row">
   	
 	<div  class=" panel panel-primary" ng-hide="hideTable">
  
   	<table class="table table-condensed" class="panel-heading">
-  <tr>	<div class="panel-heading" ng-hide="showSuccess">
+  <tr>	<div class="panel-heading">
 				<h3 class="panel-title">Agent List</h3>
 			</div>
  	 </tr>
