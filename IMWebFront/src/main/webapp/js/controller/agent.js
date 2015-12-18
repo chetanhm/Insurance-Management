@@ -101,7 +101,7 @@ agent.controller("AgentClaimCtrl", function($scope, $http){
 						{
 					var date=new Date();
 					var dataObj = {
-							userName : loadUser.userName,
+							userName : $scope.managedCustomer,
 							claimDocuments: response.fileName,
 							claimType : $scope.claimType,
 							policyName : $scope.policyName,
