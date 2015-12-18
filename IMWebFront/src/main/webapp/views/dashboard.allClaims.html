@@ -34,7 +34,7 @@
   		<th>Claim Amount</th>
   		<th>Date of claim</th>
   		<th>Claim Type</th>
-  		<th>Approved Claim Amount</th>
+  		<th>Applicable Claim Amount</th>
   		<th>Claim Documents</th>
   		<th>Current Status</th>
   		<th>Approve/Reject</th>
@@ -44,9 +44,9 @@
   		<td>{{claim.policyNumber}}</td>
   		<td>{{claim.policyName}}</td>
   		<td>{{claim.claimAmount}}</td>
-  		<td>{{claim.dateOfClaim}}</td>
+  		<td>{{claim.dateOfClaim | date:'yyyy-MM-dd' }}</td>
   		<td>{{claim.claimType}}</td>
-  		<td>{{claim.approvedClaimAmount}} Year</td>
+  		<td>{{claim.aprrovedClaimAmount}}</td>
   		<td><a href="http://localhost:8080/imservices/file/{{claim.claimDocuments}}">Download Now</a></td>
   		<td>{{claim.claimStatus}}</td>
   		<td>

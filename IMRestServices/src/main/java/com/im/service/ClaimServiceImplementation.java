@@ -17,10 +17,12 @@ import org.springframework.data.mongodb.core.aggregation.AggregationResults;
 import org.springframework.stereotype.Service;
 
 import com.im.collection.ClaimDetails;
+import com.im.collection.ProductDetails;
 import com.im.entity.Claim;
 import com.im.entity.AggregationList;
 import com.im.entity.AggregationElement;
 import com.im.repository.ClaimRepository;
+import com.im.repository.ProductRepository;
 
 /**
  * @author khatwani_s
@@ -35,11 +37,15 @@ public class ClaimServiceImplementation implements ClaimServices{
 	private ClaimRepository claimRepository;
 	@Autowired
 	private MongoOperations mongoOperations;
-
+	@Autowired
+	private ProductRepository productRepository;
+	
 	public ClaimDetails addClaims(Claim claim) {
 
+		ProductDetails productDetails  = productRepository.findByName(claim.getPolicyName());
+		long applicableClaimAmount = (long) (claim.getClaimAmount()*(productDetails.getSettlementRatio()/100));
 		ClaimDetails claimDetails=new ClaimDetails(claim.getClaimAmount(), claim.getClaimDocuments(), claim.getClaimType(),
-				claim.getPolicyName(), claim.getClaimStatus(), claim.getAprrovedClaimAmount(),
+				claim.getPolicyName(), claim.getClaimStatus(), applicableClaimAmount,
 				claim.getUserName(), claim.getDateOfClaim(), claim.getPolicyNumber());
 			return claimRepository.insert(claimDetails);
 		}
