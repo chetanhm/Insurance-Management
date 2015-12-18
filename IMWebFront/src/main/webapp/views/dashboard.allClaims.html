@@ -18,7 +18,7 @@
    
    <div class="row">
   	
-	<div  class=" panel panel-primary" ng-hide="hideTable">
+	<div  class=" panel panel-primary" ng-show="showSuccess">
  
   	<table class="table table-condensed" class="panel-heading">
   	
@@ -50,8 +50,8 @@
   		<td><a href="http://localhost:8080/imservices/file/{{claim.claimDocuments}}">Download Now</a></td>
   		<td>{{claim.claimStatus}}</td>
   		<td>
-  			<input type="radio" name="claimStatus" id="claimStatus-4" ng-model="claimStatus" value="approved">approved<br>
-  		 <input type="radio" name="claimStatus" id="claimStatus-5" ng-model="claimStatus" value="rejected">rejected<br>	
+  			<input type="radio" name="claimStatus" id="claimStatus-4" ng-model="claimStatus" value="approved">Approved<br>
+  		 <input type="radio" name="claimStatus" id="claimStatus-5" ng-model="claimStatus" value="rejected">Rejected<br>	
  	<button type="button" value="Refresh page" ng-click="setClaimStatus(claim.id,claimStatus)" class="btn btn-sm btn-primary">Set</button>
  	  		</td>
   	</tr>
@@ -61,7 +61,7 @@
   
   </div>
   <br><br>
-   <div class="alert alert-danger" ng-hide="showSuccess">
+   <div class="alert alert-danger" ng-show="hideTable">
 				
 			You have no claims.		   
 </div>
