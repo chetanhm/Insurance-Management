@@ -26,12 +26,25 @@
 						<li>
 							<a ui-sref="website.register" ng-hide="hideRegister"> Register</a>
 						</li>
-								<li>
-							<a ui-sref="dashboard.home" ng-hide="hideDashboard">{{userName}}'s Account</a>
+					<!-- 	<li>
+							<a  ng-hide="hideDashboard">{{userName}}'s Account</a>
 						</li>
-								<li>
+						 -->
+						
+						<li class="dropdown"  ng-hide="hideDashboard">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{userName}}'s Account <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a ui-sref="dashboard.home">Home</a></li>
+            <li><a ui-sref="dashboard.respectivePolicies">My Policies</a></li>
+<!--             <li><a ui-sref="dashboard.claim">Make Claim</a></li> -->
+      <li><a ui-sref="dashboard.disburse">Assess disbursement</a></li>
+	<li>
 							<a ui-sref="logout" ng-hide="hideLogout" ng-confirm-click="Are you sure you want to Logout?">Logout</a>
 						</li>
+          </ul>
+        </li>
+						
+							
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->
