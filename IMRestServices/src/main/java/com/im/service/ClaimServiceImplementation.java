@@ -56,9 +56,9 @@ public class ClaimServiceImplementation implements ClaimServices{
 
 	}
 
-	public List<ClaimDetails> getAllClaims() {
+	public List<ClaimDetails> getPendingClaims() {
 		// TODO Auto-generated method stub
-		return claimRepository.findAll();
+		return claimRepository.getClaimsByStatus("pending");
 	}
 
 	public ClaimDetails setClaimStatus(String id, String claimStatus) {

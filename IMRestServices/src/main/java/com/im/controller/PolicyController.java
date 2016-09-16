@@ -51,13 +51,19 @@ public class PolicyController {
 		return policyService.getAllPolicies();		
 	}
 	
+	@RequestMapping(value="/policy/pending",method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public List<PolicyDetails> getPendingPolicies()
+	{
+		return policyService.getPendingPolicies();
+	}
+	
 	@RequestMapping(value="/policy", method=RequestMethod.PUT)
 	public PolicyDetails updateStatus(@RequestParam(name="policyNumber") String policyNumber ,@RequestParam(name="status") String status)
 	{
 		return policyService.setStatus(policyNumber,status);
 	}
 	
-	@RequestMapping(value="/policy/{userName}/{policyNumber}/", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/policy/{userName}/{policyNumber}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public PolicyDetails getPolicy(@PathVariable(value="userName") String userName,@PathVariable(value="policyNumber") String policyNumber)
 	{
 		return policyService.getPolicyByPolicyNumber(policyNumber);			

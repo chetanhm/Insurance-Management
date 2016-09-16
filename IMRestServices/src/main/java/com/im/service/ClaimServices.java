@@ -19,7 +19,7 @@ public interface ClaimServices {
 	
 	public ClaimDetails addClaims(Claim claim);
 	public List<ClaimDetails> getClaimDisbursementByUserName(String userName);
-	public List<ClaimDetails> getAllClaims();
+	public List<ClaimDetails> getPendingClaims();
 	public ClaimDetails setClaimStatus(String id, String claimStatus);
 	public AggregationList getAggregatedClaimType();
 	}

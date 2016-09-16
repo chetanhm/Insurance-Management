@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.im.collection.AgentDetails;
 import com.im.collection.UserDetails;
 import com.im.entity.Agent;
@@ -32,7 +33,7 @@ public class AgentController {
 	private UserDetailsService registerService;
 
 	@RequestMapping(value = "/agent", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody AgentDetails apply(@RequestBody Agent agent) {
+	public String apply(@RequestBody Agent agent) throws JsonProcessingException {
 		
 		return agentService.addUserAsAgent(agent);				 
 		
@@ -52,6 +53,12 @@ public class AgentController {
 		return agentService.getAllAgents();		
 	}
 	
+	@RequestMapping(value="/agent/pending", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody List<AgentDetails> getPendingAgents()
+	{
+		return agentService.getAgentsByStatus("pending");		
+	}
+
 	@RequestMapping(value="/agent/{agentUserName}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody AgentDetails getAgentByName(@PathVariable(value="agentUserName") String agentUserName){
 		return agentService.getAgent(agentUserName);

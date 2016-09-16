@@ -15,4 +15,7 @@ public interface PolicyRepository extends MongoRepository<PolicyDetails, String>
 	
 	@Query(value="{policyNumber: ?0}")
 	public PolicyDetails findByPolicyNumber(long policyNumber);
+
+	@Query(value="{status: ?0}")
+	public List<PolicyDetails> getPoliciesByStatus(String status);
 }

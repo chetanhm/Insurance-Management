@@ -17,4 +17,6 @@ import com.im.collection.ClaimDetails;
 public interface ClaimRepository extends MongoRepository<ClaimDetails, String> {
 	@Query(value="{userName: ?0}")
 	public List<ClaimDetails> findByUserName(String userName);
+	@Query(value="{claimStatus: ?0}")
+	public List<ClaimDetails> getClaimsByStatus(String claimStatus);
 }

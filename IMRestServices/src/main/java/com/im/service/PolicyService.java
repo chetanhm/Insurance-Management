@@ -11,7 +11,8 @@ public interface PolicyService  {
 	public long calculatePremium(String userName);
 	public List<PolicyDetails> getPoliciesByUserName(String userName);
 	public PolicyDetails addPolicy(AddPolicy policy);
-	public List<PolicyDetails> getAllPolicies();	
+	public List<PolicyDetails> getAllPolicies();
+	public List<PolicyDetails> getPendingPolicies();
 	public PolicyDetails setStatus(String policyNumber, String status);
 	public PolicyDetails getPolicyByPolicyNumber(String policyNumber);
 	public List<PolicyDetails> getApprovedPolicy(String userName);

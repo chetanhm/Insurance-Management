@@ -58,6 +58,10 @@ public class PolicyServiceImplementation implements PolicyService {
 		return policyRepository.findAll();
 	}
 
+	public List<PolicyDetails> getPendingPolicies() {
+		return policyRepository.getPoliciesByStatus("pending");
+	}
+	
 	public PolicyDetails setStatus(String policyNumber, String status) {
 		// TODO Auto-generated method stub
 		PolicyDetails updatePolicyDetails = policyRepository.findByPolicyNumber(Long.parseLong(policyNumber));
